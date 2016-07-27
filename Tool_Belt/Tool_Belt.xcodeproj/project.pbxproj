@@ -15,6 +15,7 @@
 		E29E415A1D48529A005DA092 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E41591D48529A005DA092 /* FBSDKLoginKit.framework */; };
 		E29E415C1D4852A4005DA092 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */; };
 		E29E41601D485579005DA092 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E415F1D485579005DA092 /* Bolts.framework */; };
+		E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A45BE31D487B2200B06023 /* TabBarController.swift */; };
 		E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA4FE11D442C990092BD51 /* AppDelegate.swift */; };
 		E2EA4FE71D442C990092BD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE51D442C990092BD51 /* Main.storyboard */; };
 		E2EA4FE91D442C990092BD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE81D442C990092BD51 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		E29E41591D48529A005DA092 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		E29E415F1D485579005DA092 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		E2A45BE31D487B2200B06023 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E2EA4FDE1D442C990092BD51 /* Tool_Belt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool_Belt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EA4FE11D442C990092BD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2EA4FE61D442C990092BD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				E2EA50111D4447860092BD51 /* Tool.swift */,
 				E234DDC91D47F228008DAB22 /* Login */,
 				E2EA500F1D4444C70092BD51 /* Address.swift */,
+				E2A45BE31D487B2200B06023 /* TabBarController.swift */,
 				E2EA4FE51D442C990092BD51 /* Main.storyboard */,
 				E2EA4FE81D442C990092BD51 /* Assets.xcassets */,
 				E2EA4FEA1D442C990092BD51 /* LaunchScreen.storyboard */,
@@ -374,6 +377,7 @@
 				E2EA50101D4444C70092BD51 /* Address.swift in Sources */,
 				E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */,
 				E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */,
+				E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
 				E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */,
 			);

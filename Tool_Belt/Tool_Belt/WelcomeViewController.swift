@@ -22,15 +22,15 @@ class WelcomeViewController: UIViewController {
         
         currentUser = backendless.userService.currentUser
         
-//        if currentUser != nil {
-//            dispatch_async(dispatch_get_main_queue()) {
-//                
-//                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController
-//                vc.selectedIndex = 0
-//                
-//                self.presentViewController(vc, animated: true, completion: nil)
-//            }
-//        }
+        if currentUser != nil {
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! TabBarController
+                vc.selectedIndex = 0
+                
+                self.presentViewController(vc, animated: true, completion: nil)
+            }
+        }
     }
     
     override func viewDidLoad() {
