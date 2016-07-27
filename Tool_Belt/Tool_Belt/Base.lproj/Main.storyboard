@@ -44,18 +44,31 @@
                                     <segue destination="iKa-Cj-S1q" kind="show" id="EO7-Sq-MlW"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qg-da-091" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="20" y="384" width="560" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="C6V-1u-Vn8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6qg-da-091" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="I8O-QC-QOi"/>
                             <constraint firstItem="f9d-Sb-oxH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ZSk-Eg-kwL"/>
+                            <constraint firstItem="6qg-da-091" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ddz-Yh-StM"/>
                             <constraint firstItem="f9d-Sb-oxH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fjo-yI-PK6"/>
                             <constraint firstItem="k6G-px-rFL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hXS-5n-Fdr"/>
+                            <constraint firstItem="f9d-Sb-oxH" firstAttribute="top" secondItem="6qg-da-091" secondAttribute="bottom" constant="25" id="kYr-hj-0Pr"/>
                             <constraint firstItem="k6G-px-rFL" firstAttribute="top" secondItem="f9d-Sb-oxH" secondAttribute="bottom" constant="21" id="lf0-ue-P4h"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k6G-px-rFL" secondAttribute="bottom" constant="20" id="t99-4M-yz2"/>
                             <constraint firstItem="k6G-px-rFL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="v3o-MP-rtM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0GO-jh-vLl"/>
+                    <connections>
+                        <outlet property="fbLoginButton" destination="6qg-da-091" id="exD-aC-54B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,6 +116,9 @@
                             <constraint firstItem="V1W-lf-0MJ" firstAttribute="top" secondItem="9Hs-Nl-2ay" secondAttribute="bottom" constant="22" id="mqa-RI-gFJ"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="vHN-7t-gQv"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="LOGIN" id="qhC-Bb-hsL">
                         <barButtonItem key="rightBarButtonItem" title="Log in" id="X1d-Jq-kFR">
                             <connections>
@@ -110,13 +126,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="emailTextField" destination="9Hs-Nl-2ay" id="8ib-YP-WCo"/>
                         <outlet property="passwordTextField" destination="V1W-lf-0MJ" id="nXi-H9-ZbF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9b-ut-D62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="505"/>
+            <point key="canvasLocation" x="1019" y="489"/>
         </scene>
         <!--SIGN UP-->
         <scene sceneID="F7s-0V-gZI">

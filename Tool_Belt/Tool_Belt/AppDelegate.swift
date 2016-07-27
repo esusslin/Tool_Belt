@@ -7,6 +7,10 @@
 //
 
 import UIKit
+//import Firebase
+//import FirebaseDatabase
+//import CoreLocation
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
+        
+//        FIRApp.configure()
+//        FIRDatabase.database().persistenceEnabled = true
+        
+        //facebook intialized:
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
         return true
