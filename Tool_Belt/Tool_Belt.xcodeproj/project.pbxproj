@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E1C223F3643E6AFDA061226B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DED52603D06A13643D710AAF /* libPods.a */; };
+		E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */; };
+		E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */; };
+		E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */; };
+		E234DDCF1D484787008DAB22 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234DDCE1D484787008DAB22 /* FBSDKLoginKit.framework */; };
+		E234DDD11D484792008DAB22 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234DDD01D484792008DAB22 /* FBSDKCoreKit.framework */; };
+		E234DDD31D48479D008DAB22 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234DDD21D48479D008DAB22 /* FBSDKShareKit.framework */; };
 		E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA4FE11D442C990092BD51 /* AppDelegate.swift */; };
-		E2EA4FE41D442C990092BD51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA4FE31D442C990092BD51 /* ViewController.swift */; };
 		E2EA4FE71D442C990092BD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE51D442C990092BD51 /* Main.storyboard */; };
 		E2EA4FE91D442C990092BD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE81D442C990092BD51 /* Assets.xcassets */; };
 		E2EA4FEC1D442C990092BD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FEA1D442C990092BD51 /* LaunchScreen.storyboard */; };
@@ -40,9 +45,14 @@
 		5A2F2CA37A7D6B3E4BA2CDD5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		962B914393B1D3A92F819E54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DED52603D06A13643D710AAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E234DDCE1D484787008DAB22 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../FacebookSDKs-iOS-4.14.0 (5)/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		E234DDD01D484792008DAB22 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../FacebookSDKs-iOS-4.14.0 (5)/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		E234DDD21D48479D008DAB22 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../FacebookSDKs-iOS-4.14.0 (5)/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		E2EA4FDE1D442C990092BD51 /* Tool_Belt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool_Belt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EA4FE11D442C990092BD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2EA4FE31D442C990092BD51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2EA4FE61D442C990092BD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2EA4FE81D442C990092BD51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2EA4FEB1D442C990092BD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E234DDD31D48479D008DAB22 /* FBSDKShareKit.framework in Frameworks */,
+				E234DDCF1D484787008DAB22 /* FBSDKLoginKit.framework in Frameworks */,
+				E234DDD11D484792008DAB22 /* FBSDKCoreKit.framework in Frameworks */,
 				E1C223F3643E6AFDA061226B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +113,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E234DDC91D47F228008DAB22 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */,
+				E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */,
+				E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		E2EA4FD51D442C990092BD51 = {
 			isa = PBXGroup;
 			children = (
@@ -125,9 +148,12 @@
 		E2EA4FE01D442C990092BD51 /* Tool_Belt */ = {
 			isa = PBXGroup;
 			children = (
+				E234DDD21D48479D008DAB22 /* FBSDKShareKit.framework */,
+				E234DDD01D484792008DAB22 /* FBSDKCoreKit.framework */,
+				E234DDCE1D484787008DAB22 /* FBSDKLoginKit.framework */,
 				E2EA4FE11D442C990092BD51 /* AppDelegate.swift */,
-				E2EA4FE31D442C990092BD51 /* ViewController.swift */,
 				E2EA50111D4447860092BD51 /* Tool.swift */,
+				E234DDC91D47F228008DAB22 /* Login */,
 				E2EA500F1D4444C70092BD51 /* Address.swift */,
 				E2EA4FE51D442C990092BD51 /* Main.storyboard */,
 				E2EA4FE81D442C990092BD51 /* Assets.xcassets */,
@@ -340,10 +366,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */,
 				E2EA50101D4444C70092BD51 /* Address.swift in Sources */,
-				E2EA4FE41D442C990092BD51 /* ViewController.swift in Sources */,
+				E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */,
 				E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
+				E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
