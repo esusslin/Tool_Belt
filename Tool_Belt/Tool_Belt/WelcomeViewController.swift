@@ -23,6 +23,7 @@ class WelcomeViewController: UIViewController {
         currentUser = backendless.userService.currentUser
         
         if currentUser != nil {
+//            print(currentUser?.email)
             dispatch_async(dispatch_get_main_queue()) {
                 
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! TabBarController
