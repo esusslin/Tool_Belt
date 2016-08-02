@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         } else {
             // show an error to user
             
-//            ProgressHUD.showError("All fields are required to login")
+            ProgressHUD.showError("All fields are required to login")
         }
     }
     
@@ -61,12 +61,12 @@ class LoginViewController: UIViewController {
             
             print("user logged in")
             
-            //here segue to recentsViewController
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController
-//            vc.selectedIndex = 0
+//            here segue to UITabBarController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+            vc.selectedIndex = 1
             
             
-//            self.presentViewController(vc, animated: true, completion: nil)
+            self.presentViewController(vc, animated: true, completion: nil)
             
         }) { (fault : Fault!) -> Void in
             print("Failed to login user: \(fault)")

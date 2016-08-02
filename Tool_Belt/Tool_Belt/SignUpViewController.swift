@@ -49,7 +49,7 @@ class SignUpViewController: UIViewController {
         
         if emailTextField.text != "" && firstNameTextField.text != "" && lastNameTextField.text != "" {
             
-//            ProgressHUD.show("Registering...")
+          ProgressHUD.show("Registering...")
             
             email = emailTextField.text
             firstName = firstNameTextField.text
@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController {
             register(self.email!, firstName: self.firstName!, lastName: self.lastName!, password: self.password!, avatarImage: self.avatarImage)
         } else {
             // warning to user - email, password and username required
-//            ProgressHUD.showError("All fields are required to register")
+            ProgressHUD.showError("All fields are required to register")
         }
     }
     
@@ -79,20 +79,30 @@ class SignUpViewController: UIViewController {
         backendless.userService.registering(newUser, response: { (registeredUser : BackendlessUser!) ->
             Void in
             
+            ProgressHUD.dismiss()
+            
+            //login new user
+            self.loginUser(email, password: password)
+            
+            self.firstNameTextField.text = ""
+            self.lastNameTextField.text = ""
+            self.passwordTextField.text = ""
+            self.emailTextField.text = ""
+            
         }) { (fault : Fault!) -> Void in
             print("Server reported an error, new user registration failed: \(fault)")
         }
         
     }
     
-    func loginUser(email: String, username: String, password: String) {
+    func loginUser(email: String, password: String) {
         
         backendless.userService.login(email, password: password, response: { (user : BackendlessUser!) -> Void in
             
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController
-//            vc.selectedIndex = 0
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+            vc.selectedIndex = 1
             
-//            self.presentViewController(vc, animated: true, completion: nil)
+            self.presentViewController(vc, animated: true, completion: nil)
             
         }) { (fault : Fault!) in
             print("Server reported an error: \(fault)")

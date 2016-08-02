@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! TabBarController
-                vc.selectedIndex = 0
+                vc.selectedIndex = 1
                 
                 self.presentViewController(vc, animated: true, completion: nil)
             }
