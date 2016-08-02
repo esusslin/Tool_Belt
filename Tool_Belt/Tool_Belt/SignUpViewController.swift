@@ -91,6 +91,7 @@ class SignUpViewController: UIViewController {
             
         }) { (fault : Fault!) -> Void in
             print("Server reported an error, new user registration failed: \(fault)")
+            ProgressHUD.showError("Server reported an error, new user registration failed")
         }
         
     }
@@ -106,6 +107,7 @@ class SignUpViewController: UIViewController {
             
         }) { (fault : Fault!) in
             print("Server reported an error: \(fault)")
+            
         }
     }
 
