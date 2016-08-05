@@ -83,7 +83,7 @@ class ChooseUserViewController: UIViewController, UITableViewDelegate, UITableVi
             
             for user in users.data {
                 let u = user as! BackendlessUser
-                print(u.firstName)
+//                print(u.firstName)
             }
             
         }) { (fault : Fault!) in
