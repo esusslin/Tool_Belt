@@ -74,9 +74,9 @@ class RecentTableViewCell: UITableViewCell {
         
         
         
-//        let date = dateFormatter().dateFromString((recent["date"] as? String)!)
-//        let seconds = NSDate().timeIntervalSinceDate(date!)
-//        dateLabel.text = TimeElapsed(seconds)
+        let date = dateFormatter().dateFromString((recent["date"] as? String)!)
+        let seconds = NSDate().timeIntervalSinceDate(date!)
+        dateLabel.text = TimeElapsed(seconds)
         
     }
     
