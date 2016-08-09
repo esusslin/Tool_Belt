@@ -10,21 +10,23 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    
-    @IBOutlet weak var firstNameTextField: UITextField!
-    
-    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+//    @IBOutlet weak var nameTextField: UITextField!
+//
+//    @IBOutlet weak var emailTextField: UITextField!
+//    
+//    @IBOutlet weak var passwordTextField: UITextField!
+//    
     var backendless = Backendless.sharedInstance()
     
     var newUser: BackendlessUser?
     var email: String?
-    var firstName: String?
-    var lastName: String?
+    var name: String?
     var password: String?
     var avatarImage: UIImage?
     
@@ -44,36 +46,38 @@ class SignUpViewController: UIViewController {
 
     //MARK: sign up button
     
-    
+
     @IBAction func signUpButtonPressed(sender: UIButton) {
         
-        if emailTextField.text != "" && firstNameTextField.text != "" && lastNameTextField.text != "" {
-            
-          ProgressHUD.show("Registering...")
-            
-            email = emailTextField.text
-            firstName = firstNameTextField.text
-            lastName = lastNameTextField.text
-            password = passwordTextField.text
-            
-            register(self.email!, firstName: self.firstName!, lastName: self.lastName!, password: self.password!, avatarImage: self.avatarImage)
-        } else {
-            // warning to user - email, password and username required
-            ProgressHUD.showError("All fields are required to register")
-        }
+                if emailTextField.text != "" && nameTextField.text != "" {
+        
+                  ProgressHUD.show("Registering...")
+        
+                    email = emailTextField.text
+                    name = nameTextField.text
+                    password = passwordTextField.text
+        
+                    register(self.email!, name: self.name!, password: self.password!, avatarImage: self.avatarImage)
+                } else {
+                    // warning to user - email, password and username required
+                    ProgressHUD.showError("All fields are required to register")
+                }
+        
     }
+
+
+//    }
     
     //MARK: Backendl!ess user registration
     
-    func register(email: String, firstName: String,  lastName: String, password: String, avatarImage: UIImage?) {
+    func register(email: String, name: String, password: String, avatarImage: UIImage?) {
         
         if avatarImage == nil {
             newUser!.setProperty("Avatar", object: "")
         }
         
         newUser!.email = email
-        newUser!.setProperty("firstName", object: firstName)
-        newUser!.setProperty("lastName", object: lastName)
+        newUser!.name = name
         newUser!.password = password
         
         backendless.userService.registering(newUser, response: { (registeredUser : BackendlessUser!) ->
@@ -84,8 +88,7 @@ class SignUpViewController: UIViewController {
             //login new user
             self.loginUser(email, password: password)
             
-            self.firstNameTextField.text = ""
-            self.lastNameTextField.text = ""
+            self.nameTextField.text = ""
             self.passwordTextField.text = ""
             self.emailTextField.text = ""
             

@@ -52,7 +52,7 @@ class ChooseUserViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
     }
-    
+
     
 
     
@@ -75,15 +75,11 @@ class ChooseUserViewController: UIViewController, UITableViewDelegate, UITableVi
             
             
             self.users = users.data as! [BackendlessUser]
-            
-//            print("hell0")
-            
-            
+    
             self.tableView.reloadData()
             
             for user in users.data {
                 let u = user as! BackendlessUser
-//                print(u.firstName)
             }
             
         }) { (fault : Fault!) in
