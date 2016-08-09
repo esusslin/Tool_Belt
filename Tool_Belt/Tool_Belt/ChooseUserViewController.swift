@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol ChooseUserDelegate {
+    func createChatroom(withUser: BackendlessUser)
+}
+
 class ChooseUserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var delegate: ChooseUserDelegate!
     var users: [BackendlessUser] = []
 
     override func viewDidLoad() {
@@ -46,9 +50,23 @@ class ChooseUserViewController: UIViewController, UITableViewDelegate, UITableVi
         let user = users[indexPath.row]
 //        print("wtf!")
         
-        cell.textLabel?.text = user.email
+        cell.textLabel?.text = user.name
         
         return cell
+        
+        
+    }
+    
+    //MARK: UITableviewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        let user = users[indexPath.row]
+        
+//        delegate.createChatroom(user)
         
         
     }
@@ -78,9 +96,6 @@ class ChooseUserViewController: UIViewController, UITableViewDelegate, UITableVi
     
             self.tableView.reloadData()
             
-            for user in users.data {
-                let u = user as! BackendlessUser
-            }
             
         }) { (fault : Fault!) in
                 print("Error retrieving users: \(fault)")

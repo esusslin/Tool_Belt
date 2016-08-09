@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="130"/>
+            <point key="canvasLocation" x="326" y="130"/>
         </scene>
         <!--LOGIN-->
         <scene sceneID="iIW-mr-qLf">
@@ -245,6 +245,25 @@
             </objects>
             <point key="canvasLocation" x="4812" y="2101"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="kmV-9z-Sn2">
+            <objects>
+                <viewController id="mJe-4L-hdC" customClass="ChatViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FIO-p1-PQo"/>
+                        <viewControllerLayoutGuide type="bottom" id="yOw-GX-PrF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cIC-hA-naF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xOC-s2-IH6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dmR-ks-QHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4558" y="2824"/>
+        </scene>
         <!--Personal Messages-->
         <scene sceneID="dix-kE-5hw">
             <objects>
@@ -364,6 +383,7 @@
                     <connections>
                         <outlet property="tableView" destination="txz-ir-h8D" id="f3e-4U-fBc"/>
                         <segue destination="cz6-KY-26d" kind="presentation" identifier="chatToChooseVC" id="rm5-R3-f7x"/>
+                        <segue destination="mJe-4L-hdC" kind="show" identifier="recentToChatSeg" id="hQH-oL-ril"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6v-Jq-dyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -563,23 +583,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldR-yv-Oek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="2155"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="IhE-7m-q8C">
-            <objects>
-                <viewController id="Jz9-9a-KqJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="on5-6t-sXF"/>
-                        <viewControllerLayoutGuide type="bottom" id="LeB-g5-y39"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="R1r-V9-JOI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ll9-Rq-PYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

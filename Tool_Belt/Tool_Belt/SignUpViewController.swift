@@ -15,13 +15,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-//    @IBOutlet weak var nameTextField: UITextField!
-//
-//    @IBOutlet weak var emailTextField: UITextField!
-//    
-//    @IBOutlet weak var passwordTextField: UITextField!
-//    
+  
     var backendless = Backendless.sharedInstance()
     
     var newUser: BackendlessUser?
@@ -59,7 +53,7 @@ class SignUpViewController: UIViewController {
         
                     register(self.email!, name: self.name!, password: self.password!, avatarImage: self.avatarImage)
                 } else {
-                    // warning to user - email, password and username required
+                    // warning to user - email, password and name required
                     ProgressHUD.showError("All fields are required to register")
                 }
         
