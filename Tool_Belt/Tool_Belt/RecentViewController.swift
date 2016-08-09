@@ -57,12 +57,15 @@ class RecentViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let recent = recents[indexPath.row]
+//        let recent = recents[indexPath.row]
         
 //        RestartRecentChat(recent)
         
         performSegueWithIdentifier("recentToChatSeg", sender: indexPath)
     }
+    
+    
+    
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -102,15 +105,15 @@ class RecentViewController: UIViewController, UITableViewDataSource, UITableView
         vc.delegate = self
         }
         
-//        if segue.identifier == "recentToChatSeg" {
-//            let indexPath = sender as! NSIndexPath
-//            let chatVC = segue.destinationViewController as! ChatViewController
-//            
-//            let recent = recents[indexPath.row]
-//            
-////            set ChatVC recent to our recent
+        if segue.identifier == "recentToChatSeg" {
+            let indexPath = sender as! NSIndexPath
+            let chatVC = segue.destinationViewController as! ChatViewController
+            
+            let recent = recents[indexPath.row]
+            
+//            set ChatVC recent to our recent
         
-//        }
+        }
         
     }
     
@@ -118,6 +121,10 @@ class RecentViewController: UIViewController, UITableViewDataSource, UITableView
     
     func createChatroom(withUser: BackendlessUser) {
         
+        let chatVC = ChatViewController()
+        chatVC.hidesBottomBarWhenPushed = true
+        
+        navigationController?.pushViewController(chatVC, animated: true)
     }
 
 
