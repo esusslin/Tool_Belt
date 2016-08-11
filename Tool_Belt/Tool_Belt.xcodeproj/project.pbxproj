@@ -22,6 +22,11 @@
 		E29E415C1D4852A4005DA092 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */; };
 		E29E41601D485579005DA092 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E415F1D485579005DA092 /* Bolts.framework */; };
 		E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A45BE31D487B2200B06023 /* TabBarController.swift */; };
+		E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1D61D5C216B008E01D3 /* Camera.swift */; };
+		E2A8F1D91D5C2177008E01D3 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1D81D5C2177008E01D3 /* Avatar.swift */; };
+		E2A8F1DB1D5C2192008E01D3 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */; };
+		E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */; };
+		E2A8F1DF1D5C24D2008E01D3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DE1D5C24D2008E01D3 /* SettingsTableViewController.swift */; };
 		E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */; };
 		E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA4FE11D442C990092BD51 /* AppDelegate.swift */; };
 		E2EA4FE71D442C990092BD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE51D442C990092BD51 /* Main.storyboard */; };
@@ -71,6 +76,11 @@
 		E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		E29E415F1D485579005DA092 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E2A45BE31D487B2200B06023 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E2A8F1D61D5C216B008E01D3 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		E2A8F1D81D5C2177008E01D3 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
+		E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		E2A8F1DE1D5C24D2008E01D3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E2EA4FDE1D442C990092BD51 /* Tool_Belt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool_Belt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EA4FE11D442C990092BD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */,
+				E2A8F1DE1D5C24D2008E01D3 /* SettingsTableViewController.swift */,
 				E22921C71D5225C4004C5D4A /* ChooseUserViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
@@ -207,6 +218,10 @@
 				E2EA4FE11D442C990092BD51 /* AppDelegate.swift */,
 				E27E13AB1D5042E900C7F6E6 /* RegisterUser.swift */,
 				E2EDDA621D50D93F009F3D33 /* Recent.swift */,
+				E2A8F1D61D5C216B008E01D3 /* Camera.swift */,
+				E2A8F1D81D5C2177008E01D3 /* Avatar.swift */,
+				E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */,
+				E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */,
 				E27E13A31D503A8A00C7F6E6 /* ProgressHUD */,
 				E2EA50111D4447860092BD51 /* Tool.swift */,
 				E234DDC91D47F228008DAB22 /* Login */,
@@ -432,14 +447,19 @@
 				E27E13AC1D5042E900C7F6E6 /* RegisterUser.swift in Sources */,
 				E27E13BC1D504DA600C7F6E6 /* RecentViewController.swift in Sources */,
 				E2EA50101D4444C70092BD51 /* Address.swift in Sources */,
+				E2A8F1DB1D5C2192008E01D3 /* OutgoingMessage.swift in Sources */,
 				E2EDDA631D50D93F009F3D33 /* Recent.swift in Sources */,
 				E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */,
+				E2A8F1D91D5C2177008E01D3 /* Avatar.swift in Sources */,
 				E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */,
 				E22921C81D5225C4004C5D4A /* ChooseUserViewController.swift in Sources */,
 				E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */,
 				E27E13BA1D504CF100C7F6E6 /* RecentTableViewCell.swift in Sources */,
 				E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */,
+				E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
+				E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */,
+				E2A8F1DF1D5C24D2008E01D3 /* SettingsTableViewController.swift in Sources */,
 				E27E13A81D503A8A00C7F6E6 /* ProgressHUD.m in Sources */,
 				E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */,
 			);
@@ -590,10 +610,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tool_Belt",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = Tool_Belt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "esusslin.Tool-Belt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
@@ -606,10 +628,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tool_Belt",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
+				"GCC_OPTIMIZATION_LEVEL[arch=*]" = fast;
 				INFOPLIST_FILE = Tool_Belt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "esusslin.Tool-Belt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
