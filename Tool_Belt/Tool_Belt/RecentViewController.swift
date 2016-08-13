@@ -110,6 +110,7 @@ class RecentViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "recentToChatSeg" {
             let indexPath = sender as! NSIndexPath
             let chatVC = segue.destinationViewController as! ChatViewController
+            chatVC.hidesBottomBarWhenPushed = true
             
             let recent = recents[indexPath.row]
             
