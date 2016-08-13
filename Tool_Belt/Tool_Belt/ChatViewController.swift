@@ -56,20 +56,20 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         self.senderId = currentUser.objectId
         self.senderDisplayName = currentUser.name
         
-//        collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-//        collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
 
-//        if withUser?.objectId == nil {
-//            getWithUserFromRecent(recent!, result: { (withUser) -> Void in
-//                self.withUser = withUser
-//                
-//                self.title = withUser.name
-//                self.getAvatars()
-//            })
-//        } else {
-//            self.title = withUser!.name
-//            self.getAvatars()
-//        }
+        if withUser?.objectId == nil {
+            getWithUserFromRecent(recent!, result: { (withUser) -> Void in
+                self.withUser = withUser
+                
+                self.title = withUser.name
+                self.getAvatars()
+            })
+        } else {
+            self.title = withUser!.name
+            self.getAvatars()
+        }
         
         //load firebase messages
         loadMessages()
@@ -125,58 +125,58 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
     }
     
-//    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-//        
-//        if indexPath.item % 3 == 0 {
-//            
-//            let message = messages[indexPath.item]
-//            
-//            return JSQMessagesTimestampFormatter.sharedFormatter().attributedTimestampForDate(message.date)
-//        }
-//        return nil
-//    }
-//    
-//    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-//        
-//        if indexPath.item % 3 == 0 {
-//            
-//            return kJSQMessagesCollectionViewCellLabelHeightDefault
-//            
-//        }
-//        return 0.0
-//    }
-//    
-//    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString {
-//        
-//        let message = objects[indexPath.row]
-//        
-//        let status = message["status"] as! String
-//        
-//        if indexPath.row == (messages.count - 1) {
-//            return NSAttributedString(string: status)
-//        } else {
-//            return NSAttributedString(string: "")
-//        }
-//        
-//    }
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        
+        if indexPath.item % 3 == 0 {
+            
+            let message = messages[indexPath.item]
+            
+            return JSQMessagesTimestampFormatter.sharedFormatter().attributedTimestampForDate(message.date)
+        }
+        return nil
+    }
     
-//    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-//        
-//        if outgoing(objects[indexPath.row]) {
-//            return kJSQMessagesCollectionViewCellLabelHeightDefault
-//        } else {
-//            return 0.0
-//        }
-//    }
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        
+        if indexPath.item % 3 == 0 {
+            
+            return kJSQMessagesCollectionViewCellLabelHeightDefault
+            
+        }
+        return 0.0
+    }
     
-//    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-//        
-//        let message = messages[indexPath.row]
-//        
-//        let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
-//        
-//        return avatar
-//    }
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString {
+        
+        let message = objects[indexPath.row]
+        
+        let status = message["status"] as! String
+        
+        if indexPath.row == (messages.count - 1) {
+            return NSAttributedString(string: status)
+        } else {
+            return NSAttributedString(string: "")
+        }
+        
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        
+        if outgoing(objects[indexPath.row]) {
+            return kJSQMessagesCollectionViewCellLabelHeightDefault
+        } else {
+            return 0.0
+        }
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+        
+        let message = messages[indexPath.row]
+        
+        let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+        
+        return avatar
+    }
     
     //MARK: JSQMessages Delegate function
     
@@ -189,42 +189,42 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     
     override func didPressAccessoryButton(sender: UIButton!) {
         
-//        let camera = Camera(delegate_: self)
-//        
-//        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-//        
-//        
-//        let takePhoto = UIAlertAction(title: "Take Photo", style: .Default) { (alert: UIAlertAction!) -> Void in
-//            camera.PresentPhotoCamera(self, canEdit: true)
-//        }
-//        
-//        let sharePhoto = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction!) -> Void in
-//            camera.PresentPhotoLibrary(self, canEdit: true)
-//        }
-//        
-//        let shareLocation = UIAlertAction(title: "Share Location", style: .Default) { (alert: UIAlertAction!) -> Void in
-//            print("lol?")
-//            
-//            print(self.appDelegate.coordinate?.latitude)
-//            print(self.appDelegate.coordinate?.longitude)
-//            
-//            if self.haveAccessToLocation() {
-//                self.sendMessage(nil, date: NSDate(), picture: nil, location: "location")
-//            }
-//            
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert : UIAlertAction!) -> Void in
-//            
-//            print("Cancel")
-//            
-//        }
-//        optionMenu.addAction(takePhoto)
-//        optionMenu.addAction(sharePhoto)
-//        optionMenu.addAction(shareLocation)
-//        optionMenu.addAction(cancelAction)
-//        
-//        self.presentViewController(optionMenu, animated: true, completion: nil)
+        let camera = Camera(delegate_: self)
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .Default) { (alert: UIAlertAction!) -> Void in
+            camera.PresentPhotoCamera(self, canEdit: true)
+        }
+        
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction!) -> Void in
+            camera.PresentPhotoLibrary(self, canEdit: true)
+        }
+        
+        let shareLocation = UIAlertAction(title: "Share Location", style: .Default) { (alert: UIAlertAction!) -> Void in
+            print("lol?")
+            
+            print(self.appDelegate.coordinate?.latitude)
+            print(self.appDelegate.coordinate?.longitude)
+            
+            if self.haveAccessToLocation() {
+                self.sendMessage(nil, date: NSDate(), picture: nil, location: "location")
+            }
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert : UIAlertAction!) -> Void in
+            
+            print("Cancel")
+            
+        }
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(shareLocation)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
         
     }
     
@@ -246,9 +246,9 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         if let pic = picture {
             
-//            let imageData = UIImageJPEGRepresentation(pic, 1.0)
-//            
-//            outgoingMessage = OutgoingMessage(message: "Picture", pictureData: imageData!, senderId: currentUser.objectId!, senderName: currentUser.name!, date: date, status: "Delivered", type: "picture")
+            let imageData = UIImageJPEGRepresentation(pic, 1.0)
+            
+            outgoingMessage = OutgoingMessage(message: "Picture", pictureData: imageData!, senderId: currentUser.objectId!, senderName: currentUser.name!, date: date, status: "Delivered", type: "picture")
             
         }
         
@@ -256,11 +256,11 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         if let loc = location {
             
-//            let lat: NSNumber = NSNumber(double: (appDelegate.coordinate?.latitude)!)
-//            let lng: NSNumber = NSNumber(double: (appDelegate.coordinate?.longitude)!)
-//            
-//            
-//            outgoingMessage = OutgoingMessage(message: "Location", latitude: lat, longitude: lng, senderId: currentUser.objectId!, senderName: currentUser.name!, date: date, status: "Delivered", type: "location")
+            let lat: NSNumber = NSNumber(double: (appDelegate.coordinate?.latitude)!)
+            let lng: NSNumber = NSNumber(double: (appDelegate.coordinate?.longitude)!)
+            
+            
+            outgoingMessage = OutgoingMessage(message: "Location", latitude: lat, longitude: lng, senderId: currentUser.objectId!, senderName: currentUser.name!, date: date, status: "Delivered", type: "location")
             
         }
         
