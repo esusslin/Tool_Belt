@@ -53,11 +53,11 @@ class RecentTableViewCell: UITableViewCell {
                 
                 print(withUser)
                 
-//                if let avatarURL = withUser.getProperty("Avatar") {
-//                    getImageFromURL(avatarURL as! String, result: { (image) in
-//                        self.avatarImageView.image = image
-//                    })
-//                }
+                if let avatarURL = withUser.getProperty("Avatar") {
+                    getImageFromURL(avatarURL as! String, result: { (image) in
+                        self.avatarImageView.image = image
+                    })
+                }
             }
             
         }) { (fault: Fault!) in

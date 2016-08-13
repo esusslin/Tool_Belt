@@ -498,7 +498,13 @@
                             <constraint firstItem="wfp-Ku-gr2" firstAttribute="leading" secondItem="Sq9-Ii-eX7" secondAttribute="leading" id="xju-Yq-U2b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SIGN UP" id="uIr-gt-4Ma"/>
+                    <navigationItem key="navigationItem" title="SIGN UP" id="uIr-gt-4Ma">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="p6d-CA-gT5">
+                            <connections>
+                                <action selector="uploadPhotoButtonPressed:" destination="iKa-Cj-S1q" id="nJb-xr-tsf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="wfp-Ku-gr2" id="jJN-pz-1ce"/>
                         <outlet property="nameTextField" destination="Sq9-Ii-eX7" id="sJJ-aN-Qut"/>

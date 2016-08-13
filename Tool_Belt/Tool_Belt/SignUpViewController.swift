@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -59,8 +59,43 @@ class SignUpViewController: UIViewController {
         
     }
 
+    @IBAction func uploadPhotoButtonPressed(sender: AnyObject) {
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let camera = Camera(delegate_: self)
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .Default) { (alert : UIAlertAction!) -> Void in
+            camera.PresentPhotoCamera(self, canEdit: true)
+        }
+        
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .Default) { (alert : UIAlertAction!) -> Void in
+            camera.PresentPhotoLibrary(self, canEdit: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert : UIAlertAction!) -> Void in
+            print("Cancelled")
+        }
+        
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    //MARK: UIImagepickercontroller delegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo
+        info: [String : AnyObject]) {
+        
+        self.avatarImage = (info[UIImagePickerControllerEditedImage] as! UIImage)
+        
+        print(avatarImage)
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
 
-//    }
     
     //MARK: Backendl!ess user registration
     
@@ -68,6 +103,17 @@ class SignUpViewController: UIViewController {
         
         if avatarImage == nil {
             newUser!.setProperty("Avatar", object: "")
+        } else {
+            uploadAvatar(avatarImage!, result: { (imageLink) in
+                let properties = ["Avatar" : imageLink!]
+                currentUser!.updateProperties(properties)
+                
+                self.backendless.userService.update(currentUser, response: { (updatedUser: BackendlessUser!) in
+                    print("updated current user avatar")
+                    }, error: { (fault : Fault!) in
+                        print("error couldn't set avatar image \(fault)")
+                })
+            })
         }
         
         newUser!.email = email
