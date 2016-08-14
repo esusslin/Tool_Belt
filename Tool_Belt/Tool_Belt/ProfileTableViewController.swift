@@ -18,12 +18,14 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     @IBOutlet weak var imageUser: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var myToolBeltCell: UITableViewCell!
     
     @IBOutlet weak var privacyCell: UITableViewCell!
     @IBOutlet weak var termsCell: UITableViewCell!
 
-    @IBOutlet weak var myToolBeltCell: UITableViewCell!
-    @IBOutlet weak var logOutCell: UITableViewCell!
+    @IBOutlet weak var logoutCell: UITableViewCell!
+    
+
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     var firstLoad: Bool?
@@ -63,18 +65,19 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 { return 2 }
-        if section == 1 { return 2 }
+        if section == 0 { return 3 }
+        if section == 1 { return 1 }
         return 0
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if ((indexPath.section == 0) && (indexPath.row == 0)) { return privacyCell }
-        if ((indexPath.section == 0) && (indexPath.row == 1)) { return termsCell }
-        if ((indexPath.section == 1) && (indexPath.row == 0)) { return myToolBeltCell }
-        if ((indexPath.section == 1) && (indexPath.row == 1)) { return logOutCell }
+        if ((indexPath.section == 0) && (indexPath.row == 0)) { return myToolBeltCell }
+        if ((indexPath.section == 0) && (indexPath.row == 1)) { return privacyCell }
+        if ((indexPath.section == 0) && (indexPath.row == 2)) { return termsCell }
+        
+        if ((indexPath.section == 1) && (indexPath.row == 0)) { return logoutCell }
         
         // Configure the cell...
         
@@ -103,11 +106,11 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.section == 1 && indexPath.row == 0 {
-            print("mytoolBELT")
-        }
+//        if indexPath.section == 1 && indexPath.row == 0 {
+//            print("mytoolBELT")
+//        }
         
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if indexPath.section == 1 && indexPath.row == 0 {
             showLogoutView()
         }
     }

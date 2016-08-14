@@ -439,15 +439,34 @@
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="EIY-5Q-rT8">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Jpw-JZ-vMb" style="IBUITableViewCellStyleDefault" id="gMH-Zp-Rg8" userLabel="Privacy Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="8qI-Kd-Oeg" style="IBUITableViewCellStyleDefault" id="0fw-J9-pYx" userLabel="My ToolBelt">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0fw-J9-pYx" id="MF8-cG-zxK">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="My ToolBelt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8qI-Kd-Oeg">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                    <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Jpw-JZ-vMb" style="IBUITableViewCellStyleDefault" id="gMH-Zp-Rg8" userLabel="Privacy Cell">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gMH-Zp-Rg8" id="Hiy-bg-97Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jpw-JZ-vMb">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="44"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -457,14 +476,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="WPc-sV-9eR" style="IBUITableViewCellStyleDefault" id="p5g-ca-ktt" userLabel="Terms Cell">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p5g-ca-ktt" id="3IO-7n-K6B">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WPc-sV-9eR">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="44"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -477,34 +496,6 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-2" id="h0L-oc-yvK">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W3E-jQ-wgG" userLabel="My ToolBelt Cell">
-                                        <rect key="frame" x="0.0" y="144" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W3E-jQ-wgG" id="gM9-zi-QhK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My ToolBelt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwg-Iz-rqF">
-                                                    <rect key="frame" x="8" y="10" width="584" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="Hc5-8v-c1Q"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                    <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="nwg-Iz-rqF" firstAttribute="leading" secondItem="gM9-zi-QhK" secondAttribute="leadingMargin" id="Fwb-7S-iYA"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="nwg-Iz-rqF" secondAttribute="bottom" constant="2" id="JIn-6J-yd4"/>
-                                                <constraint firstItem="nwg-Iz-rqF" firstAttribute="trailing" secondItem="gM9-zi-QhK" secondAttribute="trailingMargin" id="Kl8-KN-riG"/>
-                                                <constraint firstItem="nwg-Iz-rqF" firstAttribute="top" secondItem="gM9-zi-QhK" secondAttribute="topMargin" constant="2" id="MSo-YY-2EE"/>
-                                                <constraint firstItem="nwg-Iz-rqF" firstAttribute="trailing" secondItem="gM9-zi-QhK" secondAttribute="trailingMargin" id="fQ4-fQ-eAJ"/>
-                                                <constraint firstItem="nwg-Iz-rqF" firstAttribute="leading" secondItem="gM9-zi-QhK" secondAttribute="leadingMargin" id="m7Z-aS-VHP"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qdq-WP-9UG" userLabel="Log Out Cell">
                                         <rect key="frame" x="0.0" y="188" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -544,8 +535,8 @@
                     <connections>
                         <outlet property="HeaderView" destination="kbJ-rQ-fGP" id="4UR-mD-m8B"/>
                         <outlet property="imageUser" destination="f7M-So-bYm" id="EFQ-o7-49z"/>
-                        <outlet property="logOutCell" destination="qdq-WP-9UG" id="tch-0n-4cH"/>
-                        <outlet property="myToolBeltCell" destination="W3E-jQ-wgG" id="oqB-2t-M3j"/>
+                        <outlet property="logoutCell" destination="qdq-WP-9UG" id="Asv-XJ-G5o"/>
+                        <outlet property="myToolBeltCell" destination="0fw-J9-pYx" id="Vg9-DG-hfa"/>
                         <outlet property="privacyCell" destination="gMH-Zp-Rg8" id="62O-dE-gXk"/>
                         <outlet property="termsCell" destination="p5g-ca-ktt" id="VOE-ck-PIa"/>
                         <outlet property="userNameLabel" destination="3cv-Ck-i6Z" id="sfK-ds-UpE"/>
@@ -664,7 +655,7 @@
         <!--Navigation Controller-->
         <scene sceneID="aWU-59-LcD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eEd-og-jzm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginView" automaticallyAdjustsScrollViewInsets="NO" id="eEd-og-jzm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rcm-Rw-eTd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
