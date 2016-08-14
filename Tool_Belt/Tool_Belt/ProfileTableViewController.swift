@@ -1,8 +1,8 @@
 //
-//  SettingsTableViewController.swift
+//  ProfileTableViewController.swift
 //  Tool_Belt
 //
-//  Created by Emmet Susslin on 8/10/16.
+//  Created by Emmet Susslin on 8/13/16.
 //  Copyright © 2016 Emmet Susslin. All rights reserved.
 //
 
@@ -10,38 +10,39 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class SettingsTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ProfileTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     
     
-//    @IBOutlet weak var HeaderView: UIView!
-//    
-//    @IBOutlet weak var imageUser: UIImageView!
-//    
-//    @IBOutlet weak var userNameLabel: UILabel!
-//    
-//    
-//    @IBOutlet weak var avatarSwitch: UISwitch!
-//    @IBOutlet weak var avatarCell: UITableViewCell!
-//    @IBOutlet weak var termsCell: UITableViewCell!
-//    @IBOutlet weak var privacyCell: UITableViewCell!
-//    @IBOutlet weak var logOutCell: UITableViewCell!
+    @IBOutlet weak var HeaderView: UIView!
     
-    var avatarSwitchStatus = true
+    @IBOutlet weak var imageUser: UIImageView!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var myToolBeltCell: UITableViewCell!
+    
+    @IBOutlet weak var privacyCell: UITableViewCell!
+    @IBOutlet weak var termsCell: UITableViewCell!
+
+    @IBOutlet weak var logoutCell: UITableViewCell!
+    
+
+    
     let userDefaults = NSUserDefaults.standardUserDefaults()
     var firstLoad: Bool?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.tableHeaderView = HeaderView
         
-//        self.tableView.tableHeaderView = HeaderView
-//        
-//        imageUser.layer.cornerRadius = imageUser.frame.size.width / 2
-//        imageUser.layer.masksToBounds = true
+        imageUser.layer.cornerRadius = imageUser.frame.size.width / 2
+        imageUser.layer.masksToBounds = true
         
         loadUserDefaults()
         updateUI()
+        
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,25 +50,12 @@ class SettingsTableViewController: UITableViewController, UINavigationController
     
     //MARK: IBActions
     
+    
     @IBAction func didClickAvatarImage(sender: UIButton) {
+        print("1")
         changePhoto()
-        
-        
     }
-    
-    @IBAction func avatarSwitchValueChanged(switchState: UISwitch) {
-        
-        if switchState.on {
-            avatarSwitchStatus = true
-        } else {
-            avatarSwitchStatus = false
-            print("it off")
-        }
-        
-        saveUserDefaults()
-    }
-    
-    
+
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -85,11 +73,12 @@ class SettingsTableViewController: UITableViewController, UINavigationController
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-//        if ((indexPath.section == 0) && (indexPath.row == 0)) { return privacyCell }
-//        if ((indexPath.section == 0) && (indexPath.row == 1)) { return termsCell }
-//        if ((indexPath.section == 0) && (indexPath.row == 2)) { return avatarCell }
-//        if ((indexPath.section == 1) && (indexPath.row == 0)) { return logOutCell }
-//        
+        if ((indexPath.section == 0) && (indexPath.row == 0)) { return myToolBeltCell }
+        if ((indexPath.section == 0) && (indexPath.row == 1)) { return privacyCell }
+        if ((indexPath.section == 0) && (indexPath.row == 2)) { return termsCell }
+        
+        if ((indexPath.section == 1) && (indexPath.row == 0)) { return logoutCell }
+        
         // Configure the cell...
         
         return UITableViewCell()
@@ -116,6 +105,11 @@ class SettingsTableViewController: UITableViewController, UINavigationController
     //MARK: tableview delegate functions
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+//        if indexPath.section == 1 && indexPath.row == 0 {
+//            print("mytoolBELT")
+//        }
+        
         if indexPath.section == 1 && indexPath.row == 0 {
             showLogoutView()
         }
@@ -124,6 +118,7 @@ class SettingsTableViewController: UITableViewController, UINavigationController
     //MARK: Change pic
     
     func changePhoto() {
+        print("2")
         
         let camera = Camera(delegate_: self)
         
@@ -179,15 +174,15 @@ class SettingsTableViewController: UITableViewController, UINavigationController
     
     func updateUI() {
         
-//        userNameLabel.text = currentUser.name
-//        
+        userNameLabel.text = currentUser.name
+        
 //        avatarSwitch.setOn(avatarSwitchStatus, animated: false)
-//        
-//        if let imageLink = currentUser.getProperty("Avatar") {
-//            getImageFromURL(imageLink as! String, result: { (image) -> Void in
-//                self.imageUser.image = image
-//            })
-//        }
+        
+        if let imageLink = currentUser.getProperty("Avatar") {
+            getImageFromURL(imageLink as! String, result: { (image) -> Void in
+                self.imageUser.image = image
+            })
+        }
     }
     
     //MARK: Helper functions
@@ -225,7 +220,7 @@ class SettingsTableViewController: UITableViewController, UINavigationController
     //MARK: UserDefaults
     
     func saveUserDefaults() {
-        userDefaults.setBool(avatarSwitchStatus, forKey: kAVATARSTATE)
+//        userDefaults.setBool(avatarSwitchStatus, forKey: kAVATARSTATE)
         userDefaults.synchronize()
         
     }
@@ -235,13 +230,12 @@ class SettingsTableViewController: UITableViewController, UINavigationController
         
         if !firstLoad! {
             userDefaults.setBool(true, forKey: kFIRSTRUN)
-            userDefaults.setBool(avatarSwitchStatus, forKey: kAVATARSTATE)
+//            userDefaults.setBool(avatarSwitchStatus, forKey: kAVATARSTATE)
             userDefaults.synchronize()
         }
         
-        avatarSwitchStatus = userDefaults.boolForKey(kAVATARSTATE)
+//        avatarSwitchStatus = userDefaults.boolForKey(kAVATARSTATE)
         
-    }
-    
 }
 
+}

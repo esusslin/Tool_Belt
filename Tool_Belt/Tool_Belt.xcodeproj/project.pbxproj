@@ -26,8 +26,8 @@
 		E2A8F1D91D5C2177008E01D3 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1D81D5C2177008E01D3 /* Avatar.swift */; };
 		E2A8F1DB1D5C2192008E01D3 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */; };
 		E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */; };
-		E2A8F1DF1D5C24D2008E01D3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DE1D5C24D2008E01D3 /* SettingsTableViewController.swift */; };
 		E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */; };
+		E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */; };
 		E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA4FE11D442C990092BD51 /* AppDelegate.swift */; };
 		E2EA4FE71D442C990092BD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE51D442C990092BD51 /* Main.storyboard */; };
 		E2EA4FE91D442C990092BD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE81D442C990092BD51 /* Assets.xcassets */; };
@@ -80,8 +80,8 @@
 		E2A8F1D81D5C2177008E01D3 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
-		E2A8F1DE1D5C24D2008E01D3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		E2EA4FDE1D442C990092BD51 /* Tool_Belt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool_Belt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EA4FE11D442C990092BD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2EA4FE61D442C990092BD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */,
-				E2A8F1DE1D5C24D2008E01D3 /* SettingsTableViewController.swift */,
 				E22921C71D5225C4004C5D4A /* ChooseUserViewController.swift */,
+				E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
 			name = UIViewControllers;
@@ -453,13 +453,13 @@
 				E2A8F1D91D5C2177008E01D3 /* Avatar.swift in Sources */,
 				E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */,
 				E22921C81D5225C4004C5D4A /* ChooseUserViewController.swift in Sources */,
+				E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */,
 				E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */,
 				E27E13BA1D504CF100C7F6E6 /* RecentTableViewCell.swift in Sources */,
 				E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */,
 				E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
 				E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */,
-				E2A8F1DF1D5C24D2008E01D3 /* SettingsTableViewController.swift in Sources */,
 				E27E13A81D503A8A00C7F6E6 /* ProgressHUD.m in Sources */,
 				E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */,
 			);

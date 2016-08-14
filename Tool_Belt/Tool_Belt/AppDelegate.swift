@@ -13,7 +13,7 @@ import CoreLocation
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate  {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
     var coordinate: CLLocationCoordinate2D?
