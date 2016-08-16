@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import AddressBookUI
 
-class NewToolViewController: UIViewController, CLLocationManagerDelegate {
+class NewToolViewController: UIViewController {
     
     var backendless = Backendless.sharedInstance()
     
@@ -25,15 +25,11 @@ class NewToolViewController: UIViewController, CLLocationManagerDelegate {
   
     var geocoder:CLGeocoder = CLGeocoder()
     
-//    var newTool = Tool()
-//    
-//    var toolTitle: String?
-//    var toolMake: String?
-//    var toolDescription: String?
+
     var tooLong = Double()
     var tooLat = Double()
     var toolAddress: String?
-//    var toolLocation: GeoPoint?
+    var toolLocation: GeoPoint?
     
     
     override func viewDidLoad() {
@@ -56,17 +52,17 @@ class NewToolViewController: UIViewController, CLLocationManagerDelegate {
             
             toolAddress = toolAddressTextField.text
             
-            print("hello")
+//            print("hello")
             
-            
+            ProgressHUD.show("Registering new tool...")
             
             geocoder.geocodeAddressString(toolAddress!) { (placemarks, error) -> Void in
                 if let firstPlacemark = placemarks?[0] {
-                     print("hello1")
-                    self.tooLat  = firstPlacemark.location!.coordinate.latitude
-//                     let tooLat
-                    self.tooLong = firstPlacemark.location!.coordinate.longitude
                     
+                    self.tooLat = firstPlacemark.location!.coordinate.latitude
+//                    print(self.tooLat)
+                    self.tooLong = firstPlacemark.location!.coordinate.longitude
+//                    print(self.tooLong)
                 }
             }
             
@@ -77,18 +73,24 @@ class NewToolViewController: UIViewController, CLLocationManagerDelegate {
             newTool.toolDescription = toolDescriptionTextField.text
             newTool.location = GeoPoint.geoPoint(GEO_POINT(latitude: tooLat, longitude: tooLong)) as? GeoPoint
             
-
-
-//            ProgressHUD.show("Registering new tool...")
+            print(tooLong)
+            print(tooLat)
+           
             
             backendless.persistenceService.of(Tool.ofClass()).save(newTool,
                                                                      response: { ( d : AnyObject!) -> () in
                                                                         print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
+                                                                        
+//
                 },
                                                                      
                                                                      error: { ( fault : Fault!) -> () in
                                                                         print("Server reported an error: \(fault)")
             })
+            
+            ProgressHUD.dismiss()
+            performSegueWithIdentifier("newToolNewToolBelt", sender: self)
+            
             
         } else {
             // show an error to user

@@ -674,14 +674,14 @@
         <!--My Tools-->
         <scene sceneID="Cft-xz-60K">
             <objects>
-                <tableViewController id="IoL-YX-BRW" customClass="MyToolBeltTableViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MyToolBelt" id="IoL-YX-BRW" customClass="MyToolBeltTableViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" id="lMM-KN-ubW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lN4-Vh-bXB">
-                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lN4-Vh-bXB" id="bc0-sM-ELi">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
@@ -838,6 +838,7 @@
                         <outlet property="titleTextField" destination="sCB-E6-X0d" id="21U-QW-89n"/>
                         <outlet property="toolAddressTextField" destination="3HV-9A-A4T" id="HIs-hI-84l"/>
                         <outlet property="toolDescriptionTextField" destination="Yax-kc-o4Y" id="iYy-v2-GMR"/>
+                        <segue destination="IoL-YX-BRW" kind="show" identifier="newToolNewToolBelt" id="xpT-er-DHZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX8-Me-ltG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -908,4 +909,7 @@
         <image name="avatarPlaceholder" width="250" height="250"/>
         <image name="rsz_11job_filled_100" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xpT-er-DHZ"/>
+    </inferredMetricsTieBreakers>
 </document>
