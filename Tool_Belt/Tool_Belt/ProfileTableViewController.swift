@@ -106,9 +106,10 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-//        if indexPath.section == 1 && indexPath.row == 0 {
-//            print("mytoolBELT")
-//        }
+        if indexPath.section == 0 && indexPath.row == 0 {
+            print("mytoolBELT")
+            performSegueWithIdentifier("profileToToolBeltSeg", sender: indexPath)
+        }
         
         if indexPath.section == 1 && indexPath.row == 0 {
             showLogoutView()
@@ -184,6 +185,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             })
         }
     }
+    
     
     //MARK: Helper functions
     

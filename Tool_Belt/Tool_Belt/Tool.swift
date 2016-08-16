@@ -10,12 +10,10 @@ import Foundation
 
 class Tool : NSObject {
     
-    var objectId : String?
     var title : String?
     var make : String?
     var toolDescription : String?
-    var latitude : Double?
-    var longitude : Double?
+    var location : GeoPoint?
     var ownerId : String?
     
 }

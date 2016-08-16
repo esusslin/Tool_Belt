@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var locationManager: CLLocationManager?
     var coordinate: CLLocationCoordinate2D?
     
+    
+    
     let APP_ID = "BB66E657-7792-16CB-FF33-0BAA043F6F00"
     let SECRET_KEY = "81A8E053-495E-29CC-FFF5-C7C680E24200"
     let VERSION_NUM = "v1"
