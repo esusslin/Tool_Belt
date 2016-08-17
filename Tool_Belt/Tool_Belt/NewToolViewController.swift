@@ -25,9 +25,9 @@ class NewToolViewController: UIViewController {
   
     var geocoder:CLGeocoder = CLGeocoder()
     
-
     var tooLong = Double()
     var tooLat = Double()
+    
     var toolAddress: String?
     var toolLocation: GeoPoint?
     
@@ -50,31 +50,36 @@ class NewToolViewController: UIViewController {
         
         if titleTextField.text != "" && makeTextField.text != "" && toolDescriptionTextField.text != "" && toolAddressTextField.text != "" {
             
+            let newTool = Tool()
+            
             toolAddress = toolAddressTextField.text
             
-//            print("hello")
+            
             
             ProgressHUD.show("Registering new tool...")
             
             geocoder.geocodeAddressString(toolAddress!) { (placemarks, error) -> Void in
-                if let firstPlacemark = placemarks?[0] {
+                let firstPlacemark = placemarks?[0]
                     
-                    self.tooLat = firstPlacemark.location!.coordinate.latitude
-//                    print(self.tooLat)
-                    self.tooLong = firstPlacemark.location!.coordinate.longitude
-//                    print(self.tooLong)
-                }
+                    self.tooLat = firstPlacemark!.location!.coordinate.latitude
+                    print(self.tooLat)
+                    self.tooLong = firstPlacemark!.location!.coordinate.longitude
+                    print(self.tooLong)
+                
             }
+            print("*****")
+            print(self.tooLong)
+            print("*****")
+            print(tooLong)
+            print("*****")
+            print(newTool.location)
             
-            let newTool = Tool()
             
             newTool.title = titleTextField.text
             newTool.make = makeTextField.text
             newTool.toolDescription = toolDescriptionTextField.text
             newTool.location = GeoPoint.geoPoint(GEO_POINT(latitude: tooLat, longitude: tooLong)) as? GeoPoint
             
-            print(tooLong)
-            print(tooLat)
            
             
             backendless.persistenceService.of(Tool.ofClass()).save(newTool,
