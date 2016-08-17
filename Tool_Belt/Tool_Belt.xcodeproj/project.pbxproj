@@ -12,6 +12,8 @@
 		E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */; };
 		E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */; };
 		E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */; };
+		E25786DE1D62AA5300648CFA /* MyToolBeltTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */; };
+		E25786E01D62AC9000648CFA /* NewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DF1D62AC9000648CFA /* NewToolViewController.swift */; };
 		E27E13A71D503A8A00C7F6E6 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E27E13A41D503A8A00C7F6E6 /* ProgressHUD.bundle */; };
 		E27E13A81D503A8A00C7F6E6 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E13A61D503A8A00C7F6E6 /* ProgressHUD.m */; };
 		E27E13AC1D5042E900C7F6E6 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E13AB1D5042E900C7F6E6 /* RegisterUser.swift */; };
@@ -65,6 +67,8 @@
 		E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToolBeltTableViewController.swift; sourceTree = "<group>"; };
+		E25786DF1D62AC9000648CFA /* NewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolViewController.swift; sourceTree = "<group>"; };
 		E27E13A41D503A8A00C7F6E6 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		E27E13A51D503A8A00C7F6E6 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		E27E13A61D503A8A00C7F6E6 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			children = (
 				E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */,
 				E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */,
+				E25786DF1D62AC9000648CFA /* NewToolViewController.swift */,
 				E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */,
 			);
 			name = Login;
@@ -181,6 +186,7 @@
 				E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */,
 				E22921C71D5225C4004C5D4A /* ChooseUserViewController.swift */,
 				E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */,
+				E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
 			name = UIViewControllers;
@@ -448,9 +454,11 @@
 				E27E13BC1D504DA600C7F6E6 /* RecentViewController.swift in Sources */,
 				E2EA50101D4444C70092BD51 /* Address.swift in Sources */,
 				E2A8F1DB1D5C2192008E01D3 /* OutgoingMessage.swift in Sources */,
+				E25786E01D62AC9000648CFA /* NewToolViewController.swift in Sources */,
 				E2EDDA631D50D93F009F3D33 /* Recent.swift in Sources */,
 				E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */,
 				E2A8F1D91D5C2177008E01D3 /* Avatar.swift in Sources */,
+				E25786DE1D62AA5300648CFA /* MyToolBeltTableViewController.swift in Sources */,
 				E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */,
 				E22921C81D5225C4004C5D4A /* ChooseUserViewController.swift in Sources */,
 				E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */,
