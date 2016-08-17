@@ -23,7 +23,7 @@ class NewToolViewController: UIViewController {
     @IBOutlet weak var toolAddressTextField: UITextField!
     
   
-    var geocoder:CLGeocoder = CLGeocoder()
+    var geocoder: CLGeocoder = CLGeocoder()
     
     var tooLong = Double()
     var tooLat = Double()
@@ -48,37 +48,37 @@ class NewToolViewController: UIViewController {
     @IBAction func listToolButtonPressed(sender: UIButton) {
         
         
+        
         if titleTextField.text != "" && makeTextField.text != "" && toolDescriptionTextField.text != "" && toolAddressTextField.text != "" {
             
-            let newTool = Tool()
+            
             
             toolAddress = toolAddressTextField.text
-            
             
             
             ProgressHUD.show("Registering new tool...")
             
             geocoder.geocodeAddressString(toolAddress!) { (placemarks, error) -> Void in
-                let firstPlacemark = placemarks?[0]
+                
+                    let firstPlacemark = placemarks?[0]
                     
                     self.tooLat = firstPlacemark!.location!.coordinate.latitude
-                    print(self.tooLat)
+                
                     self.tooLong = firstPlacemark!.location!.coordinate.longitude
-                    print(self.tooLong)
+                
                 
             }
-            print("*****")
-            print(self.tooLong)
-            print("*****")
-            print(tooLong)
-            print("*****")
-            print(newTool.location)
             
+            print(self.tooLat)
+            
+            print(self.tooLong)
+      
+            let newTool = Tool()
             
             newTool.title = titleTextField.text
             newTool.make = makeTextField.text
             newTool.toolDescription = toolDescriptionTextField.text
-            newTool.location = GeoPoint.geoPoint(GEO_POINT(latitude: tooLat, longitude: tooLong)) as? GeoPoint
+            newTool.location = GeoPoint.geoPoint(GEO_POINT(latitude: self.tooLat, longitude: self.tooLong)) as? GeoPoint
             
            
             
@@ -94,7 +94,7 @@ class NewToolViewController: UIViewController {
             })
             
             ProgressHUD.dismiss()
-            performSegueWithIdentifier("newToolNewToolBelt", sender: self)
+//            performSegueWithIdentifier("newToolNewToolBelt", sender: self)
             
             
         } else {
