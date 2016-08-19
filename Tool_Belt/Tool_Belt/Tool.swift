@@ -14,6 +14,6 @@ class Tool : NSObject {
     var make : String?
     var toolDescription : String?
     var location : GeoPoint?
-    var ownerId : String?
-    
+    var available : Bool?
+        
 }
