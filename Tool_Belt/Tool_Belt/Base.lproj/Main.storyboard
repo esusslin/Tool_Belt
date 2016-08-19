@@ -151,9 +151,6 @@
                                     <constraint firstAttribute="height" constant="44" id="ljT-s8-yMq"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ly5-h5-6bH" id="mFE-Gb-lgO"/>
-                                </connections>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
@@ -180,7 +177,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="mt1-o4-FDN" id="bvA-pL-Lw6"/>
-                        <outlet property="searchBar" destination="mGZ-ll-MKY" id="b6O-vc-3kz"/>
                         <outlet property="searchDisplayController" destination="UsQ-y9-33O" id="5jl-1d-pqW"/>
                     </connections>
                 </viewController>

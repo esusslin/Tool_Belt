@@ -48,7 +48,22 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
         searchbar.resignFirstResponder()
         tools = []
         
+        func findContactsByAge(userId:String) {
+            
 
+           let whereClause = "distance( '\(self.appDelegate.coordinate?.latitude)', '\(self.appDelegate.coordinate?.longitude)', coordinates.latitude, coordinates.longitude ) < mi(6)"
+            let dataQuery = BackendlessDataQuery()
+            dataQuery.whereClause = whereClause
+            
+            var error: Fault?
+            let bc = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
+            if error == nil {
+                print("Tools have been found: \(bc.data)")
+            }
+            else {
+                print("Server reported an error: \(error)")
+            }
+        }
         
         let defaults = NSUserDefaults.standardUserDefaults()
        
