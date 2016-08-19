@@ -13,10 +13,14 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     
     let backendless = Backendless.sharedInstance()
     
+    
     let locationManager = CLLocationManager()
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var tools = [Tool]()
     
+
    
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -24,6 +28,9 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(self.appDelegate.coordinate?.latitude)
+        print(self.appDelegate.coordinate?.longitude)
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -41,28 +48,14 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
         searchbar.resignFirstResponder()
         tools = []
         
+
+        
         let defaults = NSUserDefaults.standardUserDefaults()
        
         
         let searchTerm = String(searchBar.text!)
         
-        var query = BackendlessGeoQuery.queryWithPoint(
-            GEO_POINT(latitude: 32.555, longitude: -97.667),
-            radius: 270, units: MILES,
-            categories: ["Tool"]
-            ) as! BackendlessGeoQuery
-        query.includeMeta = true
         
-        backendless.geoService.getPoints(
-            query,
-            response: { (var points : BackendlessCollection!) -> () in
-                print("Total points in radius \(points.totalObjects)")
-                self.nextPageAsync(points)
-            },
-            error: { (var fault : Fault!) -> () in
-                print("Server reported an error: \(fault)")
-            }
-        )
     }
     
 }
@@ -77,6 +70,11 @@ extension MapSearchViewController : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            
+            let latitude = locationManager.location!.coordinate.latitude
+            let longitude = locationManager.location!.coordinate.longitude
+            print(longitude)
+            print(latitude)
             let span = MKCoordinateSpanMake(0.03, 0.03)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.setRegion(region, animated: true)
