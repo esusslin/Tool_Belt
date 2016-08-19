@@ -43,13 +43,6 @@ class NewToolViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //
-    @IBAction func buttonPressed(sender: AnyObject) {
-        
-         print(currentUser.objectId)
-        findContactsByAge(currentUser.objectId)
-       
-    }
 
     @IBAction func listToolButtonPressed(sender: UIButton) {
         
@@ -111,22 +104,5 @@ class NewToolViewController: UIViewController {
         }
         
     }
-    
-    func findContactsByAge(userId:String) {
-        
-        let whereClause = "ownerId = '\(userId)'"
-        let dataQuery = BackendlessDataQuery()
-        dataQuery.whereClause = whereClause
-        
-        var error: Fault?
-        let bc = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
-        if error == nil {
-            print("Tools have been found: \(bc.data)")
-        }
-        else {
-            print("Server reported an error: \(error)")
-        }
-    }
-   
 
 }

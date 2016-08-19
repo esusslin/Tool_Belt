@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="1019" y="489"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Search View Controller-->
         <scene sceneID="1lL-i0-QCE">
             <objects>
-                <viewController id="ly5-h5-6bH" sceneMemberID="viewController">
+                <viewController id="ly5-h5-6bH" customClass="MapSearchViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B9g-ag-JkF"/>
                         <viewControllerLayoutGuide type="bottom" id="E4F-Rv-6dZ"/>
@@ -144,13 +144,58 @@
                     <view key="view" contentMode="scaleToFill" id="wEz-ag-UYT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mGZ-ll-MKY">
+                                <rect key="frame" x="20" y="64" width="560" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ljT-s8-yMq"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ly5-h5-6bH" id="mFE-Gb-lgO"/>
+                                </connections>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ly5-h5-6bH" id="H0f-An-3wP"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="top" secondItem="B9g-ag-JkF" secondAttribute="bottom" id="Ieh-ha-ss6"/>
+                            <constraint firstItem="mt1-o4-FDN" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" constant="-20" id="QVd-D7-7IE"/>
+                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="trailing" secondItem="mt1-o4-FDN" secondAttribute="trailing" constant="-20" id="Ti4-df-7F9"/>
+                            <constraint firstItem="mt1-o4-FDN" firstAttribute="top" secondItem="mGZ-ll-MKY" secondAttribute="bottom" id="aIZ-MC-ZGj"/>
+                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="leading" secondItem="mt1-o4-FDN" secondAttribute="leading" constant="20" id="arZ-gL-7tl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mt1-o4-FDN" secondAttribute="trailing" constant="-20" id="d7f-em-yb7"/>
+                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="trailing" secondItem="wEz-ag-UYT" secondAttribute="trailingMargin" id="g3c-rn-V79"/>
+                            <constraint firstItem="E4F-Rv-6dZ" firstAttribute="top" secondItem="mt1-o4-FDN" secondAttribute="bottom" id="lF6-9m-Ddp"/>
+                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" id="lTw-aZ-3tf"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pqn-RR-sCR"/>
+                    <navigationItem key="navigationItem" id="pqn-RR-sCR">
+                        <barButtonItem key="rightBarButtonItem" title="Table" id="J4r-sw-PcJ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="mt1-o4-FDN" id="bvA-pL-Lw6"/>
+                        <outlet property="searchBar" destination="mGZ-ll-MKY" id="b6O-vc-3kz"/>
+                        <outlet property="searchDisplayController" destination="UsQ-y9-33O" id="5jl-1d-pqW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wv0-uw-hX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="UsQ-y9-33O">
+                    <connections>
+                        <outlet property="delegate" destination="ly5-h5-6bH" id="Rlg-9u-l07"/>
+                        <outlet property="searchBar" destination="mGZ-ll-MKY" id="ugc-m6-z5q"/>
+                        <outlet property="searchContentsController" destination="ly5-h5-6bH" id="Kgd-fe-uBw"/>
+                        <outlet property="searchResultsDataSource" destination="ly5-h5-6bH" id="EfX-bt-xNg"/>
+                        <outlet property="searchResultsDelegate" destination="ly5-h5-6bH" id="Yw1-Hf-EHi"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3499" y="2155"/>
+            <point key="canvasLocation" x="3475" y="2175"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="xQs-Zh-cHC">
@@ -808,17 +853,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dod-qf-XDb">
-                                <rect key="frame" x="277" y="445" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="TN5-hr-dfA"/>
-                                    <constraint firstAttribute="width" constant="46" id="bgQ-ow-7dp"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="0T0-kD-Otu" eventType="touchUpInside" id="AcG-xE-2K1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -827,7 +861,6 @@
                             <constraint firstItem="plx-9x-nAa" firstAttribute="top" secondItem="EQP-oM-7e2" secondAttribute="bottom" constant="8" id="34Z-pn-XYc"/>
                             <constraint firstItem="pIQ-Em-cf3" firstAttribute="top" secondItem="3HV-9A-A4T" secondAttribute="bottom" constant="28" id="5ac-gu-1NK"/>
                             <constraint firstItem="pim-sA-IQU" firstAttribute="top" secondItem="Yax-kc-o4Y" secondAttribute="bottom" constant="25" id="AoG-hX-c4v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Dod-qf-XDb" secondAttribute="trailing" constant="257" id="Aoc-9i-zvj"/>
                             <constraint firstItem="Yax-kc-o4Y" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="DiY-w1-qVz"/>
                             <constraint firstItem="1sd-pv-WDf" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="DuJ-HB-7Sn"/>
                             <constraint firstItem="sCB-E6-X0d" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="EzH-ge-ggl"/>
@@ -835,12 +868,9 @@
                             <constraint firstItem="3HV-9A-A4T" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="LY2-KW-40H"/>
                             <constraint firstItem="pim-sA-IQU" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="NyL-6b-Yp2"/>
                             <constraint firstItem="Yax-kc-o4Y" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="Prb-Pe-mFL"/>
-                            <constraint firstItem="Dod-qf-XDb" firstAttribute="top" secondItem="pIQ-Em-cf3" secondAttribute="bottom" constant="25" id="W56-RU-CEV"/>
                             <constraint firstItem="pIQ-Em-cf3" firstAttribute="centerX" secondItem="3HV-9A-A4T" secondAttribute="centerX" id="WFu-zZ-WGV"/>
-                            <constraint firstItem="Dod-qf-XDb" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" constant="257" id="Y5L-IR-grd"/>
                             <constraint firstItem="1sd-pv-WDf" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="d0O-Vw-3nD"/>
                             <constraint firstItem="1sd-pv-WDf" firstAttribute="top" secondItem="sCB-E6-X0d" secondAttribute="bottom" constant="16" id="gyM-Xq-9F7"/>
-                            <constraint firstItem="tGw-N7-KQh" firstAttribute="top" secondItem="Dod-qf-XDb" secondAttribute="bottom" constant="81" id="j2c-wb-cJq"/>
                             <constraint firstItem="Yax-kc-o4Y" firstAttribute="top" secondItem="1sd-pv-WDf" secondAttribute="bottom" constant="16" id="jDD-4R-C4w"/>
                             <constraint firstItem="tGw-N7-KQh" firstAttribute="top" secondItem="pIQ-Em-cf3" secondAttribute="bottom" constant="136" id="m4C-4H-eSe"/>
                             <constraint firstItem="sCB-E6-X0d" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="vS3-th-z3g"/>
