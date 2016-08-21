@@ -21,8 +21,9 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     var tools = [Tool]()
     
 
-   
     @IBOutlet weak var searchBar: UISearchBar!
+   
+
     
     @IBOutlet weak var mapView: MKMapView!
 
@@ -44,34 +45,52 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func searchBarSearchButtonClicked( searchbar: UISearchBar) {
-        searchbar.resignFirstResponder()
-        tools = []
+    @IBAction func buttonBitch(sender: UIBarButtonItem) {
         
-        func findContactsByAge(userId:String) {
-            
-
-           let whereClause = "distance( '\(self.appDelegate.coordinate?.latitude)', '\(self.appDelegate.coordinate?.longitude)', coordinates.latitude, coordinates.longitude ) < mi(6)"
-            let dataQuery = BackendlessDataQuery()
-            dataQuery.whereClause = whereClause
-            
-            var error: Fault?
-            let bc = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
-            if error == nil {
-                print("Tools have been found: \(bc.data)")
-            }
-            else {
-                print("Server reported an error: \(error)")
-            }
-        }
+        print((self.appDelegate.coordinate?.latitude)!)
+         print((self.appDelegate.coordinate?.longitude)!)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-       
+                   let whereClause = "distance( '\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
+                    let dataQuery = BackendlessDataQuery()
+                    dataQuery.whereClause = whereClause
         
-        let searchTerm = String(searchBar.text!)
-        
-        
+                    var error: Fault?
+                    let bc = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
+                    if error == nil {
+                        print("Tools have been found: \(bc.data)")
+                    }
+                    else {
+                        print("Server reported an error: \(error)")
+                    }
     }
+//    func searchBarSearchButtonClicked( searchbar: UISearchBar) {
+//        searchbar.resignFirstResponder()
+//        tools = []
+//        
+//        func findContactsByAge(userId:String) {
+//            
+//
+//           let whereClause = "distance( '\(self.appDelegate.coordinate?.latitude)', '\(self.appDelegate.coordinate?.longitude)', coordinates.latitude, coordinates.longitude ) < mi(6)"
+//            let dataQuery = BackendlessDataQuery()
+//            dataQuery.whereClause = whereClause
+//            
+//            var error: Fault?
+//            let bc = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
+//            if error == nil {
+//                print("Tools have been found: \(bc.data)")
+//            }
+//            else {
+//                print("Server reported an error: \(error)")
+//            }
+//        }
+//        
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//       
+//        
+//        let searchTerm = String(searchBar.text!)
+//        
+//        
+//    }
     
 }
 

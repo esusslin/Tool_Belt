@@ -145,38 +145,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mGZ-ll-MKY">
-                                <rect key="frame" x="20" y="64" width="560" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ljT-s8-yMq"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <connections>
                                     <outlet property="delegate" destination="ly5-h5-6bH" id="H0f-An-3wP"/>
                                 </connections>
                             </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-Si-MHz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="IF0-PS-F4n"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ly5-h5-6bH" id="KDO-7D-9KP"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="top" secondItem="B9g-ag-JkF" secondAttribute="bottom" id="Ieh-ha-ss6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hZp-Si-MHz" secondAttribute="trailing" constant="-20" id="N0T-B2-NZa"/>
+                            <constraint firstItem="hZp-Si-MHz" firstAttribute="top" secondItem="B9g-ag-JkF" secondAttribute="bottom" id="PjH-O8-qzP"/>
                             <constraint firstItem="mt1-o4-FDN" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" constant="-20" id="QVd-D7-7IE"/>
-                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="trailing" secondItem="mt1-o4-FDN" secondAttribute="trailing" constant="-20" id="Ti4-df-7F9"/>
-                            <constraint firstItem="mt1-o4-FDN" firstAttribute="top" secondItem="mGZ-ll-MKY" secondAttribute="bottom" id="aIZ-MC-ZGj"/>
-                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="leading" secondItem="mt1-o4-FDN" secondAttribute="leading" constant="20" id="arZ-gL-7tl"/>
+                            <constraint firstItem="hZp-Si-MHz" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" constant="-20" id="UyM-wB-VBA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mt1-o4-FDN" secondAttribute="trailing" constant="-20" id="d7f-em-yb7"/>
-                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="trailing" secondItem="wEz-ag-UYT" secondAttribute="trailingMargin" id="g3c-rn-V79"/>
                             <constraint firstItem="E4F-Rv-6dZ" firstAttribute="top" secondItem="mt1-o4-FDN" secondAttribute="bottom" id="lF6-9m-Ddp"/>
-                            <constraint firstItem="mGZ-ll-MKY" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" id="lTw-aZ-3tf"/>
+                            <constraint firstItem="mt1-o4-FDN" firstAttribute="top" secondItem="hZp-Si-MHz" secondAttribute="bottom" id="oam-GI-KkO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pqn-RR-sCR">
-                        <barButtonItem key="rightBarButtonItem" title="Table" id="J4r-sw-PcJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Table" id="J4r-sw-PcJ">
+                            <connections>
+                                <action selector="buttonBitch:" destination="ly5-h5-6bH" id="8gP-GU-L4Y"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="mt1-o4-FDN" id="bvA-pL-Lw6"/>
+                        <outlet property="searchBar" destination="hZp-Si-MHz" id="toI-q6-akb"/>
                         <outlet property="searchDisplayController" destination="UsQ-y9-33O" id="5jl-1d-pqW"/>
                     </connections>
                 </viewController>
@@ -184,7 +190,6 @@
                 <searchDisplayController id="UsQ-y9-33O">
                     <connections>
                         <outlet property="delegate" destination="ly5-h5-6bH" id="Rlg-9u-l07"/>
-                        <outlet property="searchBar" destination="mGZ-ll-MKY" id="ugc-m6-z5q"/>
                         <outlet property="searchContentsController" destination="ly5-h5-6bH" id="Kgd-fe-uBw"/>
                         <outlet property="searchResultsDataSource" destination="ly5-h5-6bH" id="EfX-bt-xNg"/>
                         <outlet property="searchResultsDelegate" destination="ly5-h5-6bH" id="Yw1-Hf-EHi"/>
