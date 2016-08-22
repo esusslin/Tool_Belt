@@ -414,18 +414,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         }) { (fault : Fault!) -> Void in
             print("Server report an error : \(fault)")
         }
-        
-        
-        
-        //        dataStore.find(dataQuery, response: { (users : BackendlessCollection!) -> Void in
-        //
-        //           let withUser = users.data.first as! BackendlessUser
-        //
-        //            result(withUser: withUser)
-        //
-        //        }) { (fault : Fault!) -> Void in
-        //            print("Server report an error : \(fault)")
-        //        }
+
     }
     
     func createAvatars(avatars: NSMutableDictionary?) {
