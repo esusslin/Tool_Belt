@@ -14,7 +14,7 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     
     let backendless = Backendless.sharedInstance()
     
-    var users: [BackendlessUser] = []
+//    var users: [BackendlessUser] = []
     
     let locationManager = CLLocationManager()
 
@@ -22,6 +22,7 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var tools = [Tool]()
+    var users = [BackendlessUser]()
    
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -33,8 +34,8 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(self.appDelegate.coordinate?.latitude)
-        print(self.appDelegate.coordinate?.longitude)
+//        print(self.appDelegate.coordinate?.latitude)
+//        print(self.appDelegate.coordinate?.longitude)
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -53,63 +54,64 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     
     @IBAction func buttonBitch(sender: UIBarButtonItem) {
         
-        print((self.appDelegate.coordinate?.latitude)!)
-         print((self.appDelegate.coordinate?.longitude)!)
+                    //MARK: find tools
         
                    let whereClause = "distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
                     let dataQuery = BackendlessDataQuery()
                     let queryOptions = QueryOptions()
-                    queryOptions.related = ["tools", "tools.User"];
+                    queryOptions.relationsDepth = 1;
         
                     dataQuery.whereClause = whereClause
         
                     var error: Fault?
                     let tools = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
         
-        backendless.persistenceService.of(Tool.ofClass()).find(
-            dataQuery,
-            response: { ( tools : BackendlessCollection!) -> () in
-                let currentPage = tools.getCurrentPage()
-                print("Loaded \(currentPage.count) restaurant objects")
-                print("Total restaurants in the Backendless starage - \(tools.totalObjects)")
+                            backendless.persistenceService.of(Tool.ofClass()).find(
+                                        dataQuery, response: { ( tools : BackendlessCollection!) -> () in
                 
-                for tool in currentPage as! [Tool] {
-                    print("Tool name = \((tool.title)!)")
-                    print(tool.title!)
-                 
-//                    let withUser = BackendlessUser?
+                                                let currentPage = tools.getCurrentPage()
+
+                
+                                                    for tool in currentPage as! [Tool] {
                     
-                    let latitude = (tool.location?.latitude)!
-                    let longitude = (tool.location?.longitude)!
+                                                            let latitude = (tool.location?.latitude)!
+                                                            let longitude = (tool.location?.longitude)!
                     
                     var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude as! Double, longitude as! Double)
                     
-                    var owner: BackendlessUser?
+                    
 
                     let toolName = (tool.title)!
+                    print(toolName)
                     let toolDescription = (tool.toolDescription)!
                     let thiswhereClause = "objectId != '\((tool.ownerId)!)'"
                     
-                    //MARK: find owner
+                    //MARK: find tool's owner
+                    var owner: BackendlessUser?
+                    var imageUrl: String?
+                    var userImage = UIImage?()
                     
                     let userdataQuery = BackendlessDataQuery()
                     userdataQuery.whereClause = thiswhereClause
                     let dataStore = self.backendless.persistenceService.of(BackendlessUser.ofClass())
+                    
                     dataStore.find(userdataQuery, response: { (users : BackendlessCollection!) in
                         
-                        let owner = users.data.first as? BackendlessUser
-//                        print(owner)
+                       
+                            let owner = users.data.first as? BackendlessUser
+
                         
-                        var annotation = MKPointAnnotation()
-                        annotation.coordinate = location
-                    
-                       annotation.title = (owner!.name)
+                            var annotation = ToolAnnotation(coordinate: location)
+                            annotation.title = (owner!.name)
+                            annotation.subtitle = toolName
+                        
+                        
                         
                         self.mapView.addAnnotation(annotation)
                         
                     }) { (fault : Fault!) -> Void in
                         print("Server report an error : \(fault)")
-                    }              
+                    }
                 }
                 
             },
@@ -153,4 +155,39 @@ extension MapSearchViewController : CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: self.mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         mapView.setRegion(region, animated: true)
     }
+    
+    
+//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//        // If annotation is not of type RestaurantAnnotation (MKUserLocation types for instance), return nil
+//        if !(annotation is ToolAnnotation){
+//            return nil
+//        }
+//        
+//        var annotationView = self.mapView.dequeueReusableAnnotationViewWithIdentifier("Pin")
+//        
+//        if annotationView == nil{
+//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+//            annotationView?.canShowCallout = true
+//        }else{
+//            annotationView?.annotation = annotation
+//        }
+//        
+//        let toolAnnotation = annotation as! ToolAnnotation
+//        annotationView?.detailCalloutAccessoryView = UIImageView(image: toolAnnotation.image)
+//        
+//        // Left Accessory
+//        let leftAccessory = UILabel(frame: CGRectMake(0,0,50,30))
+////        leftAccessory.text = restaurantAnnotation.eta
+//        leftAccessory.font = UIFont(name: "Verdana", size: 10)
+//        annotationView?.leftCalloutAccessoryView = leftAccessory
+//        
+//        // Right accessory view
+//        let image = UIImage(named: "bus.png")
+//        let button = UIButton(type: .Custom)
+//        button.frame = CGRectMake(0, 0, 30, 30)
+//        button.setImage(image, forState: .Normal)
+//        annotationView?.rightCalloutAccessoryView = button
+//        return annotationView
+//    }
+
 }
