@@ -51,9 +51,11 @@ class RecentTableViewCell: UITableViewCell {
         
             if let withUser = users.data.first as? BackendlessUser {
                 
-                print(withUser)
                 
                 if let avatarURL = withUser.getProperty("Avatar") {
+                    print("********")
+                    print(avatarURL)
+                    print("********")
                     getImageFromURL(avatarURL as! String, result: { (image) in
                         self.avatarImageView.image = image
                     })
