@@ -15,6 +15,7 @@
 		E25786DE1D62AA5300648CFA /* MyToolBeltTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */; };
 		E25786E01D62AC9000648CFA /* NewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DF1D62AC9000648CFA /* NewToolViewController.swift */; };
 		E25786E41D66AB1D00648CFA /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */; };
+		E25786EE1D6C8E6A00648CFA /* ToolAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786ED1D6C8E6A00648CFA /* ToolAnnotation.swift */; };
 		E27E13A71D503A8A00C7F6E6 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E27E13A41D503A8A00C7F6E6 /* ProgressHUD.bundle */; };
 		E27E13A81D503A8A00C7F6E6 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E27E13A61D503A8A00C7F6E6 /* ProgressHUD.m */; };
 		E27E13AC1D5042E900C7F6E6 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E13AB1D5042E900C7F6E6 /* RegisterUser.swift */; };
@@ -71,6 +72,7 @@
 		E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToolBeltTableViewController.swift; sourceTree = "<group>"; };
 		E25786DF1D62AC9000648CFA /* NewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolViewController.swift; sourceTree = "<group>"; };
 		E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
+		E25786ED1D6C8E6A00648CFA /* ToolAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolAnnotation.swift; sourceTree = "<group>"; };
 		E27E13A41D503A8A00C7F6E6 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		E27E13A51D503A8A00C7F6E6 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		E27E13A61D503A8A00C7F6E6 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				E2EA4FE11D442C990092BD51 /* AppDelegate.swift */,
 				E27E13AB1D5042E900C7F6E6 /* RegisterUser.swift */,
 				E2EDDA621D50D93F009F3D33 /* Recent.swift */,
+				E25786ED1D6C8E6A00648CFA /* ToolAnnotation.swift */,
 				E2A8F1D61D5C216B008E01D3 /* Camera.swift */,
 				E2A8F1D81D5C2177008E01D3 /* Avatar.swift */,
 				E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */,
@@ -467,6 +470,7 @@
 				E22921C81D5225C4004C5D4A /* ChooseUserViewController.swift in Sources */,
 				E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */,
 				E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */,
+				E25786EE1D6C8E6A00648CFA /* ToolAnnotation.swift in Sources */,
 				E27E13BA1D504CF100C7F6E6 /* RecentTableViewCell.swift in Sources */,
 				E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */,
 				E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */,
