@@ -26,7 +26,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     var avatarImagesDictionary: NSMutableDictionary?
     var avatarDictionary: NSMutableDictionary?
     
-    var showAvatars: Bool = false
+    var showAvatars: Bool = true
     var firstLoad: Bool?
     
     var withUser: BackendlessUser?
@@ -174,6 +174,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         let message = messages[indexPath.row]
         
         let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+        print(avatar)
         
         return avatar
     }

@@ -23,6 +23,9 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     
     var tools = [Tool]()
     var users = [BackendlessUser]()
+    
+    var avatarImagesDictionary: NSMutableDictionary?
+    var avatarDictionary: NSMutableDictionary?
    
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -99,7 +102,8 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                                             //MARK: find tool's owner
                                             var owner: BackendlessUser?
                                             var imageUrl: String?
-                                            var userImage = UIImage?()
+                                            var ownerImage = UIImage(named: "avatarPlaceholder")
+                                            
                     
                                             let userdataQuery = BackendlessDataQuery()
                                             userdataQuery.whereClause = thiswhereClause
@@ -108,16 +112,27 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                                             dataStore.find(userdataQuery, response: { (users : BackendlessCollection!) in
                         
                        
-                                                let owner = users.data.first as? BackendlessUser
+                                                if let owner = users.data.first as? BackendlessUser {
+                                                    
+                                                    if let avatarURL = owner.getProperty("Avatar") {
+                                                        print("********")
+                                                        print(avatarURL)
+                                                        print("********")
+                                                        getImageFromURL(avatarURL as! String, result: { (image) in
+                                                            ownerImage = image
+                                                        })
+                                                    }
 
                         
                                                 var annotation = ToolAnnotation(coordinate: location)
-                                                annotation.title = (owner!.name)
+                                                annotation.title = (owner.name)
                                                 annotation.subtitle = toolName
-                                                annotation.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+                                                annotation.image = ownerImage
+//                                                annotation.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
                         
                         
                                                 self.mapView.addAnnotation(annotation)
+                                                }
                         
                                                 }) { (fault : Fault!) -> Void in
                                                 print("Server report an error : \(fault)")
@@ -127,9 +142,9 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                        error: { ( fault : Fault!) -> () in
                        print("Server reported an error: \(fault)")
                         })
+     }
 
-                    }
-    }
+}
 
 
 extension MapSearchViewController : CLLocationManagerDelegate {
@@ -165,7 +180,7 @@ extension MapSearchViewController : CLLocationManagerDelegate {
     
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        // If annotation is not of type RestaurantAnnotation (MKUserLocation types for instance), return nil
+        
         if !(annotation is ToolAnnotation){
             return nil
         }
@@ -178,16 +193,16 @@ extension MapSearchViewController : CLLocationManagerDelegate {
         }else{
             annotationView?.annotation = annotation
         }
-        
+        annotationView?.image = UIImage(named: "tool")
         let toolAnnotation = annotation as! ToolAnnotation
+        annotationView?.image = toolAnnotation.image
         
-        
-//        // Left Accessory
-//        let leftAccessory = UILabel(frame: CGRectMake(0,0,50,30))
+        // Left Accessory
+//        let leftAccessory = UIImage(frame: CGRectMake(0,0,50,30))
 ////        leftAccessory.text = restaurantAnnotation.eta
 //        leftAccessory.font = UIFont(name: "Verdana", size: 10)
 //        annotationView?.leftCalloutAccessoryView = leftAccessory
-//        
+        
 //        // Right accessory view
 //        let image = UIImage(named: "bus.png")
 //        let button = UIButton(type: .Custom)

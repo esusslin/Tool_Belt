@@ -14,6 +14,7 @@ class ToolAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
+    var image: UIImage?
     var rightCalloutAccessoryView: UIButton?
    
     init(coordinate: CLLocationCoordinate2D) {
