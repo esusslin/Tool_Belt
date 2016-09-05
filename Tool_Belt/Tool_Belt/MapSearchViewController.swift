@@ -81,7 +81,7 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                 
                                         let currentPage = tools.getCurrentPage()
 
-                
+                                            print("hello?")
                                         for tool in currentPage as! [Tool] {
                     
                                             let latitude = (tool.location?.latitude)!
@@ -124,16 +124,14 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                                                     }
 
                         
-                                                var annotation = ToolAnnotation(coordinate: location)
-                                                annotation.title = (owner.name)
-                                                annotation.subtitle = toolName
-                                                annotation.image = ownerImage
-//                                                annotation.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+                                                let point = ToolAnnotation(coordinate: location)
+                                                point.title = (owner.name)
+                                                point.subtitle = toolName
+                                                point.image = ownerImage
                         
-                        
-                                                self.mapView.addAnnotation(annotation)
+                                                self.mapView.addAnnotation(point)
                                                 }
-                        
+                                             
                                                 }) { (fault : Fault!) -> Void in
                                                 print("Server report an error : \(fault)")
                                                    }
@@ -147,7 +145,7 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
 }
 
 
-extension MapSearchViewController : CLLocationManagerDelegate {
+extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate {
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.requestLocation()
@@ -161,7 +159,7 @@ extension MapSearchViewController : CLLocationManagerDelegate {
             let longitude = locationManager.location!.coordinate.longitude
             print(longitude)
             print(latitude)
-            let span = MKCoordinateSpanMake(0.03, 0.03)
+            let span = MKCoordinateSpanMake(0.1, 0.1)
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.setRegion(region, animated: true)
         }
@@ -181,21 +179,22 @@ extension MapSearchViewController : CLLocationManagerDelegate {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        if !(annotation is ToolAnnotation){
+        if annotation is MKUserLocation
+        {
             return nil
         }
         
         var annotationView = self.mapView.dequeueReusableAnnotationViewWithIdentifier("Pin")
         
         if annotationView == nil{
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
-            annotationView?.canShowCallout = true
+            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+            annotationView?.canShowCallout = false
         }else{
             annotationView?.annotation = annotation
         }
         annotationView?.image = UIImage(named: "tool")
-        let toolAnnotation = annotation as! ToolAnnotation
-        annotationView?.image = toolAnnotation.image
+//        let toolAnnotation = annotation as! ToolAnnotation
+//        annotationView?.image = toolAnnotation.image
         
         // Left Accessory
 //        let leftAccessory = UIImage(frame: CGRectMake(0,0,50,30))
@@ -211,5 +210,51 @@ extension MapSearchViewController : CLLocationManagerDelegate {
 //        annotationView?.rightCalloutAccessoryView = button
         return annotationView
     }
+    
+    func mapView(mapView: MKMapView,
+                 didSelectAnnotationView view: MKAnnotationView) 
+    {
+        // 1
+        if view.annotation is MKUserLocation
+        {
+            // Don't proceed with custom callout
+            return
+        }
+        // 2
+        
+//        ownerImage.layer.cornerRadius = ownerImageframe.size.width/2
+//        ownerImage.layer.masksToBounds = true
+        
+//        self.ownerImage.image = UIImage(named: "avatarPlaceholder")
+        
+        let toolAnnotation = view.annotation as! ToolAnnotation
+        let views = NSBundle.mainBundle().loadNibNamed("CustomCalloutView", owner: nil, options: nil)
+        let calloutView = views[0] as! CustomCalloutView
+        calloutView.title.text = toolAnnotation.title
+        calloutView.subtitle.text = toolAnnotation.subtitle
+//        calloutView.title.text = toolAnnotation.title
+        let tapGesture = UITapGestureRecognizer(target: self, action: "See ToolBelter Info")
+//        calloutView.starbucksPhone.addGestureRecognizer(tapGesture)
+//        calloutView.starbucksPhone.userInteractionEnabled = true
+        calloutView.ownerImage.image = toolAnnotation.image
+        calloutView.ownerImage.layer.cornerRadius = calloutView.ownerImage.frame.size.width/2
+        calloutView.ownerImage.layer.masksToBounds = true
+//        calloutView.ownerImage.layer.cornerRadius = ownerImage.frame.size.width/2
+        // 3
+        calloutView.center = CGPointMake(view.bounds.size.width / 2, -calloutView.bounds.size.height*0.52)
+        view.addSubview(calloutView)
+    }
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
+        if view.isKindOfClass(AnnotationView)
+        {
+            for subview in view.subviews
+            {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+
+    
+
 
 }
