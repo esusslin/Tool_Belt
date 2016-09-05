@@ -81,7 +81,6 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                 
                                         let currentPage = tools.getCurrentPage()
 
-                                            print("hello?")
                                         for tool in currentPage as! [Tool] {
                     
                                             let latitude = (tool.location?.latitude)!
@@ -102,7 +101,7 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                                             //MARK: find tool's owner
                                             var owner: BackendlessUser?
                                             var imageUrl: String?
-                                            var ownerImage = UIImage(named: "avatarPlaceholder")
+//                                            var ownerImage = UIImage?()
                                             
                     
                                             let userdataQuery = BackendlessDataQuery()
@@ -114,22 +113,29 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                        
                                                 if let owner = users.data.first as? BackendlessUser {
                                                     
+                                                    var ownerImage = UIImage?()
+                                                    
                                                     if let avatarURL = owner.getProperty("Avatar") {
-                                                        print("********")
-                                                        print(avatarURL)
-                                                        print("********")
+//                                                        print("********")
+//                                                        print(avatarURL)
+//                                                        print("********")
                                                         getImageFromURL(avatarURL as! String, result: { (image) in
-                                                            ownerImage = image
+
+                                                            ownerImage = image!
+                                                            
+                                                            let point = ToolAnnotation(coordinate: location)
+                                                            point.title = (owner.name)
+                                                            point.subtitle = toolName
+                                                            point.image = ownerImage
+                                                            
+                                                            self.mapView.addAnnotation(point)
+                                                          print(image!)
                                                         })
                                                     }
 
-                        
-                                                let point = ToolAnnotation(coordinate: location)
-                                                point.title = (owner.name)
-                                                point.subtitle = toolName
-                                                point.image = ownerImage
-                        
-                                                self.mapView.addAnnotation(point)
+                                                print(ownerImage)
+                                                    
+                                                
                                                 }
                                              
                                                 }) { (fault : Fault!) -> Void in
@@ -192,22 +198,10 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
         }else{
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "tool")
+        annotationView?.image = UIImage(named: "tools")
 //        let toolAnnotation = annotation as! ToolAnnotation
 //        annotationView?.image = toolAnnotation.image
-        
-        // Left Accessory
-//        let leftAccessory = UIImage(frame: CGRectMake(0,0,50,30))
-////        leftAccessory.text = restaurantAnnotation.eta
-//        leftAccessory.font = UIFont(name: "Verdana", size: 10)
-//        annotationView?.leftCalloutAccessoryView = leftAccessory
-        
-//        // Right accessory view
-//        let image = UIImage(named: "bus.png")
-//        let button = UIButton(type: .Custom)
-//        button.frame = CGRectMake(0, 0, 30, 30)
-//        button.setImage(image, forState: .Normal)
-//        annotationView?.rightCalloutAccessoryView = button
+
         return annotationView
     }
     
@@ -221,11 +215,7 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
             return
         }
         // 2
-        
-//        ownerImage.layer.cornerRadius = ownerImageframe.size.width/2
-//        ownerImage.layer.masksToBounds = true
-        
-//        self.ownerImage.image = UIImage(named: "avatarPlaceholder")
+
         
         let toolAnnotation = view.annotation as! ToolAnnotation
         let views = NSBundle.mainBundle().loadNibNamed("CustomCalloutView", owner: nil, options: nil)

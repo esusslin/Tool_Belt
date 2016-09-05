@@ -16,7 +16,8 @@ class CustomCalloutView: UIView {
     
     @IBOutlet weak var subtitle: UILabel!
     
-    @IBOutlet weak var distance: UILabel!
+    @IBAction func toolDetailDisclosureButtonPressed(sender: AnyObject) {
+    }
     
     
 }

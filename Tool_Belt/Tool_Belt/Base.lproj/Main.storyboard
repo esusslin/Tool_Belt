@@ -196,7 +196,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3475" y="2175"/>
+            <point key="canvasLocation" x="3539" y="3827"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="xQs-Zh-cHC">
@@ -610,7 +610,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aW-E3-DEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2595" y="2670"/>
+            <point key="canvasLocation" x="2615" y="2218"/>
         </scene>
         <!--SIGN UP-->
         <scene sceneID="F7s-0V-gZI">
@@ -907,7 +907,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quC-Rb-4GJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4303" y="3587"/>
+            <point key="canvasLocation" x="3539" y="2962"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="53e-ZB-Ldh">
