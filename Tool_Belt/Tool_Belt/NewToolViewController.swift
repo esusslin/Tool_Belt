@@ -118,6 +118,8 @@ class NewToolViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        ProgressHUD.dismiss()
+        
         if segue.identifier == "newTool2Seg" {
             
             let newTool2VC = segue.destinationViewController as! NewTool2ViewController

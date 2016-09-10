@@ -99,10 +99,45 @@ class NewTool2ViewController: UIViewController {
     
     @IBAction func toolParticularsButtonPressed(sender: AnyObject) {
         
-        print(tooLong)
-        print(tooLat)
-        print(toolLocation)
-        print(toolAddress)
+        let newTool = Tool()
+        
+        newTool.title = toolTitle.text
+        newTool.make = toolMake.text
+        newTool.toolDescription = toolDescription.text
+        newTool.location = toolLocation
+        
+        backendless.persistenceService.of(Tool.ofClass()).save(newTool,
+                                                               response: { ( d : AnyObject!) -> () in
+                                                                print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
+                                                                
+                                                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolShow") as! ToolViewController
+                                                                    vc.tool = d as! Tool
+                                                                
+                                                                self.presentViewController(vc, animated: true, completion: nil)
+
+                                                                
+            },
+                                                               
+                                                               error: { ( fault : Fault!) -> () in
+                                                                print("Server reported an error: \(fault)")
+        })
+    }
+    
+    //MARK: Navigations
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "newTool2ToolShowSeg" {
+            
+            let newTool2VC = segue.destinationViewController as! NewTool2ViewController
+            
+            print(self.toolAddress)
+            print(toolAddress)
+            
+            newTool2VC.toolAddress = toolAddress!
+            
+        }
+        
     }
 
 }
