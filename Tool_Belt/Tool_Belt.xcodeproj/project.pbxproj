@@ -26,6 +26,7 @@
 		E27E13BC1D504DA600C7F6E6 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */; };
 		E28FDBF81D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FDBF71D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift */; };
 		E28FDBFA1D8485F2009B87B1 /* ToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FDBF91D8485F2009B87B1 /* ToolViewController.swift */; };
+		E28FDBFC1D84B81E009B87B1 /* NewTool2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FDBFB1D84B81E009B87B1 /* NewTool2ViewController.swift */; };
 		E29E41581D48528E005DA092 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E41571D48528E005DA092 /* FBSDKCoreKit.framework */; };
 		E29E415A1D48529A005DA092 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E41591D48529A005DA092 /* FBSDKLoginKit.framework */; };
 		E29E415C1D4852A4005DA092 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */; };
@@ -89,6 +90,7 @@
 		E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		E28FDBF71D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToolBeltTableViewCell.swift; sourceTree = "<group>"; };
 		E28FDBF91D8485F2009B87B1 /* ToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolViewController.swift; sourceTree = "<group>"; };
+		E28FDBFB1D84B81E009B87B1 /* NewTool2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTool2ViewController.swift; sourceTree = "<group>"; };
 		E29E41571D48528E005DA092 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E29E41591D48529A005DA092 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */,
 				E25786DF1D62AC9000648CFA /* NewToolViewController.swift */,
+				E28FDBFB1D84B81E009B87B1 /* NewTool2ViewController.swift */,
 				E22921C71D5225C4004C5D4A /* ChooseUserViewController.swift */,
 				E28FDBF91D8485F2009B87B1 /* ToolViewController.swift */,
 				E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */,
@@ -503,6 +506,7 @@
 				E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */,
 				E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
+				E28FDBFC1D84B81E009B87B1 /* NewTool2ViewController.swift in Sources */,
 				E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */,
 				E27E13A81D503A8A00C7F6E6 /* ProgressHUD.m in Sources */,
 				E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */,

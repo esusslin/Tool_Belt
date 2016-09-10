@@ -10,18 +10,24 @@ import UIKit
 import CoreLocation
 import AddressBookUI
 
+// A delay function
+func delay(seconds seconds: Double, completion:()->()) {
+    let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
+    
+    dispatch_after(popTime, dispatch_get_main_queue()) {
+        completion()
+    }
+}
+
 class NewToolViewController: UIViewController {
     
     var backendless = Backendless.sharedInstance()
     
-    @IBOutlet weak var titleTextField: UITextField!
-    
-    @IBOutlet weak var makeTextField: UITextField!
-
-    @IBOutlet weak var toolDescriptionTextField: UITextField!
+    @IBOutlet weak var listAddress: UIButton!
     
     @IBOutlet weak var toolAddressTextField: UITextField!
     
+    let info = UILabel()
   
     var geocoder: CLGeocoder = CLGeocoder()
     
@@ -35,7 +41,47 @@ class NewToolViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        listAddress.layer.cornerRadius = 8.0
+        listAddress.layer.masksToBounds = true
+        
+        info.frame = CGRect(x: 0.0, y: listAddress.center.y + 60.0,
+                            width: view.frame.size.width, height: 30)
+        info.backgroundColor = UIColor.clearColor()
+        info.font = UIFont(name: "HelveticaNeue", size: 12.0)
+        info.textAlignment = .Center
+        info.textColor = UIColor.whiteColor()
+        info.text = "Enter the address where this tool will be available"
+        view.insertSubview(info, belowSubview: listAddress)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        toolAddressTextField.layer.position.x -= view.bounds.width
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let fadeIn = CABasicAnimation(keyPath: "opacity")
+        fadeIn.fromValue = 0.0
+        fadeIn.toValue = 1.0
+        fadeIn.duration = 0.5
+        fadeIn.fillMode = kCAFillModeBackwards
+        fadeIn.beginTime = CACurrentMediaTime() + 0.5
+        
+        fadeIn.beginTime = CACurrentMediaTime() + 0.7
+        
+        fadeIn.beginTime = CACurrentMediaTime() + 0.9
+        
+        fadeIn.beginTime = CACurrentMediaTime() + 1.1
+        
+        let flyLeft = CABasicAnimation(keyPath: "position.x")
+        flyLeft.fromValue = info.layer.position.x + view.frame.size.width
+        flyLeft.toValue = info.layer.position.x
+        flyLeft.duration = 5.0
+        info.layer.addAnimation(flyLeft, forKey: "infoappear")
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,86 +93,43 @@ class NewToolViewController: UIViewController {
     @IBAction func buttonPressed(sender: AnyObject) {
         
          print(currentUser.objectId)
-        findContactsByAge(currentUser.objectId)
        
     }
 
     @IBAction func listToolButtonPressed(sender: UIButton) {
-        
-        
-        
-        if titleTextField.text != "" && makeTextField.text != "" && toolDescriptionTextField.text != "" && toolAddressTextField.text != "" {
-            
-            
-            
+
+        if toolAddressTextField.text != "" {
+ 
             toolAddress = toolAddressTextField.text
+
+            ProgressHUD.show("Registering new tool address...")
             
-            
-            ProgressHUD.show("Registering new tool...")
-            
-            geocoder.geocodeAddressString(toolAddress!) { (placemarks, error) -> Void in
-                
-                    let firstPlacemark = placemarks?[0]
-                    
-                    self.tooLat = firstPlacemark!.location!.coordinate.latitude
-                
-                    self.tooLong = firstPlacemark!.location!.coordinate.longitude
-                
-                
-            }
-            
-            print(self.tooLat)
-            
-            print(self.tooLong)
-      
-            let newTool = Tool()
-            
-            newTool.title = titleTextField.text
-            newTool.make = makeTextField.text
-            newTool.toolDescription = toolDescriptionTextField.text
-//            newTool.userID = currentUser.objectId
-            newTool.location = GeoPoint.geoPoint(GEO_POINT(latitude: self.tooLat, longitude: self.tooLong)) as? GeoPoint
-            
-           
-            
-            backendless.persistenceService.of(Tool.ofClass()).save(newTool,
-                                                                     response: { ( d : AnyObject!) -> () in
-                                                                        print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
-                                                                        
-//
-                },
-                                                                     
-                                                                     error: { ( fault : Fault!) -> () in
-                                                                        print("Server reported an error: \(fault)")
-            })
-            
-            ProgressHUD.dismiss()
-//            performSegueWithIdentifier("newToolNewToolBelt", sender: self)
-            
+                performSegueWithIdentifier("newTool2Seg", sender: self)
             
         } else {
-            // show an error to user
+            // show an error to user230
             
-            ProgressHUD.showError("All fields are required to login")
+            ProgressHUD.showError("Please enter an address")
         }
         
     }
     
-    func findContactsByAge(userId:String) {
+    //MARK: Navigations
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let whereClause = "ownerId = '\(userId)'"
-        let dataQuery = BackendlessDataQuery()
-        dataQuery.whereClause = whereClause
+        if segue.identifier == "newTool2Seg" {
+            
+            let newTool2VC = segue.destinationViewController as! NewTool2ViewController
+            
+            print(self.toolAddress)
+            print(toolAddress)
+            
+            newTool2VC.toolAddress = toolAddress!
+            
+        }
         
-        var error: Fault?
-        let bc = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
-        if error == nil {
-            print("Tools have been found: \(bc.data)")
-        }
-        else {
-            print("Server reported an error: \(error)")
-        }
     }
-   
+    
 
 }
