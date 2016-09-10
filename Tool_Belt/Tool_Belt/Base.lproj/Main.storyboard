@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmR-ks-QHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5479" y="2815"/>
+            <point key="canvasLocation" x="5455" y="3007"/>
         </scene>
         <!--Personal Messages-->
         <scene sceneID="dix-kE-5hw">
@@ -586,7 +586,7 @@
                         <outlet property="privacyCell" destination="gMH-Zp-Rg8" id="62O-dE-gXk"/>
                         <outlet property="termsCell" destination="p5g-ca-ktt" id="VOE-ck-PIa"/>
                         <outlet property="userNameLabel" destination="3cv-Ck-i6Z" id="sfK-ds-UpE"/>
-                        <segue destination="IoL-YX-BRW" kind="show" identifier="profileToToolBeltSeg" id="RIf-QJ-uwg"/>
+                        <segue destination="YIc-YG-94j" kind="show" identifier="profileToToolBeltSeg" id="RIf-QJ-uwg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJd-Vh-HIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -780,11 +780,112 @@
                     <connections>
                         <outlet property="tableView" destination="lMM-KN-ubW" id="pnD-lX-5zw"/>
                         <segue destination="0T0-kD-Otu" kind="push" identifier="toolBeltToNewToolForm" id="s37-A8-ARo"/>
+                        <segue destination="lQP-ng-hUC" kind="show" identifier="toolBeltToShow" id="29r-fy-V7x"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzm-fw-ft2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="4659"/>
+            <point key="canvasLocation" x="2095" y="4659"/>
+        </scene>
+        <!--Tool View Controller-->
+        <scene sceneID="Vav-sh-RWr">
+            <objects>
+                <viewController id="lQP-ng-hUC" customClass="ToolViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SaY-A9-3uw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ky5-bH-lay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="npG-OU-66g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6t-kI-4x7">
+                                <rect key="frame" x="20" y="303" width="71" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="aJS-ys-wgP"/>
+                                    <constraint firstAttribute="height" constant="44" id="sGC-xa-HFD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="toolDescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4T-iL-TZe">
+                                <rect key="frame" x="139" y="303" width="441" height="157"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-R3-4l9">
+                                <rect key="frame" x="20" y="377" width="71" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lIr-Qz-PYM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRZ-xp-mdY">
+                                <rect key="frame" x="20" y="483" width="560" height="65"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="4xb-jF-vhd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="Delete this Tool">
+                                    <color key="titleColor" red="0.92486367449999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteToolButtonPressed:" destination="lQP-ng-hUC" eventType="touchUpInside" id="jSk-3H-Gj5"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEa-pa-cKa">
+                                <rect key="frame" x="523" y="72" width="51" height="31"/>
+                            </switch>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6y-zm-fRp">
+                                <rect key="frame" x="273" y="72" width="230" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="ofn-tR-gp4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V6y-zm-fRp" firstAttribute="top" secondItem="SaY-A9-3uw" secondAttribute="bottom" constant="8" symbolic="YES" id="2iZ-gf-TSc"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="leading" secondItem="Gy5-R3-4l9" secondAttribute="leading" id="BNI-hb-Lxq"/>
+                            <constraint firstItem="v4T-iL-TZe" firstAttribute="trailing" secondItem="oRZ-xp-mdY" secondAttribute="trailing" id="Dvr-dL-qOY"/>
+                            <constraint firstItem="V6y-zm-fRp" firstAttribute="leading" secondItem="I6t-kI-4x7" secondAttribute="leading" id="HAS-9X-pga"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="trailing" secondItem="Gy5-R3-4l9" secondAttribute="trailing" id="Sjh-Bd-Kfd"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="top" secondItem="V6y-zm-fRp" secondAttribute="bottom" constant="43" id="YF6-Mc-Uce"/>
+                            <constraint firstItem="ky5-bH-lay" firstAttribute="top" secondItem="oRZ-xp-mdY" secondAttribute="bottom" constant="8" symbolic="YES" id="c6E-Ua-oTZ"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="top" secondItem="v4T-iL-TZe" secondAttribute="top" id="gEQ-Mx-V8P"/>
+                            <constraint firstItem="oRZ-xp-mdY" firstAttribute="top" secondItem="v4T-iL-TZe" secondAttribute="bottom" constant="23" id="gck-P4-gPC"/>
+                            <constraint firstItem="v4T-iL-TZe" firstAttribute="leading" secondItem="I6t-kI-4x7" secondAttribute="trailing" constant="48" id="iz5-3o-usz"/>
+                            <constraint firstItem="DEa-pa-cKa" firstAttribute="top" secondItem="SaY-A9-3uw" secondAttribute="bottom" constant="8" id="jLU-DX-4YK"/>
+                            <constraint firstItem="v4T-iL-TZe" firstAttribute="trailing" secondItem="npG-OU-66g" secondAttribute="trailingMargin" id="nEb-Sh-zR4"/>
+                            <constraint firstItem="V6y-zm-fRp" firstAttribute="leading" secondItem="npG-OU-66g" secondAttribute="leadingMargin" id="npg-0c-lgB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DEa-pa-cKa" secondAttribute="trailing" constant="8" id="pcp-su-3Ai"/>
+                            <constraint firstItem="Gy5-R3-4l9" firstAttribute="top" secondItem="I6t-kI-4x7" secondAttribute="bottom" constant="30" id="q0x-WW-YuV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DEa-pa-cKa" secondAttribute="trailing" constant="8" id="qUI-a1-ZCZ"/>
+                            <constraint firstItem="Gy5-R3-4l9" firstAttribute="leading" secondItem="oRZ-xp-mdY" secondAttribute="leading" id="ruR-e1-Z0I"/>
+                            <constraint firstItem="DEa-pa-cKa" firstAttribute="leading" secondItem="V6y-zm-fRp" secondAttribute="trailing" constant="20" id="vTV-Y8-3Do"/>
+                            <constraint firstItem="oRZ-xp-mdY" firstAttribute="top" secondItem="Gy5-R3-4l9" secondAttribute="bottom" constant="66" id="xox-JO-edk"/>
+                            <constraint firstItem="V6y-zm-fRp" firstAttribute="top" secondItem="DEa-pa-cKa" secondAttribute="top" id="yu7-9i-S1t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="availableSwitch" destination="DEa-pa-cKa" id="IGd-lu-h6E"/>
+                        <outlet property="toolDescription" destination="v4T-iL-TZe" id="6Ka-Fi-gA4"/>
+                        <outlet property="toolImageView" destination="V6y-zm-fRp" id="oyH-Ws-vRj"/>
+                        <outlet property="toolMake" destination="Gy5-R3-4l9" id="ViG-zw-hc2"/>
+                        <outlet property="toolTitle" destination="I6t-kI-4x7" id="RpN-bu-6JD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MoE-JL-yzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2845" y="4659"/>
         </scene>
         <!--List a new Tool-->
         <scene sceneID="TFG-qr-Qfx">
@@ -900,7 +1001,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX8-Me-ltG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381" y="5554"/>
+            <point key="canvasLocation" x="1283" y="5578"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QVD-74-nrL">
@@ -958,6 +1059,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlv-mi-h1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1368" y="3001"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hOC-K0-iG1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YIc-YG-94j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bCl-Rc-DTs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IoL-YX-BRW" kind="relationship" relationship="rootViewController" id="oin-UR-fGw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVY-hR-D6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1283" y="4659"/>
         </scene>
     </scenes>
     <resources>

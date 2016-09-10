@@ -16,5 +16,5 @@ class Tool : NSObject {
     var toolDescription : String?
     var location : GeoPoint?
     var available : Bool?
-        
+    
 }
