@@ -591,7 +591,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJd-Vh-HIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="2962"/>
+            <point key="canvasLocation" x="1376" y="3786"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QW9-EH-l6A">
@@ -726,11 +726,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lN4-Vh-bXB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Tool Cell" rowHeight="100" id="lN4-Vh-bXB" customClass="MyToolBeltTableViewCell" customModule="Tool_Belt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lN4-Vh-bXB" id="bc0-sM-ELi">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnK-pT-140">
@@ -748,13 +748,24 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6c-nL-2S3">
+                                            <rect key="frame" x="413" y="39" width="110" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="toolImageView" destination="RnK-pT-140" id="rYz-TT-nBS"/>
+                                    <outlet property="toolMake" destination="Rd2-Wu-gFj" id="KXU-3d-Cgp"/>
+                                    <outlet property="toolTitle" destination="Efj-zm-5EK" id="Xq7-J9-En0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="IoL-YX-BRW" id="cfO-hA-RoB"/>
-                            <outlet property="delegate" destination="IoL-YX-BRW" id="M15-oB-kke"/>
+                            <outlet property="dataSource" destination="IoL-YX-BRW" id="X8N-qe-YkD"/>
+                            <outlet property="delegate" destination="IoL-YX-BRW" id="0Cf-IN-Tj6"/>
                         </connections>
                     </tableView>
                     <toolbarItems/>
@@ -767,12 +778,13 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="tableView" destination="lMM-KN-ubW" id="pnD-lX-5zw"/>
                         <segue destination="0T0-kD-Otu" kind="push" identifier="toolBeltToNewToolForm" id="s37-A8-ARo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzm-fw-ft2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="2962"/>
+            <point key="canvasLocation" x="1283" y="4659"/>
         </scene>
         <!--List a new Tool-->
         <scene sceneID="TFG-qr-Qfx">
@@ -888,7 +900,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX8-Me-ltG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2372" y="2962"/>
+            <point key="canvasLocation" x="1381" y="5554"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QVD-74-nrL">
@@ -945,7 +957,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlv-mi-h1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2516" y="3613"/>
+            <point key="canvasLocation" x="1368" y="3001"/>
         </scene>
     </scenes>
     <resources>

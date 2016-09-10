@@ -222,14 +222,13 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
         let calloutView = views[0] as! CustomCalloutView
         calloutView.title.text = toolAnnotation.title
         calloutView.subtitle.text = toolAnnotation.subtitle
-//        calloutView.title.text = toolAnnotation.title
+
         let tapGesture = UITapGestureRecognizer(target: self, action: "See ToolBelter Info")
-//        calloutView.starbucksPhone.addGestureRecognizer(tapGesture)
-//        calloutView.starbucksPhone.userInteractionEnabled = true
+
         calloutView.ownerImage.image = toolAnnotation.image
         calloutView.ownerImage.layer.cornerRadius = calloutView.ownerImage.frame.size.width/2
         calloutView.ownerImage.layer.masksToBounds = true
-//        calloutView.ownerImage.layer.cornerRadius = ownerImage.frame.size.width/2
+
         // 3
         calloutView.center = CGPointMake(view.bounds.size.width / 2, -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
