@@ -24,6 +24,7 @@
 		E27E13AC1D5042E900C7F6E6 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E13AB1D5042E900C7F6E6 /* RegisterUser.swift */; };
 		E27E13BA1D504CF100C7F6E6 /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E13B91D504CF100C7F6E6 /* RecentTableViewCell.swift */; };
 		E27E13BC1D504DA600C7F6E6 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */; };
+		E28FDBF81D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FDBF71D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift */; };
 		E29E41581D48528E005DA092 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E41571D48528E005DA092 /* FBSDKCoreKit.framework */; };
 		E29E415A1D48529A005DA092 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E41591D48529A005DA092 /* FBSDKLoginKit.framework */; };
 		E29E415C1D4852A4005DA092 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */; };
@@ -85,6 +86,7 @@
 		E27E13AB1D5042E900C7F6E6 /* RegisterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		E27E13B91D504CF100C7F6E6 /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		E27E13BB1D504DA600C7F6E6 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		E28FDBF71D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToolBeltTableViewCell.swift; sourceTree = "<group>"; };
 		E29E41571D48528E005DA092 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E29E41591D48529A005DA092 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E29E415B1D4852A4005DA092 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				E27E13B91D504CF100C7F6E6 /* RecentTableViewCell.swift */,
+				E28FDBF71D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift */,
 			);
 			name = CustomTableViewCells;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				E25786DE1D62AA5300648CFA /* MyToolBeltTableViewController.swift in Sources */,
 				E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */,
 				E22921C81D5225C4004C5D4A /* ChooseUserViewController.swift in Sources */,
+				E28FDBF81D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift in Sources */,
 				E25786F01D77BB1400648CFA /* AnnotationView.swift in Sources */,
 				E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */,
 				E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */,
