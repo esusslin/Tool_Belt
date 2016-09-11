@@ -12,6 +12,7 @@
 		E234DDC81D47F220008DAB22 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */; };
 		E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */; };
 		E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */; };
+		E23816A31D84F0B00083C659 /* ToolShowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23816A21D84F0B00083C659 /* ToolShowTableViewController.swift */; };
 		E25786DE1D62AA5300648CFA /* MyToolBeltTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */; };
 		E25786E01D62AC9000648CFA /* NewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DF1D62AC9000648CFA /* NewToolViewController.swift */; };
 		E25786E41D66AB1D00648CFA /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */; };
@@ -75,6 +76,7 @@
 		E234DDC71D47F220008DAB22 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E234DDCA1D47F2FF008DAB22 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E23816A21D84F0B00083C659 /* ToolShowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolShowTableViewController.swift; sourceTree = "<group>"; };
 		E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToolBeltTableViewController.swift; sourceTree = "<group>"; };
 		E25786DF1D62AC9000648CFA /* NewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolViewController.swift; sourceTree = "<group>"; };
 		E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				E28FDBF91D8485F2009B87B1 /* ToolViewController.swift */,
 				E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */,
 				E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */,
+				E23816A21D84F0B00083C659 /* ToolShowTableViewController.swift */,
 				E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
@@ -499,6 +502,7 @@
 				E28FDBF81D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift in Sources */,
 				E25786F01D77BB1400648CFA /* AnnotationView.swift in Sources */,
 				E28FDBFA1D8485F2009B87B1 /* ToolViewController.swift in Sources */,
+				E23816A31D84F0B00083C659 /* ToolShowTableViewController.swift in Sources */,
 				E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */,
 				E2A45BE41D487B2200B06023 /* TabBarController.swift in Sources */,
 				E25786EE1D6C8E6A00648CFA /* ToolAnnotation.swift in Sources */,
