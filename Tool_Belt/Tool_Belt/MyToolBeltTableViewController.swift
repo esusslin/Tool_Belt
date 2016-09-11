@@ -81,7 +81,7 @@ class MyToolBeltTableViewController: UIViewController, UITableViewDataSource, UI
         
         if segue.identifier == "toolBeltToShow" {
             let indexPath = sender as! NSIndexPath
-            let toolVC = segue.destinationViewController as! ToolViewController
+            let toolVC = segue.destinationViewController as! ToolShowTableViewController
             
             
             let tool = myTools[indexPath.row]
