@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmR-ks-QHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5479" y="2815"/>
+            <point key="canvasLocation" x="5455" y="3007"/>
         </scene>
         <!--Personal Messages-->
         <scene sceneID="dix-kE-5hw">
@@ -586,7 +586,7 @@
                         <outlet property="privacyCell" destination="gMH-Zp-Rg8" id="62O-dE-gXk"/>
                         <outlet property="termsCell" destination="p5g-ca-ktt" id="VOE-ck-PIa"/>
                         <outlet property="userNameLabel" destination="3cv-Ck-i6Z" id="sfK-ds-UpE"/>
-                        <segue destination="IoL-YX-BRW" kind="show" identifier="profileToToolBeltSeg" id="RIf-QJ-uwg"/>
+                        <segue destination="YIc-YG-94j" kind="show" identifier="profileToToolBeltSeg" id="RIf-QJ-uwg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJd-Vh-HIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -780,11 +780,109 @@
                     <connections>
                         <outlet property="tableView" destination="lMM-KN-ubW" id="pnD-lX-5zw"/>
                         <segue destination="0T0-kD-Otu" kind="push" identifier="toolBeltToNewToolForm" id="s37-A8-ARo"/>
+                        <segue destination="lQP-ng-hUC" kind="show" identifier="toolBeltToShow" id="29r-fy-V7x"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzm-fw-ft2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="4659"/>
+            <point key="canvasLocation" x="2095" y="4659"/>
+        </scene>
+        <!--Tool View Controller-->
+        <scene sceneID="Vav-sh-RWr">
+            <objects>
+                <viewController storyboardIdentifier="ToolShow" id="lQP-ng-hUC" customClass="ToolViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SaY-A9-3uw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ky5-bH-lay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="npG-OU-66g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6t-kI-4x7">
+                                <rect key="frame" x="20" y="280" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="L3O-FY-voJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-R3-4l9">
+                                <rect key="frame" x="20" y="335" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="t0s-B6-MX3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRZ-xp-mdY">
+                                <rect key="frame" x="20" y="483" width="560" height="65"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="YPS-q6-F3p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="Delete this Tool">
+                                    <color key="titleColor" red="0.92486367449999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteToolButtonPressed:" destination="lQP-ng-hUC" eventType="touchUpInside" id="jSk-3H-Gj5"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEa-pa-cKa">
+                                <rect key="frame" x="531" y="72" width="51" height="31"/>
+                            </switch>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6y-zm-fRp">
+                                <rect key="frame" x="273" y="72" width="230" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="Usl-yE-eob"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="toolDescription" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4T-iL-TZe">
+                                <rect key="frame" x="20" y="389" width="560" height="69"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="leading" secondItem="Gy5-R3-4l9" secondAttribute="leading" id="2uk-5M-hKv"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="top" secondItem="V6y-zm-fRp" secondAttribute="bottom" constant="20" id="6dM-yl-gpi"/>
+                            <constraint firstItem="v4T-iL-TZe" firstAttribute="trailing" secondItem="oRZ-xp-mdY" secondAttribute="trailing" id="BRT-x5-Brf"/>
+                            <constraint firstItem="DEa-pa-cKa" firstAttribute="leading" secondItem="V6y-zm-fRp" secondAttribute="trailing" constant="28" id="EmG-If-vpK"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="trailing" secondItem="Gy5-R3-4l9" secondAttribute="trailing" id="HAr-Mc-Bj6"/>
+                            <constraint firstItem="v4T-iL-TZe" firstAttribute="top" secondItem="Gy5-R3-4l9" secondAttribute="bottom" constant="14" id="Mnb-cO-YTt"/>
+                            <constraint firstItem="Gy5-R3-4l9" firstAttribute="top" secondItem="I6t-kI-4x7" secondAttribute="bottom" constant="15" id="P4r-pT-Rf2"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="leading" secondItem="npG-OU-66g" secondAttribute="leadingMargin" id="QZH-P4-Cn7"/>
+                            <constraint firstItem="v4T-iL-TZe" firstAttribute="leading" secondItem="oRZ-xp-mdY" secondAttribute="leading" id="WH2-gz-Zx7"/>
+                            <constraint firstItem="V6y-zm-fRp" firstAttribute="top" secondItem="DEa-pa-cKa" secondAttribute="top" id="bP0-YK-LB6"/>
+                            <constraint firstItem="ky5-bH-lay" firstAttribute="top" secondItem="oRZ-xp-mdY" secondAttribute="bottom" constant="8" symbolic="YES" id="cxi-Ar-TYg"/>
+                            <constraint firstItem="Gy5-R3-4l9" firstAttribute="trailing" secondItem="v4T-iL-TZe" secondAttribute="trailing" id="g3C-mx-55e"/>
+                            <constraint firstItem="Gy5-R3-4l9" firstAttribute="leading" secondItem="v4T-iL-TZe" secondAttribute="leading" id="iTg-kw-gdv"/>
+                            <constraint firstItem="V6y-zm-fRp" firstAttribute="top" secondItem="SaY-A9-3uw" secondAttribute="bottom" constant="8" symbolic="YES" id="lv5-rc-mbP"/>
+                            <constraint firstItem="DEa-pa-cKa" firstAttribute="trailing" secondItem="npG-OU-66g" secondAttribute="trailingMargin" id="oct-vO-LTJ"/>
+                            <constraint firstItem="DEa-pa-cKa" firstAttribute="trailing" secondItem="I6t-kI-4x7" secondAttribute="trailing" id="rf8-uO-VoH"/>
+                            <constraint firstItem="I6t-kI-4x7" firstAttribute="centerY" secondItem="npG-OU-66g" secondAttribute="centerY" id="uBC-ww-Mtq"/>
+                            <constraint firstItem="oRZ-xp-mdY" firstAttribute="top" secondItem="v4T-iL-TZe" secondAttribute="bottom" constant="25" id="waI-j0-JOY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="availableSwitch" destination="DEa-pa-cKa" id="IGd-lu-h6E"/>
+                        <outlet property="toolDescription" destination="v4T-iL-TZe" id="6Ka-Fi-gA4"/>
+                        <outlet property="toolImageView" destination="V6y-zm-fRp" id="oyH-Ws-vRj"/>
+                        <outlet property="toolMake" destination="Gy5-R3-4l9" id="ViG-zw-hc2"/>
+                        <outlet property="toolTitle" destination="I6t-kI-4x7" id="RpN-bu-6JD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MoE-JL-yzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2845" y="4659"/>
         </scene>
         <!--List a new Tool-->
         <scene sceneID="TFG-qr-Qfx">
@@ -798,109 +896,138 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tool Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pim-sA-IQU">
-                                <rect key="frame" x="20" y="262" width="142" height="32"/>
-                                <color key="backgroundColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="nj9-Go-4Re"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCB-E6-X0d">
-                                <rect key="frame" x="20" y="115" width="560" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="IHT-mR-xeU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tool description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yax-kc-o4Y">
-                                <rect key="frame" x="20" y="207" width="560" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="85d-gg-xUf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tool Details:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plx-9x-nAa">
-                                <rect key="frame" x="20" y="72" width="142" height="32"/>
-                                <color key="backgroundColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="HIB-Q2-FdA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: 1 Infinite Loop, CA, USA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3HV-9A-A4T">
-                                <rect key="frame" x="20" y="316" width="560" height="30"/>
+                                <rect key="frame" x="20" y="192" width="560" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="rGc-fJ-cJP"/>
+                                    <constraint firstAttribute="height" constant="30" id="ahD-az-Gzh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIQ-Em-cf3">
-                                <rect key="frame" x="229" y="374" width="142" height="46"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="157" y="252" width="287" height="46"/>
+                                <color key="backgroundColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="33h-Yo-AGS"/>
-                                    <constraint firstAttribute="width" constant="142" id="DOq-x2-5E6"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="142" id="b8Y-PC-k40"/>
+                                    <constraint firstAttribute="width" constant="287" id="kTr-oH-yHN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <state key="normal" title="List Tool">
-                                    <color key="titleColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="List Tool Address">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="listToolButtonPressed:" destination="0T0-kD-Otu" eventType="touchUpInside" id="xc1-dw-Ul7"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sd-pv-WDf">
-                                <rect key="frame" x="20" y="161" width="560" height="30"/>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3HV-9A-A4T" firstAttribute="centerX" secondItem="pIQ-Em-cf3" secondAttribute="centerX" id="03F-pR-SG1"/>
+                            <constraint firstItem="3HV-9A-A4T" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="Grg-gH-1nn"/>
+                            <constraint firstItem="pIQ-Em-cf3" firstAttribute="top" secondItem="3HV-9A-A4T" secondAttribute="bottom" constant="30" id="HH4-V0-OGw"/>
+                            <constraint firstItem="3HV-9A-A4T" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="LK8-4O-Ugi"/>
+                            <constraint firstItem="tGw-N7-KQh" firstAttribute="top" secondItem="pIQ-Em-cf3" secondAttribute="bottom" constant="258" id="iGA-ak-0r2"/>
+                            <constraint firstItem="3HV-9A-A4T" firstAttribute="top" secondItem="EQP-oM-7e2" secondAttribute="bottom" constant="128" id="zvl-IW-VPK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="List a new Tool" id="mKH-8t-qGr"/>
+                    <connections>
+                        <outlet property="listAddress" destination="pIQ-Em-cf3" id="oPr-KU-e56"/>
+                        <outlet property="toolAddressTextField" destination="3HV-9A-A4T" id="HIs-hI-84l"/>
+                        <segue destination="y0C-7J-Ngy" kind="show" identifier="newTool2Seg" id="Clr-yu-t64"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UX8-Me-ltG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1283" y="5578"/>
+        </scene>
+        <!--New Tool2 View Controller-->
+        <scene sceneID="sSH-EW-FTB">
+            <objects>
+                <viewController id="y0C-7J-Ngy" customClass="NewTool2ViewController" customModule="Tool_Belt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X61-2f-SVE"/>
+                        <viewControllerLayoutGuide type="bottom" id="BEo-Gy-Tp4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QKG-iG-vqW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osg-ni-yY9">
+                                <rect key="frame" x="157" y="307" width="287" height="46"/>
+                                <color key="backgroundColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ZKZ-Aj-D2D"/>
+                                    <constraint firstAttribute="width" constant="287" id="7LD-sR-wqR"/>
+                                    <constraint firstAttribute="height" constant="46" id="9MN-8V-UFO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="List Tool Particulars">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="listToolButtonPressed:" destination="0T0-kD-Otu" eventType="touchUpInside" id="s73-YC-kgh"/>
+                                    <action selector="toolParticularsButtonPressed:" destination="y0C-7J-Ngy" eventType="touchUpInside" id="uhd-d2-8cI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tool title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S4Z-oc-duM">
+                                <rect key="frame" x="20" y="131" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="HB2-Uf-cWw"/>
+                                    <constraint firstAttribute="height" constant="30" id="wnG-6X-OUC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tool make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fsx-NV-OaZ">
+                                <rect key="frame" x="20" y="187" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cRs-7E-NsZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="dQl-Ai-Mqe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tool description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9gH-y9-mnT">
+                                <rect key="frame" x="20" y="242" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Aho-s6-ygc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="bk1-SY-eCD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="plx-9x-nAa" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="0U2-Pf-kOa"/>
-                            <constraint firstItem="sCB-E6-X0d" firstAttribute="top" secondItem="plx-9x-nAa" secondAttribute="bottom" constant="11" id="2Ox-Li-wIx"/>
-                            <constraint firstItem="plx-9x-nAa" firstAttribute="top" secondItem="EQP-oM-7e2" secondAttribute="bottom" constant="8" id="34Z-pn-XYc"/>
-                            <constraint firstItem="pIQ-Em-cf3" firstAttribute="top" secondItem="3HV-9A-A4T" secondAttribute="bottom" constant="28" id="5ac-gu-1NK"/>
-                            <constraint firstItem="pim-sA-IQU" firstAttribute="top" secondItem="Yax-kc-o4Y" secondAttribute="bottom" constant="25" id="AoG-hX-c4v"/>
-                            <constraint firstItem="Yax-kc-o4Y" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="DiY-w1-qVz"/>
-                            <constraint firstItem="1sd-pv-WDf" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="DuJ-HB-7Sn"/>
-                            <constraint firstItem="sCB-E6-X0d" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="EzH-ge-ggl"/>
-                            <constraint firstItem="3HV-9A-A4T" firstAttribute="top" secondItem="pim-sA-IQU" secondAttribute="bottom" constant="22" id="LIf-ux-sty"/>
-                            <constraint firstItem="3HV-9A-A4T" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="LY2-KW-40H"/>
-                            <constraint firstItem="pim-sA-IQU" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="NyL-6b-Yp2"/>
-                            <constraint firstItem="Yax-kc-o4Y" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="Prb-Pe-mFL"/>
-                            <constraint firstItem="pIQ-Em-cf3" firstAttribute="centerX" secondItem="3HV-9A-A4T" secondAttribute="centerX" id="WFu-zZ-WGV"/>
-                            <constraint firstItem="1sd-pv-WDf" firstAttribute="trailing" secondItem="veI-qw-MZz" secondAttribute="trailingMargin" id="d0O-Vw-3nD"/>
-                            <constraint firstItem="1sd-pv-WDf" firstAttribute="top" secondItem="sCB-E6-X0d" secondAttribute="bottom" constant="16" id="gyM-Xq-9F7"/>
-                            <constraint firstItem="Yax-kc-o4Y" firstAttribute="top" secondItem="1sd-pv-WDf" secondAttribute="bottom" constant="16" id="jDD-4R-C4w"/>
-                            <constraint firstItem="tGw-N7-KQh" firstAttribute="top" secondItem="pIQ-Em-cf3" secondAttribute="bottom" constant="136" id="m4C-4H-eSe"/>
-                            <constraint firstItem="sCB-E6-X0d" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="vS3-th-z3g"/>
-                            <constraint firstItem="3HV-9A-A4T" firstAttribute="leading" secondItem="veI-qw-MZz" secondAttribute="leadingMargin" id="wJM-2C-Z75"/>
+                            <constraint firstItem="Fsx-NV-OaZ" firstAttribute="top" secondItem="S4Z-oc-duM" secondAttribute="bottom" constant="26" id="6dF-Fu-DLL"/>
+                            <constraint firstItem="osg-ni-yY9" firstAttribute="centerX" secondItem="9gH-y9-mnT" secondAttribute="centerX" id="A09-mr-mMs"/>
+                            <constraint firstItem="S4Z-oc-duM" firstAttribute="top" secondItem="X61-2f-SVE" secondAttribute="bottom" constant="67" id="D5B-fb-tUV"/>
+                            <constraint firstItem="osg-ni-yY9" firstAttribute="top" secondItem="9gH-y9-mnT" secondAttribute="bottom" constant="35" id="Dqh-rK-YGp"/>
+                            <constraint firstItem="Fsx-NV-OaZ" firstAttribute="top" secondItem="S4Z-oc-duM" secondAttribute="bottom" constant="26" id="IFq-Y6-jpC"/>
+                            <constraint firstItem="S4Z-oc-duM" firstAttribute="leading" secondItem="QKG-iG-vqW" secondAttribute="leadingMargin" id="LMx-0g-OHD"/>
+                            <constraint firstItem="9gH-y9-mnT" firstAttribute="top" secondItem="Fsx-NV-OaZ" secondAttribute="bottom" constant="25" id="QA1-Os-0cY"/>
+                            <constraint firstItem="9gH-y9-mnT" firstAttribute="top" secondItem="Fsx-NV-OaZ" secondAttribute="bottom" constant="25" id="Qm6-ah-uZc"/>
+                            <constraint firstItem="osg-ni-yY9" firstAttribute="centerX" secondItem="Fsx-NV-OaZ" secondAttribute="centerX" id="Xfn-cU-R2R"/>
+                            <constraint firstItem="osg-ni-yY9" firstAttribute="centerX" secondItem="S4Z-oc-duM" secondAttribute="centerX" id="a2G-Ue-oNs"/>
+                            <constraint firstItem="Fsx-NV-OaZ" firstAttribute="leading" secondItem="QKG-iG-vqW" secondAttribute="leadingMargin" id="awC-fC-UPY"/>
+                            <constraint firstItem="9gH-y9-mnT" firstAttribute="leading" secondItem="QKG-iG-vqW" secondAttribute="leadingMargin" id="bpx-Dx-9Vh"/>
+                            <constraint firstItem="osg-ni-yY9" firstAttribute="top" secondItem="9gH-y9-mnT" secondAttribute="bottom" constant="35" id="d64-5h-MeC"/>
+                            <constraint firstItem="Fsx-NV-OaZ" firstAttribute="trailing" secondItem="QKG-iG-vqW" secondAttribute="trailingMargin" id="gX2-xb-YQm"/>
+                            <constraint firstItem="BEo-Gy-Tp4" firstAttribute="top" secondItem="osg-ni-yY9" secondAttribute="bottom" constant="203" id="iGm-63-Rgh"/>
+                            <constraint firstItem="9gH-y9-mnT" firstAttribute="trailing" secondItem="QKG-iG-vqW" secondAttribute="trailingMargin" id="rfT-53-5Sy"/>
+                            <constraint firstItem="S4Z-oc-duM" firstAttribute="trailing" secondItem="QKG-iG-vqW" secondAttribute="trailingMargin" id="ucr-tv-CTr"/>
+                            <constraint firstItem="osg-ni-yY9" firstAttribute="centerX" secondItem="QKG-iG-vqW" secondAttribute="centerX" id="x7g-LB-el9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="List a new Tool" id="mKH-8t-qGr"/>
                     <connections>
-                        <outlet property="makeTextField" destination="1sd-pv-WDf" id="AC6-Rd-41e"/>
-                        <outlet property="titleTextField" destination="sCB-E6-X0d" id="21U-QW-89n"/>
-                        <outlet property="toolAddressTextField" destination="3HV-9A-A4T" id="HIs-hI-84l"/>
-                        <outlet property="toolDescriptionTextField" destination="Yax-kc-o4Y" id="iYy-v2-GMR"/>
+                        <outlet property="toolDescription" destination="9gH-y9-mnT" id="caf-Sa-DjI"/>
+                        <outlet property="toolMake" destination="Fsx-NV-OaZ" id="21p-Gt-J6U"/>
+                        <outlet property="toolParticulars" destination="osg-ni-yY9" id="DP4-1Q-mar"/>
+                        <outlet property="toolTitle" destination="S4Z-oc-duM" id="SbF-Bn-4o5"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UX8-Me-ltG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWJ-aI-caB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1381" y="5554"/>
+            <point key="canvasLocation" x="2014" y="5578"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QVD-74-nrL">
@@ -958,6 +1085,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlv-mi-h1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1368" y="3001"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hOC-K0-iG1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YIc-YG-94j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bCl-Rc-DTs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IoL-YX-BRW" kind="relationship" relationship="rootViewController" id="oin-UR-fGw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVY-hR-D6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1283" y="4659"/>
         </scene>
     </scenes>
     <resources>

@@ -32,8 +32,10 @@ class MyToolBeltTableViewCell: UITableViewCell {
     
     func bindData(tool: Tool) {
         
-        toolImageView.layer.cornerRadius = toolImageView.frame.size.width/2
-        toolImageView.layer.masksToBounds = true
+        self.toolImageView.image = UIImage(named: "avatarPlaceholder")
+        
+        self.toolImageView.layer.cornerRadius = toolImageView.frame.size.width/2
+        self.toolImageView.layer.masksToBounds = true
         
         self.toolImageView.image = UIImage(named: "avatarPlaceholder")
         
