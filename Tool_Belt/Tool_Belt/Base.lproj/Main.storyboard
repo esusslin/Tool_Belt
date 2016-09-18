@@ -152,6 +152,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ly5-h5-6bH" id="H0f-An-3wP"/>
+                                </connections>
+                            </mapView>
                             <searchBar contentMode="redraw" misplaced="YES" text="" placeholder="Search for a tool here" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-Si-MHz">
                                 <rect key="frame" x="20" y="64" width="560" height="44"/>
                                 <constraints>
@@ -162,12 +168,27 @@
                                     <outlet property="delegate" destination="ly5-h5-6bH" id="KDO-7D-9KP"/>
                                 </connections>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
-                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ly5-h5-6bH" id="H0f-An-3wP"/>
-                                </connections>
-                            </mapView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBi-Mt-B8N">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spk-5T-cql">
+                                        <rect key="frame" x="245" y="277" width="110" height="50"/>
+                                        <color key="backgroundColor" red="0.0052063344898210257" green="0.0023880160429792215" blue="0.0064102564102563875" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="Find">
+                                            <color key="titleColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="virginFindButtonPressed:" destination="ly5-h5-6bH" eventType="touchUpInside" id="DBe-dK-Ere"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-aN-25j">
+                                        <rect key="frame" x="22" y="168" width="557" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -188,9 +209,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainView" destination="wEz-ag-UYT" id="VcX-2V-GcR"/>
                         <outlet property="mapView" destination="mt1-o4-FDN" id="bvA-pL-Lw6"/>
+                        <outlet property="overlay" destination="OBi-Mt-B8N" id="ezh-DJ-5gc"/>
                         <outlet property="searchBar" destination="hZp-Si-MHz" id="toI-q6-akb"/>
                         <outlet property="searchDisplayController" destination="UsQ-y9-33O" id="5jl-1d-pqW"/>
+                        <outlet property="virginFindButton" destination="Spk-5T-cql" id="eT4-hE-Jj4"/>
+                        <outlet property="virginSearchBar" destination="u0O-aN-25j" id="yri-b9-Htb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wv0-uw-hX0" userLabel="First Responder" sceneMemberID="firstResponder"/>

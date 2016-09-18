@@ -21,13 +21,22 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    var mask: CALayer!
+    var animation: CABasicAnimation!
+    
     var tools = [Tool]()
     var users = [BackendlessUser]()
     
     var avatarImagesDictionary: NSMutableDictionary?
     var avatarDictionary: NSMutableDictionary?
    
+    @IBOutlet var mainView: UIView!
 
+    @IBOutlet weak var overlay: UIView!
+    
+    @IBOutlet weak var virginSearchBar: UISearchBar!
+    
+    @IBOutlet weak var virginFindButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
    
 
@@ -37,8 +46,9 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print(self.appDelegate.coordinate?.latitude)
-//        print(self.appDelegate.coordinate?.longitude)
+        virginFindButton.layer.cornerRadius = 8.0
+        virginFindButton.layer.masksToBounds = true
+        
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -54,10 +64,17 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func buttonBitch(sender: UIBarButtonItem) {
+    @IBAction func virginFindButtonPressed(sender: AnyObject) {
         
-//                    //MARK: find tools
+        animateLaunch(UIImage(named: "wrench-1")!)
+    }
+    
+
+    @IBAction func buttonBitch(sender: UIBarButtonItem) {
+        findTools()
+    }
+    
+    func findTools() {
         
                    let whereClause = "distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
                     let dataQuery = BackendlessDataQuery()
@@ -147,6 +164,65 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
                        print("Server reported an error: \(fault)")
                         })
      }
+    
+    func animateLaunch(image: UIImage) {
+        
+        //        self.view.backgroundColor = bgColor
+        
+        // Create and apply mask
+        
+        mask = CALayer()
+        mask.contents = image.CGImage
+        mask.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        mask.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        mask.position = CGPoint(x: mainView.frame.width / 2.0, y: mainView.frame.height / 2.0)
+        mainView.layer.mask = mask
+        
+        animateDecreaseSize()
+        
+    }
+    
+    func animateDecreaseSize() {
+        
+        let decreaseSize = CABasicAnimation(keyPath: "bounds")
+        decreaseSize.delegate = self
+        decreaseSize.duration = 0.5
+        decreaseSize.fromValue = NSValue(CGRect: mask!.bounds)
+        decreaseSize.toValue = NSValue(CGRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        
+        decreaseSize.fillMode = kCAFillModeForwards
+        decreaseSize.removedOnCompletion = false
+        
+        mask.addAnimation(decreaseSize, forKey: "bounds")
+        
+        
+        
+    }
+    
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        animateIncreaseSize()
+    }
+    
+    func animateIncreaseSize() {
+        
+        animation = CABasicAnimation(keyPath: "bounds")
+        animation.duration = 0.75
+        animation.fromValue = NSValue(CGRect: mask!.bounds)
+        animation.toValue = NSValue(CGRect: CGRect(x: 0, y: 0, width: 4000, height: 4000))
+        
+        animation.fillMode = kCAFillModeForwards
+        animation.removedOnCompletion = false
+        
+        mask.addAnimation(animation, forKey: "bounds")
+        
+        // Fade out overlay
+        UIView.animateWithDuration(0.75, animations: { () -> Void in
+            self.overlay.alpha = 0
+        })
+        
+        findTools()
+    }
+
 
 }
 
@@ -243,6 +319,7 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
         }
     }
 
+    
     
 
 
