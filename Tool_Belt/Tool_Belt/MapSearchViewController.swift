@@ -75,94 +75,45 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
     }
     
     func findTools() {
-        
-                   let whereClause = "distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
-                    let dataQuery = BackendlessDataQuery()
-                    let queryOptions = QueryOptions()
-                    queryOptions.related = ["tools"]
-        
-                    dataQuery.whereClause = whereClause
-        
-                    var error: Fault?
-                    let tools = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
-   
-                        if error == nil {
-                        print("Contacts have been found: \(tools.data)")
-                            }
-                            else {
-                                print("Server reported an error: \(error)")
-                            }
-        
-                            backendless.persistenceService.of(Tool.ofClass()).find(
-                                        dataQuery, response: { ( tools : BackendlessCollection!) -> () in
+            
+            let whereClause = "title LIKE '\((searchBar.text)!)' AND distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
+            let dataQuery = BackendlessDataQuery()
+            let queryOptions = QueryOptions()
+            queryOptions.related = ["tools"]
+            
+            dataQuery.whereClause = whereClause
+            
+            var error: Fault?
+            let tools = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
+            
+            if error == nil {
+                print("Contacts have been found: \(tools.data)")
+            }
+            else {
+                print("Server reported an error: \(error)")
+            }
+            
+            let currentPage = tools.getCurrentPage()
+            
+            for tool in currentPage as! [Tool] {
                 
-                                        let currentPage = tools.getCurrentPage()
+                let latitude = (tool.location?.latitude)!
+                let longitude = (tool.location?.longitude)!
+                
+                var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude as! Double, longitude as! Double)
+                
+                let toolName = (tool.title)!
+                
+                
+                
+                
+                let point = ToolAnnotation(coordinate: location)
+                point.title = toolName
+//                point.image = UIImage
+                self.mapView.addAnnotation(point)
+            }
+        
 
-                                        for tool in currentPage as! [Tool] {
-                    
-                                            let latitude = (tool.location?.latitude)!
-                                            let longitude = (tool.location?.longitude)!
-                    
-                                            var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude as! Double, longitude as! Double)
-                    
-                    
-
-                                            let toolName = (tool.title)!
-                                           
-                                            let toolDescription = (tool.toolDescription)!
-                                      
-                                            
-
-                                            let thiswhereClause = "objectId != '\((tool.ownerId)!)'"
-
-                                            //MARK: find tool's owner
-                                            var owner: BackendlessUser?
-                                            var imageUrl: String?
-//                                            var ownerImage = UIImage?()
-                                            
-                    
-                                            let userdataQuery = BackendlessDataQuery()
-                                            userdataQuery.whereClause = thiswhereClause
-                                            let dataStore = self.backendless.persistenceService.of(BackendlessUser.ofClass())
-                    
-                                            dataStore.find(userdataQuery, response: { (users : BackendlessCollection!) in
-                        
-                       
-                                                if let owner = users.data.first as? BackendlessUser {
-                                                    
-                                                    var ownerImage = UIImage?()
-                                                    
-                                                    if let avatarURL = owner.getProperty("Avatar") {
-//                                                        print("********")
-//                                                        print(avatarURL)
-//                                                        print("********")
-                                                        getImageFromURL(avatarURL as! String, result: { (image) in
-
-                                                            ownerImage = image!
-                                                            
-                                                            let point = ToolAnnotation(coordinate: location)
-                                                            point.title = (owner.name)
-                                                            point.subtitle = toolName
-                                                            point.image = ownerImage
-                                                            
-                                                            self.mapView.addAnnotation(point)
-                                                          print(image!)
-                                                        })
-                                                    }
-
-                                                print(ownerImage)
-                                                    
-                                                
-                                                }
-                                             
-                                                }) { (fault : Fault!) -> Void in
-                                                print("Server report an error : \(fault)")
-                                                   }
-                                                }
-                                },
-                       error: { ( fault : Fault!) -> () in
-                       print("Server reported an error: \(fault)")
-                        })
      }
     
     func animateLaunch(image: UIImage) {
