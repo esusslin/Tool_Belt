@@ -12,6 +12,7 @@ import FirebaseDatabase
 import CoreLocation
 import FBSDKCoreKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
