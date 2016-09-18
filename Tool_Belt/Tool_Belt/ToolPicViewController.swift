@@ -17,6 +17,13 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
     let info = UILabel()
     
     var tool: Tool?
+    
+    var tool_title: String?
+    var tool_make: String?
+    var tool_description: String?
+    var tool_location: GeoPoint?
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,21 +92,24 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
         
         uploadAvatar(image) { (imageLink) -> Void in
             
-            newtool.title = self.tool!.title!
-            newtool.make = self.tool!.make!
-            newtool.ownerId = self.tool!.ownerId!
-            newtool.location = self.tool!.location!
-            newtool.toolDescription = self.tool!.toolDescription!
+            newtool.title = self.tool_title!
+            newtool.make = self.tool_make!
+            newtool.ownerId = currentUser.objectId!
+          
+            newtool.location = self.tool_location!
+            newtool.toolDescription = self.tool_description!
             newtool.picture = imageLink!
             
             let updatedTool = dataStore.save(newtool, fault: &error) as? Tool
             if error == nil {
                 print("Contact has been updated: \(updatedTool!.objectId)")
+//                
+//                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolShowView") as! ToolShowTableViewController
+                self.tool = updatedTool!
                 
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolShowView") as! ToolShowTableViewController
-                vc.tool = updatedTool!
+                self.performSegueWithIdentifier("newTooldone!", sender: self)
                 
-                self.presentViewController(vc, animated: true, completion: nil)
+//                self.presentViewController(vc, animated: true, completion: nil)
             }
             else {
                 print("Server reported an error (2): \(error)")
@@ -110,6 +120,27 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
 //        print(updatedTool!)
         
         
+    }
+    
+    //MARK: Navigations
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        ProgressHUD.dismiss()
+        
+        if segue.identifier == "newTooldone!" {
+            
+            let newTool2VC = segue.destinationViewController as! NewToolShowTableViewController
+//            let newTool2VC = segue.destinationViewController as! NewToolShowTableViewController
+//            let newTool2VC = nav.topViewController as! NewToolShowTableViewController
+
+            
+            
+            newTool2VC.tool = self.tool
+            
+            
+            
+        }
     }
   
 

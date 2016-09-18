@@ -21,7 +21,12 @@ class NewTool2ViewController: UIViewController {
     
     let info = UILabel()
     
+    var newTool: Tool?
+    
     var toolAddress: String?
+    var tool_title: String?
+    var tool_make: String?
+    var tool_description: String?
     
     var geocoder: CLGeocoder = CLGeocoder()
     
@@ -99,45 +104,59 @@ class NewTool2ViewController: UIViewController {
     
     @IBAction func toolParticularsButtonPressed(sender: AnyObject) {
         
-        let newTool = Tool()
+//        let newTool = Tool()
         
-        newTool.title = toolTitle.text
-        newTool.make = toolMake.text
-        newTool.toolDescription = toolDescription.text
-        newTool.location = toolLocation
+        self.tool_title = toolTitle.text
+        self.tool_make = toolMake.text
+        self.tool_description = toolDescription.text
         
-        backendless.persistenceService.of(Tool.ofClass()).save(newTool,
-                                                               response: { ( d : AnyObject!) -> () in
-                                                                print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
-                                                                
-                                                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tool2pic") as! ToolPicViewController
-                                                                    vc.tool = d as! Tool
-                                                                
-                                                                self.presentViewController(vc, animated: true, completion: nil)
-
-                                                                
-            },
-                                                               
-                                                               error: { ( fault : Fault!) -> () in
-                                                                print("Server reported an error: \(fault)")
-        })
+        performSegueWithIdentifier("newTool2Pic", sender: self)
+        
+//        print("hello")
+//        
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tool2pic") as! ToolPicViewController
+//       
+//        
+//        
+//        
+//        vc.tool = newTool as! Tool
+//
+//        backendless.persistenceService.of(Tool.ofClass()).save(newTool,
+//                                                               response: { ( d : AnyObject!) -> () in
+//                                                                print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
+//                                                                
+//                                                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tool2pic") as! ToolPicViewController
+//                                                                    vc.tool = newTool as! Tool
+//
+//                                                                self.presentViewController(vc, animated: true, completion: nil)
+//
+//                                                                
+//            },
+//                                                               
+//                                                               error: { ( fault : Fault!) -> () in
+//                                                                print("Server reported an error: \(fault)")
+//        })
     }
     
-//    //MARK: Navigations
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        if segue.identifier == "tool2pic" {
-//            
-//            let newTool2VC = segue.destinationViewController as! ToolPicViewController
-//            
-//            print(self.toolAddress)
-//            print(toolAddress)
-//            
-////            newTool2VC.tool= toolAddress!
-//            
-//        }
-//        
-//    }
+    //MARK: Navigations
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        ProgressHUD.dismiss()
+        
+        if segue.identifier == "newTool2Pic" {
+            
+            let newTool2VC = segue.destinationViewController as! ToolPicViewController
+            
+            
+            newTool2VC.tool_title = self.tool_title
+            newTool2VC.tool_make = self.tool_make
+            newTool2VC.tool_description = self.tool_description
+            newTool2VC.tool_location = self.toolLocation
+            
+            
+        }
+        
+    }
 
 }
