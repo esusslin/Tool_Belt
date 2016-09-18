@@ -245,10 +245,10 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
 
         
         let toolAnnotation = view.annotation as! ToolAnnotation
-        let views = NSBundle.mainBundle().loadNibNamed("CustomCalloutView", owner: nil, options: nil)
-        let calloutView = views[0] as! CustomCalloutView
-        calloutView.title.text = toolAnnotation.title
-        calloutView.subtitle.text = toolAnnotation.subtitle
+//        let views = NSBundle.mainBundle().loadNibNamed("CustomCalloutView", owner: nil, options: nil)
+//        let calloutView = views[0] as! CustomCalloutView
+//        calloutView.title.text = toolAnnotation.title
+//        calloutView.subtitle.text = toolAnnotation.subtitle
 
         let tapGesture = UITapGestureRecognizer(target: self, action: "See ToolBelter Info")
 

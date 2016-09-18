@@ -168,12 +168,16 @@
                                     <outlet property="delegate" destination="ly5-h5-6bH" id="KDO-7D-9KP"/>
                                 </connections>
                             </searchBar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OBi-Mt-B8N">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBi-Mt-B8N">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spk-5T-cql">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spk-5T-cql">
                                         <rect key="frame" x="245" y="277" width="110" height="50"/>
                                         <color key="backgroundColor" red="0.0052063344898210257" green="0.0023880160429792215" blue="0.0064102564102563875" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5rj-Bm-Sad"/>
+                                            <constraint firstAttribute="width" constant="110" id="Q8f-An-r9Q"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <state key="normal" title="Find">
                                             <color key="titleColor" red="0.73197720239999997" green="0.77920674769999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,23 +186,37 @@
                                             <action selector="virginFindButtonPressed:" destination="ly5-h5-6bH" eventType="touchUpInside" id="DBe-dK-Ere"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-aN-25j">
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-aN-25j">
                                         <rect key="frame" x="22" y="168" width="557" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="32z-aA-8Sm"/>
+                                        </constraints>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="u0O-aN-25j" firstAttribute="top" secondItem="OBi-Mt-B8N" secondAttribute="top" constant="168" id="1yE-ht-Fdc"/>
+                                    <constraint firstItem="u0O-aN-25j" firstAttribute="leading" secondItem="OBi-Mt-B8N" secondAttribute="leading" constant="22" id="6WB-qP-cOp"/>
+                                    <constraint firstItem="Spk-5T-cql" firstAttribute="top" secondItem="u0O-aN-25j" secondAttribute="bottom" constant="65" id="6Xn-qw-xef"/>
+                                    <constraint firstItem="u0O-aN-25j" firstAttribute="centerX" secondItem="Spk-5T-cql" secondAttribute="centerX" id="DAh-bq-ZYM"/>
+                                    <constraint firstAttribute="trailing" secondItem="u0O-aN-25j" secondAttribute="trailing" constant="21" id="HDO-Xw-glh"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OBi-Mt-B8N" firstAttribute="trailing" secondItem="mt1-o4-FDN" secondAttribute="trailing" id="2NU-bh-r0Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hZp-Si-MHz" secondAttribute="trailing" constant="-20" id="N0T-B2-NZa"/>
                             <constraint firstItem="hZp-Si-MHz" firstAttribute="top" secondItem="B9g-ag-JkF" secondAttribute="bottom" id="PjH-O8-qzP"/>
                             <constraint firstItem="mt1-o4-FDN" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" constant="-20" id="QVd-D7-7IE"/>
                             <constraint firstItem="hZp-Si-MHz" firstAttribute="leading" secondItem="wEz-ag-UYT" secondAttribute="leadingMargin" constant="-20" id="UyM-wB-VBA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mt1-o4-FDN" secondAttribute="trailing" constant="-20" id="d7f-em-yb7"/>
                             <constraint firstItem="E4F-Rv-6dZ" firstAttribute="top" secondItem="mt1-o4-FDN" secondAttribute="bottom" id="lF6-9m-Ddp"/>
+                            <constraint firstItem="OBi-Mt-B8N" firstAttribute="bottom" secondItem="E4F-Rv-6dZ" secondAttribute="top" id="mN6-2C-L5F"/>
+                            <constraint firstItem="OBi-Mt-B8N" firstAttribute="top" secondItem="hZp-Si-MHz" secondAttribute="top" id="nYt-Om-piG"/>
                             <constraint firstItem="mt1-o4-FDN" firstAttribute="top" secondItem="hZp-Si-MHz" secondAttribute="bottom" id="oam-GI-KkO"/>
+                            <constraint firstItem="OBi-Mt-B8N" firstAttribute="leading" secondItem="mt1-o4-FDN" secondAttribute="leading" id="qPs-KB-Kny"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pqn-RR-sCR">
@@ -228,7 +246,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="5827" y="4279"/>
+            <point key="canvasLocation" x="5725" y="4449"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="xQs-Zh-cHC">
@@ -1139,7 +1157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRs-W3-AnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6086" y="3740"/>
+            <point key="canvasLocation" x="6080" y="3744"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QVD-74-nrL">
