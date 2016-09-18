@@ -1,14 +1,14 @@
 //
-//  ToolShowTableViewController.swift
+//  NewToolShowTableViewController.swift
 //  Tool_Belt
 //
-//  Created by Emmet Susslin on 9/10/16.
+//  Created by Emmet Susslin on 9/18/16.
 //  Copyright © 2016 Emmet Susslin. All rights reserved.
 //
 
 import UIKit
 
-class ToolShowTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class NewToolShowTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var backendless = Backendless.sharedInstance()
     
@@ -19,14 +19,14 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     @IBOutlet weak var toolTitleLabel: UILabel!
     
     @IBOutlet weak var toolMakeLabel: UILabel!
-
+    
     @IBOutlet weak var availableCell: UITableViewCell!
-
+    
     @IBOutlet weak var availableSwitch: UISwitch!
     
     @IBOutlet weak var editToolInfoCell: UITableViewCell!
 
-    @IBOutlet weak var deleteToolCell: UITableViewCell!
+    @IBOutlet weak var profileCell: UITableViewCell!
     
     var tool: Tool?
     
@@ -37,10 +37,10 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
         
         toolImage.layer.cornerRadius = 8.0
         toolImage.layer.masksToBounds = true
-
+        
         updateUI()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -57,31 +57,35 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     @IBAction func availableSwitch(sender: AnyObject) {
         
     }
-
-
+    
+    @IBAction func profileButtonPressed(sender: AnyObject) {
+        
+        backtoProfile()
+    }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 { return 2 }
         if section == 1 { return 1 }
         return 0
     }
- 
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        
         if ((indexPath.section == 0) && (indexPath.row == 0)) { return availableCell }
         if ((indexPath.section == 0) && (indexPath.row == 1)) { return editToolInfoCell }
-        if ((indexPath.section == 1) && (indexPath.row == 0)) { return deleteToolCell }
-
+        if ((indexPath.section == 1) && (indexPath.row == 0)) { return profileCell }
+        
         return UITableViewCell()
     }
-
+    
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 0 {
@@ -97,6 +101,19 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
         headerView.backgroundColor = UIColor.clearColor()
         
         return headerView
+    }
+    
+    //MARK: tableview delegate functions
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            print("hello")
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+            print("hello")
+            vc.selectedIndex = 0
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
     }
     
     //MARK: Change pic
@@ -143,12 +160,12 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
         
         uploadAvatar(image) { (imageLink) -> Void in
             
-          newtool.title = self.tool!.title!
-          newtool.make = self.tool!.make!
-          newtool.ownerId = self.tool!.ownerId!
-          newtool.location = self.tool!.location!
-          newtool.toolDescription = self.tool!.toolDescription!
-          newtool.picture = imageLink!
+            newtool.title = self.tool!.title!
+            newtool.make = self.tool!.make!
+            newtool.ownerId = self.tool!.ownerId!
+            newtool.location = self.tool!.location!
+            newtool.toolDescription = self.tool!.toolDescription!
+            newtool.picture = imageLink!
             
             let updatedTool = dataStore.save(newtool, fault: &error) as? Tool
             if error == nil {
@@ -157,7 +174,7 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
             else {
                 print("Server reported an error (2): \(error)")
             }
-
+            
         }
         updateUI()
         picker.dismissViewControllerAnimated(true, completion: nil)
@@ -174,11 +191,20 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
         //        avatarSwitch.setOn(avatarSwitchStatus, animated: false)
         
         
-            print("hello")
-            getImageFromURL(tool!.picture! as! String, result: { (image) -> Void in
-                self.toolImage.image = image
-            })
+        print("hello")
+        getImageFromURL(tool!.picture! as! String, result: { (image) -> Void in
+            self.toolImage.image = image
+        })
         
     }
-
+    
+   func backtoProfile() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+        print("hello")
+        vc.selectedIndex = 0
+        
+    }
+    
+    
+    
 }

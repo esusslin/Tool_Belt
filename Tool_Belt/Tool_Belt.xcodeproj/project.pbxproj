@@ -39,6 +39,8 @@
 		E2A8F1DB1D5C2192008E01D3 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */; };
 		E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */; };
 		E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */; };
+		E2C655A71D8EF685001E1A3C /* ToolPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C655A61D8EF685001E1A3C /* ToolPicViewController.swift */; };
+		E2C655A91D8F3AE9001E1A3C /* NewToolShowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C655A81D8F3AE9001E1A3C /* NewToolShowTableViewController.swift */; };
 		E2DBE5321D5FEE52004068B5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */; };
 		E2EA4FE21D442C990092BD51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA4FE11D442C990092BD51 /* AppDelegate.swift */; };
 		E2EA4FE71D442C990092BD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EA4FE51D442C990092BD51 /* Main.storyboard */; };
@@ -105,6 +107,8 @@
 		E2A8F1DA1D5C2192008E01D3 /* OutgoingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		E2A8F1DC1D5C219C008E01D3 /* IncomingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
 		E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E2C655A61D8EF685001E1A3C /* ToolPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolPicViewController.swift; sourceTree = "<group>"; };
+		E2C655A81D8F3AE9001E1A3C /* NewToolShowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolShowTableViewController.swift; sourceTree = "<group>"; };
 		E2DBE5311D5FEE52004068B5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		E2EA4FDE1D442C990092BD51 /* Tool_Belt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tool_Belt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EA4FE11D442C990092BD51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */,
 				E23D4E3F1D8843E100B7D1DC /* HomeViewController.swift */,
 				E23816A21D84F0B00083C659 /* ToolShowTableViewController.swift */,
+				E2C655A81D8F3AE9001E1A3C /* NewToolShowTableViewController.swift */,
+				E2C655A61D8EF685001E1A3C /* ToolPicViewController.swift */,
 				E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
@@ -512,12 +518,14 @@
 				E25786EE1D6C8E6A00648CFA /* ToolAnnotation.swift in Sources */,
 				E27E13BA1D504CF100C7F6E6 /* RecentTableViewCell.swift in Sources */,
 				E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */,
+				E2C655A71D8EF685001E1A3C /* ToolPicViewController.swift in Sources */,
 				E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
 				E28FDBFC1D84B81E009B87B1 /* NewTool2ViewController.swift in Sources */,
 				E2A8F1DD1D5C219C008E01D3 /* IncomingMessage.swift in Sources */,
 				E27E13A81D503A8A00C7F6E6 /* ProgressHUD.m in Sources */,
 				E234DDCB1D47F2FF008DAB22 /* SignUpViewController.swift in Sources */,
+				E2C655A91D8F3AE9001E1A3C /* NewToolShowTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
