@@ -173,9 +173,9 @@ class MapSearchViewController: UIViewController, UISearchBarDelegate {
         
         findTools()
     }
-
-
 }
+
+
 
 
 extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate {
@@ -269,9 +269,4 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
             }
         }
     }
-
-    
-    
-
-
 }
