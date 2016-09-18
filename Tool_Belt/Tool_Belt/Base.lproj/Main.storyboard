@@ -152,14 +152,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
-                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ly5-h5-6bH" id="H0f-An-3wP"/>
-                                </connections>
-                            </mapView>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-Si-MHz">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <searchBar contentMode="redraw" misplaced="YES" text="" placeholder="Search for a tool here" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-Si-MHz">
+                                <rect key="frame" x="20" y="64" width="560" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="IF0-PS-F4n"/>
                                 </constraints>
@@ -168,6 +162,12 @@
                                     <outlet property="delegate" destination="ly5-h5-6bH" id="KDO-7D-9KP"/>
                                 </connections>
                             </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-o4-FDN">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ly5-h5-6bH" id="H0f-An-3wP"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -203,7 +203,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4011" y="4323"/>
+            <point key="canvasLocation" x="4203" y="4279"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="xQs-Zh-cHC">
@@ -889,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoE-JL-yzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4349" y="4848"/>
+            <point key="canvasLocation" x="4359" y="5068"/>
         </scene>
         <!--List a new Tool-->
         <scene sceneID="TFG-qr-Qfx">
@@ -1076,7 +1076,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRs-W3-AnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4160" y="3352"/>
+            <point key="canvasLocation" x="4668" y="3372"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QVD-74-nrL">
@@ -1090,7 +1090,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fEn-wz-vgX" kind="relationship" relationship="rootViewController" id="XRy-dE-Dj8"/>
+                        <segue destination="ly5-h5-6bH" kind="relationship" relationship="rootViewController" id="wkF-bv-5OL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quC-Rb-4GJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

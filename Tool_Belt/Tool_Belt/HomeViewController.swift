@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func button(sender: AnyObject) {
         
-        animateLaunch(UIImage(named: "wrench")!)
+        animateLaunch(UIImage(named: "wrench-1")!)
     }
     
     func animateLaunch(image: UIImage) {
