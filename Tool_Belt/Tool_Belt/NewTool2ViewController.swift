@@ -110,7 +110,7 @@ class NewTool2ViewController: UIViewController {
                                                                response: { ( d : AnyObject!) -> () in
                                                                 print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
                                                                 
-                                                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolShow") as! ToolViewController
+                                                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tool2pic") as! ToolPicViewController
                                                                     vc.tool = d as! Tool
                                                                 
                                                                 self.presentViewController(vc, animated: true, completion: nil)
@@ -123,21 +123,21 @@ class NewTool2ViewController: UIViewController {
         })
     }
     
-    //MARK: Navigations
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "newTool2ToolShowSeg" {
-            
-            let newTool2VC = segue.destinationViewController as! NewTool2ViewController
-            
-            print(self.toolAddress)
-            print(toolAddress)
-            
-            newTool2VC.toolAddress = toolAddress!
-            
-        }
-        
-    }
+//    //MARK: Navigations
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        if segue.identifier == "tool2pic" {
+//            
+//            let newTool2VC = segue.destinationViewController as! ToolPicViewController
+//            
+//            print(self.toolAddress)
+//            print(toolAddress)
+//            
+////            newTool2VC.tool= toolAddress!
+//            
+//        }
+//        
+//    }
 
 }

@@ -167,6 +167,8 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     
     func updateUI() {
         
+        
+        
         toolTitleLabel.text = self.tool!.title!
         toolMakeLabel.text = self.tool!.make!
         //        avatarSwitch.setOn(avatarSwitchStatus, animated: false)
