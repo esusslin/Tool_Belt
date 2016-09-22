@@ -1226,7 +1226,7 @@
                         <outlet property="searchDisplayController" destination="m9b-5C-ro4" id="RfR-2x-GEO"/>
                         <outlet property="secondFindButton" destination="G7L-um-4fk" id="hZv-rS-jel"/>
                         <outlet property="secondSearchBar" destination="zgs-Ng-Kov" id="HhK-MF-nbb"/>
-                        <segue destination="udX-tS-fpT" kind="show" id="CD6-Z5-3c3"/>
+                        <segue destination="Vun-dh-gjP" kind="show" id="CD6-Z5-3c3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRs-W3-AnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1268,7 +1268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlE-bQ-IEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7992" y="3878"/>
+            <point key="canvasLocation" x="6696" y="3878"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QVD-74-nrL">
@@ -1681,24 +1681,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohy-Nk-YWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4462" y="4486"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sMl-4V-FhW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="udX-tS-fpT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEP-iO-14J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Vun-dh-gjP" kind="relationship" relationship="rootViewController" id="vSg-SF-Rtn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3dx-HR-W0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7180" y="3878"/>
         </scene>
     </scenes>
     <resources>
