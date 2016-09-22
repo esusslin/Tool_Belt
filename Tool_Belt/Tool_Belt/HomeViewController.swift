@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         firstSearchBar.layer.cornerRadius = 8.0
         firstSearchBar.layer.masksToBounds = true
 
-
+        self.navigationController?.navigationBarHidden = true
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.tintColor = UIColor.darkGrayColor()
   
