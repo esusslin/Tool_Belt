@@ -102,6 +102,20 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 //       
 //    }
     
+    func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
+        
+            let index = (self.annotations as NSArray).indexOfObject(annotation)
+
+            let leftView = UIImageView(image: annotations[index].toolPic)
+            leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            leftView.layer.cornerRadius = 8.0
+            leftView.layer.masksToBounds = true
+            
+            return leftView
+
+        
+    }
+    
     func mapView(mapView: MGLMapView, rightCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
         return UIButton(type: .DetailDisclosure)
     }
@@ -111,19 +125,20 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     func mapView(mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
         // Hide the callout view.
         mapView.deselectAnnotation(annotation, animated: false)
-        
-//       let annotation = mapView.annotation as! ToolAnnotation
+
         let index = (self.annotations as NSArray).indexOfObject(annotation)
-        if index >= 0 {
-//            self.showDetailsForResult(self.results[index])
-            print(annotations[index].toolId)
-        }
+
+        print(annotations[index].toolId)
+
         
         print("tool selected")
-//      print(annotation.annotation.toolId)
+
 
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolDetailShow") as! ToolDetailViewController
+        vc.ownerId = annotations[index].ownerId
+        vc.toolId = annotations[index].toolId
         
+        self.presentViewController(vc, animated: true, completion: nil)
         
         
 //        UIAlertView(title: annotation.title!!, message: "Hey cocksucker! I don't like you; what's new?", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
@@ -177,6 +192,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             let latitude = (tool.location?.latitude)!
             let longitude = (tool.location?.longitude)!
             let toolId = (tool.objectId)!
+            let ownerId = (tool.ownerId)!
             
             var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude as! Double, longitude as! Double)
             
@@ -185,11 +201,16 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             
             let marker = ToolAnnotation()
             marker.coordinate = location
+            
+            getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
+                marker.toolPic = image
+            })
             //            marker.accessibilityValue = toolId
             
             marker.title = toolName
             marker.subtitle = toolDescription
             marker.toolId = toolId
+            marker.ownerId = ownerId
             
             self.annotations.append(marker)
             

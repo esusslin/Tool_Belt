@@ -21,6 +21,9 @@ class ToolAnnotation: MGLPointAnnotation {
     var image: UIImage?
     
     var toolId: String?
+    var ownerId: String?
+    var toolPic: UIImage?
+    
     
     var reuseIdentifier: String?
     

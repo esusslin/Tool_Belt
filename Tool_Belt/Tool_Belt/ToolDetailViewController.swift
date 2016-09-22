@@ -12,9 +12,14 @@ class ToolDetailViewController: UIViewController {
     
     
     var toolId: String?
+    var ownerId: String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(toolId)
+        print(ownerId)
 
         // Do any additional setup after loading the view.
     }
