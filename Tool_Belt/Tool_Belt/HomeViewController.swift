@@ -138,6 +138,10 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         vc.ownerId = annotations[index].ownerId
         vc.toolId = annotations[index].toolId
         
+        let backItem = UIBarButtonItem()
+        backItem.title = "Something Else"
+        vc.navigationItem.backBarButtonItem = backItem
+        
         self.presentViewController(vc, animated: true, completion: nil)
         
         

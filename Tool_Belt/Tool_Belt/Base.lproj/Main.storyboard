@@ -1226,7 +1226,7 @@
                         <outlet property="searchDisplayController" destination="m9b-5C-ro4" id="RfR-2x-GEO"/>
                         <outlet property="secondFindButton" destination="G7L-um-4fk" id="hZv-rS-jel"/>
                         <outlet property="secondSearchBar" destination="zgs-Ng-Kov" id="HhK-MF-nbb"/>
-                        <segue destination="Vun-dh-gjP" kind="show" id="CD6-Z5-3c3"/>
+                        <segue destination="Vun-dh-gjP" kind="show" animates="NO" id="CD6-Z5-3c3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRs-W3-AnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1264,7 +1264,9 @@
                             <constraint firstItem="II6-IQ-5wO" firstAttribute="top" secondItem="rfd-my-5j3" secondAttribute="top" constant="291" id="zCB-P1-oe5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tool Particulars" id="e9D-cm-UcX"/>
+                    <navigationItem key="navigationItem" title="Tool Particulars" id="e9D-cm-UcX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Vgk-L5-JBP"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlE-bQ-IEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
