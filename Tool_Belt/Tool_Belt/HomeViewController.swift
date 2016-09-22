@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     var tools = [Tool]()
     var users = [BackendlessUser]()
     
+    var annotations: [ToolAnnotation] = []
+    
     var avatarImagesDictionary: NSMutableDictionary?
     var avatarDictionary: NSMutableDictionary?
     
@@ -85,6 +87,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         // Only show callouts for `Hello world!` annotation
         if annotation.respondsToSelector(Selector("title")) && annotation.title! == "Hello world!" {
             // Instantiate and return our custom callout view
+            
             return CustomCalloutView(representedObject: annotation)
         }
         return nil
@@ -99,6 +102,20 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 //       
 //    }
     
+    func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
+        
+            let index = (self.annotations as NSArray).indexOfObject(annotation)
+
+            let leftView = UIImageView(image: annotations[index].toolPic)
+            leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            leftView.layer.cornerRadius = 8.0
+            leftView.layer.masksToBounds = true
+            
+            return leftView
+
+        
+    }
+    
     func mapView(mapView: MGLMapView, rightCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
         return UIButton(type: .DetailDisclosure)
     }
@@ -108,11 +125,24 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     func mapView(mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
         // Hide the callout view.
         mapView.deselectAnnotation(annotation, animated: false)
+
+        let index = (self.annotations as NSArray).indexOfObject(annotation)
+
+        print(annotations[index].toolId)
+
         
-//        print(toolId)
+        print("tool selected")
+
 
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolDetailShow") as! ToolDetailViewController
+        vc.ownerId = annotations[index].ownerId
+        vc.toolId = annotations[index].toolId
         
+        let backItem = UIBarButtonItem()
+        backItem.title = "Something Else"
+        vc.navigationItem.backBarButtonItem = backItem
+        
+        self.presentViewController(vc, animated: true, completion: nil)
         
         
 //        UIAlertView(title: annotation.title!!, message: "Hey cocksucker! I don't like you; what's new?", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
@@ -166,21 +196,30 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             let latitude = (tool.location?.latitude)!
             let longitude = (tool.location?.longitude)!
             let toolId = (tool.objectId)!
+            let ownerId = (tool.ownerId)!
             
             var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude as! Double, longitude as! Double)
             
             let toolName = (tool.title)!
             let toolDescription = (tool.toolDescription)!
             
-            let marker = MGLPointAnnotation()
+            let marker = ToolAnnotation()
             marker.coordinate = location
-//            marker.accessibilityValue = toolId
+            
+            getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
+                marker.toolPic = image
+            })
+            //            marker.accessibilityValue = toolId
             
             marker.title = toolName
             marker.subtitle = toolDescription
-        
+            marker.toolId = toolId
+            marker.ownerId = ownerId
             
-            self.mapView.addAnnotation(marker)
+            self.annotations.append(marker)
+            
+            
+            self.mapView.addAnnotations(self.annotations)
 
         }
         

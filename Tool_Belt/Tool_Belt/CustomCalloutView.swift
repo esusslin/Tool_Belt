@@ -11,6 +11,11 @@ import Mapbox
 class CustomCalloutView: UIView, MGLCalloutView {
     var representedObject: MGLAnnotation
     lazy var leftAccessoryView = UIView()/* unused */
+    
+//    let leftAccessoryView = UIImageView(image: UIImage())
+//    leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+//    leftView.backgroundColor = UIColor.redColor()
+//    anView.leftCalloutAccessoryView = leftView
     lazy var rightAccessoryView = UIView()/* unused */
     weak var delegate: MGLCalloutViewDelegate?
     
