@@ -138,11 +138,9 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         vc.ownerId = annotations[index].ownerId
         vc.toolId = annotations[index].toolId
         
-        let backItem = UIBarButtonItem()
-        backItem.title = "Something Else"
-        vc.navigationItem.backBarButtonItem = backItem
+//        self.navigationController!.pushViewController(vc)
         
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.navigationController!.pushViewController(vc, animated: true)
         
         
 //        UIAlertView(title: annotation.title!!, message: "Hey cocksucker! I don't like you; what's new?", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
