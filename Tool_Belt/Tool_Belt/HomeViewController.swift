@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     var tools = [Tool]()
     var users = [BackendlessUser]()
     
+    var annotations: [ToolAnnotation] = []
+    
     var avatarImagesDictionary: NSMutableDictionary?
     var avatarDictionary: NSMutableDictionary?
     
@@ -85,6 +87,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         // Only show callouts for `Hello world!` annotation
         if annotation.respondsToSelector(Selector("title")) && annotation.title! == "Hello world!" {
             // Instantiate and return our custom callout view
+            
             return CustomCalloutView(representedObject: annotation)
         }
         return nil
@@ -109,7 +112,15 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         // Hide the callout view.
         mapView.deselectAnnotation(annotation, animated: false)
         
-//        print(toolId)
+//       let annotation = mapView.annotation as! ToolAnnotation
+        let index = (self.annotations as NSArray).indexOfObject(annotation)
+        if index >= 0 {
+//            self.showDetailsForResult(self.results[index])
+            print(annotations[index].toolId)
+        }
+        
+        print("tool selected")
+//      print(annotation.annotation.toolId)
 
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolDetailShow") as! ToolDetailViewController
         
@@ -172,15 +183,18 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             let toolName = (tool.title)!
             let toolDescription = (tool.toolDescription)!
             
-            let marker = MGLPointAnnotation()
+            let marker = ToolAnnotation()
             marker.coordinate = location
-//            marker.accessibilityValue = toolId
+            //            marker.accessibilityValue = toolId
             
             marker.title = toolName
             marker.subtitle = toolDescription
-        
+            marker.toolId = toolId
             
-            self.mapView.addAnnotation(marker)
+            self.annotations.append(marker)
+            
+            
+            self.mapView.addAnnotations(self.annotations)
 
         }
         
