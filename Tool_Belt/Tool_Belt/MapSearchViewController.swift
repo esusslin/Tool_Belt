@@ -252,13 +252,6 @@ extension MapSearchViewController : CLLocationManagerDelegate, MKMapViewDelegate
 
         let tapGesture = UITapGestureRecognizer(target: self, action: "See ToolBelter Info")
 
-        calloutView.ownerImage.image = toolAnnotation.image
-        calloutView.ownerImage.layer.cornerRadius = calloutView.ownerImage.frame.size.width/2
-        calloutView.ownerImage.layer.masksToBounds = true
-
-        // 3
-        calloutView.center = CGPointMake(view.bounds.size.width / 2, -calloutView.bounds.size.height*0.52)
-        view.addSubview(calloutView)
     }
     func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
         if view.isKindOfClass(AnnotationView)
