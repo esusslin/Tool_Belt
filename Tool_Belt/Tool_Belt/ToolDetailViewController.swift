@@ -9,7 +9,8 @@
 import UIKit
 import Mapbox
 
-class ToolDetailViewController: UIViewController {
+
+class ToolDetailViewController: UIViewController, MGLMapViewDelegate {
     
     @IBOutlet weak var toolImageView: UIImageView!
     @IBOutlet weak var toolTitle: UILabel!
@@ -18,6 +19,9 @@ class ToolDetailViewController: UIViewController {
     
 
     @IBOutlet weak var mapView: MGLMapView!
+    
+    var delegate: ChooseUserDelegate!
+    
     var toolId: String?
     var ownerId: String?
     var tool: Tool?
@@ -37,7 +41,8 @@ class ToolDetailViewController: UIViewController {
         
         
         getTool(self.toolId!)
-        
+        mapView.delegate = self
+        mapView.selectAnnotation(mapView.annotations![0], animated: true)
         
     }
 
@@ -124,32 +129,69 @@ class ToolDetailViewController: UIViewController {
 
     
     func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        // Always allow callouts to popup when annotations are tapped
         return true
     }
     
-        func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
+    func mapView(mapView: MGLMapView, calloutViewForAnnotation annotation: MGLAnnotation) -> UIView? {
+        // Only show callouts for `Hello world!` annotation
+        if annotation.respondsToSelector(Selector("title")) && annotation.title! == "Hello world!" {
+            // Instantiate and return our custom callout view
             
-            let index = (self.annotations as NSArray).indexOfObject(annotation)
-            
-            let leftView = UIImageView(image: annotations[index].toolPic)
-            leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-            leftView.layer.cornerRadius = 8.0
-            leftView.layer.masksToBounds = true
-            
-            return leftView
-            
-            
+            return CustomCalloutView(representedObject: annotation)
         }
+        return nil
+    }
+    
+    
+    func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
+        
+        let index = (self.annotations as NSArray).indexOfObject(annotation)
+        
+        let leftView = UIImageView(image: annotations[index].toolPic)
+        leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+//        .frame.size.width/2
+        leftView.layer.cornerRadius = 8.0
+        leftView.layer.masksToBounds = true
+        
+        return leftView
+        
+        
+    }
     
     func mapView(mapView: MGLMapView, rightCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
         return UIButton(type: .DetailDisclosure)
     }
     
+    
+    
     func mapView(mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
         // Hide the callout view.
         mapView.deselectAnnotation(annotation, animated: false)
+    
+        let optionMenu = UIAlertController(title: nil, message: "Contact \(annotation.title!!) about this \(self.tool!.title!)?", preferredStyle: .ActionSheet)
         
-        UIAlertView(title: annotation.title!!, message: "A lovely (if touristy) place.", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
+        let contactOwnerAction = UIAlertAction(title: "Yes", style: .Destructive) { (alert: UIAlertAction!) -> Void in
+            self.contactOwner()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) -> Void in
+            print("cancelled")
+        }
+        
+        optionMenu.addAction(contactOwnerAction)
+        optionMenu.addAction(cancelAction)
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+//                UIAlertView(title: self.tool!.title!, message: "Contact \(annotation.title!!) about this \(self.tool!.title!)?", delegate: nil, cancelButtonTitle: "Cancel", otherButtonTitles: "OK").show()
+    }
+    
+    func mapView(mapView: MGLMapView, tapOnCalloutForAnnotation annotation: MGLAnnotation) {
+        // Optionally handle taps on the callout
+        print("Tapped the callout for: \(annotation)")
+        
+        // Hide the callout
+        mapView.deselectAnnotation(annotation, animated: true)
     }
     
 
@@ -181,6 +223,21 @@ class ToolDetailViewController: UIViewController {
             
             // Center the map on the annotation.
             mapView.setCenterCoordinate(marker.coordinate, zoomLevel: 12, animated: false)
+//            self.mapView.annotations.calloutAccessoryControlTapped(self.annotations[0], animated: true)
         }
+    }
+    
+   func contactOwner() {
+    print(self.owner!)
+    print(currentUser!)
+    
+    
+    let chatVC = ChatViewController()
+    chatVC.hidesBottomBarWhenPushed = true
+    
+    navigationController?.pushViewController(chatVC, animated: true)
+    
+    chatVC.withUser = owner
+    chatVC.chatRoomId = startChat(currentUser, user2: owner!)
     }
 }
