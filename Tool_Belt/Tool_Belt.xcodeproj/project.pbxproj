@@ -14,6 +14,8 @@
 		E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */; };
 		E23816A31D84F0B00083C659 /* ToolShowTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23816A21D84F0B00083C659 /* ToolShowTableViewController.swift */; };
 		E23D4E401D8843E100B7D1DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D4E3F1D8843E100B7D1DC /* HomeViewController.swift */; };
+		E24122801D972D1C00410AEC /* ToolSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241227F1D972D1C00410AEC /* ToolSearchTableViewController.swift */; };
+		E24122821D972FE900410AEC /* ToolSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24122811D972FE900410AEC /* ToolSearchTableViewCell.swift */; };
 		E25298311D90DA0400CE3CB6 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25298301D90DA0400CE3CB6 /* Mapbox.framework */; };
 		E25298321D90DA0400CE3CB6 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E25298301D90DA0400CE3CB6 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E25298351D90F0BF00CE3CB6 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25298341D90F0BF00CE3CB6 /* CustomCalloutView.swift */; };
@@ -97,6 +99,8 @@
 		E234DDCC1D47F30B008DAB22 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E23816A21D84F0B00083C659 /* ToolShowTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolShowTableViewController.swift; sourceTree = "<group>"; };
 		E23D4E3F1D8843E100B7D1DC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E241227F1D972D1C00410AEC /* ToolSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolSearchTableViewController.swift; sourceTree = "<group>"; };
+		E24122811D972FE900410AEC /* ToolSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolSearchTableViewCell.swift; sourceTree = "<group>"; };
 		E25298301D90DA0400CE3CB6 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		E25298341D90F0BF00CE3CB6 /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		E25298361D9100D900CE3CB6 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 			children = (
 				E27E13B91D504CF100C7F6E6 /* RecentTableViewCell.swift */,
 				E28FDBF71D7FB8D4009B87B1 /* MyToolBeltTableViewCell.swift */,
+				E24122811D972FE900410AEC /* ToolSearchTableViewCell.swift */,
 			);
 			name = CustomTableViewCells;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				E25298361D9100D900CE3CB6 /* ToolDetailViewController.swift */,
 				E2C655A61D8EF685001E1A3C /* ToolPicViewController.swift */,
 				E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */,
+				E241227F1D972D1C00410AEC /* ToolSearchTableViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
 			name = UIViewControllers;
@@ -505,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E24122821D972FE900410AEC /* ToolSearchTableViewCell.swift in Sources */,
 				E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */,
 				E27E13AC1D5042E900C7F6E6 /* RegisterUser.swift in Sources */,
 				E27E13BC1D504DA600C7F6E6 /* RecentViewController.swift in Sources */,
@@ -530,6 +537,7 @@
 				E27E13BA1D504CF100C7F6E6 /* RecentTableViewCell.swift in Sources */,
 				E2C5C41C1D5A10E0000FABFB /* ChatViewController.swift in Sources */,
 				E2C655A71D8EF685001E1A3C /* ToolPicViewController.swift in Sources */,
+				E24122801D972D1C00410AEC /* ToolSearchTableViewController.swift in Sources */,
 				E2A8F1D71D5C216B008E01D3 /* Camera.swift in Sources */,
 				E2EA50121D4447860092BD51 /* Tool.swift in Sources */,
 				E28FDBFC1D84B81E009B87B1 /* NewTool2ViewController.swift in Sources */,

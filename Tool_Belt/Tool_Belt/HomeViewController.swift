@@ -59,6 +59,15 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         mapView.delegate = self
     }
     
+    @IBAction func listSearchButtonPressed(sender: AnyObject) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolSearchTableView") as! ToolSearchTableViewController
+        vc.tools = self.tools
+        
+        self.navigationController!.pushViewController(vc, animated: true)
+        
+    }
+    
+    
     func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage? {
         // Try to reuse the existing ‘pisa’ annotation image, if it exists.
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier("pisa")
@@ -277,6 +286,22 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 
    }
     
-    
+    //MARK: Navigations
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        ProgressHUD.dismiss()
+//        
+//        if segue.identifier == "maptolist" {
+//            
+//            let searchlistVC = segue.destinationViewController as! ToolSearchTableViewController
+//
+//            searchlistVC.tools = self.tools
+//            
+//            
+//            
+//        }
+//    }
+//    
 }
 

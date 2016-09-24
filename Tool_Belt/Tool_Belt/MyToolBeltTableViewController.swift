@@ -24,7 +24,7 @@ class MyToolBeltTableViewController: UIViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         tableView.delegate = self
 
-            loadMyTools()
+           loadMyTools()
 
     }
 
