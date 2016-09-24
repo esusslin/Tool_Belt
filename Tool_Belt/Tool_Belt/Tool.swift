@@ -18,6 +18,7 @@ class Tool : NSObject {
     var location : GeoPoint?
     var available : Bool?
     var picture : String?
+    var toolPic : UIImage?
     
     
 }

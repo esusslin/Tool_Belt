@@ -15,11 +15,10 @@ class ToolSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var toolImageView: UIImageView!
 
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var make: UILabel!
+
     
     @IBOutlet weak var distance: UILabel!
-    
-    @IBOutlet weak var available: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,16 +33,17 @@ class ToolSearchTableViewCell: UITableViewCell {
     
     func bindData(tool: Tool) {
         
-        self.toolImageView.image = UIImage(named: "avatarPlaceholder")
+        self.toolImageView.image = tool.toolPic
+        
+        print(tool.toolPic!)
         
         self.toolImageView.layer.cornerRadius = toolImageView.frame.size.width/2
         self.toolImageView.layer.masksToBounds = true
         
-        self.toolImageView.image = UIImage(named: "avatarPlaceholder")
-        
         
         self.title.text = tool.title! as String
-        self.make.text = tool.make! as String
+        
+
         
         
     }

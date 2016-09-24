@@ -68,10 +68,12 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolDetailShow") as! ToolDetailViewController
         let tool = tools[indexPath.row]
+        vc.toolId = tool.objectId
+        vc.ownerId = tool.ownerId
         
-        
-        performSegueWithIdentifier("toolBeltToShow", sender: indexPath)
+        self.navigationController!.pushViewController(vc, animated: true)
     }
 
     @IBAction func findButtonPressed(sender: AnyObject) {
@@ -93,18 +95,19 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
         
         if error == nil {
             print("Contacts have been found: \(tools.data)")
-        }
-        else {
-            print("Server reported an error: \(error)")
-        }
-        
-        if error == nil {
-            print("Contacts have been found: \(tools.data)")
             
-            self.tools.appendContentsOf(tools.data as! [Tool]!)
+            
             
             for tool in tools.data as! [Tool] {
                 print(tool.title)
+                
+                getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
+                    tool.toolPic = image
+                    
+                    print(tool.toolPic)
+                    
+                    self.tools.append(tool)
+                })
                 
             }
             
@@ -116,6 +119,6 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
             print("Server reported an error: \(error)")
         }
 
-        }
+    }
     
 }
