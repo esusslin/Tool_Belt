@@ -56,13 +56,7 @@ class ToolViewController: UIViewController {
         self.toolDescription.text = tool!.toolDescription
         self.toolImageView.image = UIImage(named: "avatarPlaceholder")
         
-        //        avatarSwitch.setOn(avatarSwitchStatus, animated: false)
-        
-//        if let imageLink = tool!.getProperty("Avatar") {
-//            getImageFromURL(imageLink as! String, result: { (image) -> Void in
-//                self.imageUser.image = image
-//            })
-//        }
+
     }
 
 }

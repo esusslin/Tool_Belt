@@ -93,14 +93,6 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         return nil
     }
     
-//    func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
-//        
-//            // Callout height is fixed; width expands to fit its content.
-////            let pic = UIImage(frame: CGRectMake(0, 0, 60, 50))
-////
-////            return pic
-//       
-//    }
     
     func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
         
