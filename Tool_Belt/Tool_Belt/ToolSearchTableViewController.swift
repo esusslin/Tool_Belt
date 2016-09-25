@@ -75,6 +75,7 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
     }
 
     @IBAction func findButtonPressed(sender: AnyObject) {
+        self.tools.removeAll()
         self.findTools(self.searchBar.text)
         
     }
@@ -105,11 +106,12 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
                     print(tool.toolPic)
                     
                     self.tools.append(tool)
+                  self.tableView.reloadData()
                 })
                 
             }
             
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
             
             
         }
@@ -120,10 +122,7 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func loadTools() {
-        
-        print("Hello")
-        print(self.tools)
-        print("Hello again")
+
         self.tableView.reloadData()
     }
     

@@ -158,6 +158,14 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     }
     
     @IBAction func secondFindButtonPressed(sender: AnyObject) {
+        self.tools.removeAll()
+        for _annotation in annotations {
+            if let annotation = _annotation as? ToolAnnotation {
+                self.mapView.removeAnnotation(annotation)
+            }
+        }
+        self.annotations.removeAll()
+       
         self.findTools(self.secondSearchBar.text)
         
     }
