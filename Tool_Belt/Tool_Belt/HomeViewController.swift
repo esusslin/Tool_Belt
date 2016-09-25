@@ -107,8 +107,10 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
         
             let index = (self.annotations as NSArray).indexOfObject(annotation)
+            print(self.annotations.count)
+            print(self.annotations[0].toolPic)
 
-            let leftView = UIImageView(image: annotations[index].toolPic)
+            let leftView = UIImageView(image: annotations[index].toolPic as UIImage!)
             leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
             leftView.layer.cornerRadius = 8.0
             leftView.layer.masksToBounds = true
@@ -154,6 +156,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 
     @IBAction func firstFindButtonPressed(sender: AnyObject) {
         
+        
+        self.findTools(self.firstSearchBar.text)
         animateLaunch(UIImage(named: "wrench-2")!)
     }
     
