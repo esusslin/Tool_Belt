@@ -61,6 +61,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     
     @IBAction func listSearchButtonPressed(sender: AnyObject) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolSearchTableView") as! ToolSearchTableViewController
+        print(self.tools)
         vc.tools = self.tools
         
         self.navigationController!.pushViewController(vc, animated: true)
@@ -106,8 +107,10 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     func mapView(mapView: MGLMapView, leftCalloutAccessoryViewForAnnotation annotation: MGLAnnotation) -> UIView? {
         
             let index = (self.annotations as NSArray).indexOfObject(annotation)
+            print(self.annotations.count)
+            print(self.annotations[0].toolPic)
 
-            let leftView = UIImageView(image: annotations[index].toolPic)
+            let leftView = UIImageView(image: annotations[index].toolPic as UIImage!)
             leftView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
             leftView.layer.cornerRadius = 8.0
             leftView.layer.masksToBounds = true
@@ -131,20 +134,14 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 
         print(annotations[index].toolId)
 
-        
-        print("tool selected")
-
 
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolDetailShow") as! ToolDetailViewController
         vc.ownerId = annotations[index].ownerId
         vc.toolId = annotations[index].toolId
         
-//        self.navigationController!.pushViewController(vc)
-        
         self.navigationController!.pushViewController(vc, animated: true)
         
-        
-//        UIAlertView(title: annotation.title!!, message: "Hey cocksucker! I don't like you; what's new?", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
+
     }
     
     func mapView(mapView: MGLMapView, tapOnCalloutForAnnotation annotation: MGLAnnotation) {
@@ -159,10 +156,20 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 
     @IBAction func firstFindButtonPressed(sender: AnyObject) {
         
+        
+        self.findTools(self.firstSearchBar.text)
         animateLaunch(UIImage(named: "wrench-2")!)
     }
     
     @IBAction func secondFindButtonPressed(sender: AnyObject) {
+        self.tools.removeAll()
+        for _annotation in annotations {
+            if let annotation = _annotation as? ToolAnnotation {
+                self.mapView.removeAnnotation(annotation)
+            }
+        }
+        self.annotations.removeAll()
+       
         self.findTools(self.secondSearchBar.text)
         
     }
@@ -192,6 +199,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         
         for tool in currentPage as! [Tool] {
             
+            
+            
             let latitude = (tool.location?.latitude)!
             let longitude = (tool.location?.longitude)!
             let toolId = (tool.objectId)!
@@ -207,6 +216,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             
             getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
                 marker.toolPic = image
+                tool.toolPic = image
+                self.tools.append(tool)
             })
             //            marker.accessibilityValue = toolId
             
@@ -282,26 +293,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             
             
     })
-//        self.findTools(self.firstSearchBar.text)
 
    }
-    
-    //MARK: Navigations
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        ProgressHUD.dismiss()
-//        
-//        if segue.identifier == "maptolist" {
-//            
-//            let searchlistVC = segue.destinationViewController as! ToolSearchTableViewController
-//
-//            searchlistVC.tools = self.tools
-//            
-//            
-//            
-//        }
-//    }
-//    
+   
 }
 

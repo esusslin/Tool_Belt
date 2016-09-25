@@ -27,9 +27,7 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         tableView.delegate = self
         
-        print(tools)
-        
-        self.tableView.reloadData()
+        loadTools()
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,6 +75,7 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
     }
 
     @IBAction func findButtonPressed(sender: AnyObject) {
+        self.tools.removeAll()
         self.findTools(self.searchBar.text)
         
     }
@@ -107,11 +106,12 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
                     print(tool.toolPic)
                     
                     self.tools.append(tool)
+                  self.tableView.reloadData()
                 })
                 
             }
             
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
             
             
         }
@@ -119,6 +119,11 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
             print("Server reported an error: \(error)")
         }
 
+    }
+    
+    func loadTools() {
+
+        self.tableView.reloadData()
     }
     
 }
