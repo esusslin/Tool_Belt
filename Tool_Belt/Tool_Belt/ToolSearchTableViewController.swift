@@ -27,9 +27,7 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
         tableView.dataSource = self
         tableView.delegate = self
         
-        print(tools)
-        
-        self.tableView.reloadData()
+        loadTools()
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,6 +117,14 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
             print("Server reported an error: \(error)")
         }
 
+    }
+    
+    func loadTools() {
+        
+        print("Hello")
+        print(self.tools)
+        print("Hello again")
+        self.tableView.reloadData()
     }
     
 }

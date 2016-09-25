@@ -61,6 +61,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     
     @IBAction func listSearchButtonPressed(sender: AnyObject) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolSearchTableView") as! ToolSearchTableViewController
+        print(self.tools)
         vc.tools = self.tools
         
         self.navigationController!.pushViewController(vc, animated: true)
@@ -131,20 +132,14 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
 
         print(annotations[index].toolId)
 
-        
-        print("tool selected")
-
 
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolDetailShow") as! ToolDetailViewController
         vc.ownerId = annotations[index].ownerId
         vc.toolId = annotations[index].toolId
         
-//        self.navigationController!.pushViewController(vc)
-        
         self.navigationController!.pushViewController(vc, animated: true)
         
-        
-//        UIAlertView(title: annotation.title!!, message: "Hey cocksucker! I don't like you; what's new?", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "OK").show()
+
     }
     
     func mapView(mapView: MGLMapView, tapOnCalloutForAnnotation annotation: MGLAnnotation) {
@@ -192,6 +187,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         
         for tool in currentPage as! [Tool] {
             
+            
+            
             let latitude = (tool.location?.latitude)!
             let longitude = (tool.location?.longitude)!
             let toolId = (tool.objectId)!
@@ -207,6 +204,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             
             getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
                 marker.toolPic = image
+                tool.toolPic = image
+                self.tools.append(tool)
             })
             //            marker.accessibilityValue = toolId
             
@@ -282,26 +281,8 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
             
             
     })
-//        self.findTools(self.firstSearchBar.text)
 
    }
-    
-    //MARK: Navigations
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        ProgressHUD.dismiss()
-//        
-//        if segue.identifier == "maptolist" {
-//            
-//            let searchlistVC = segue.destinationViewController as! ToolSearchTableViewController
-//
-//            searchlistVC.tools = self.tools
-//            
-//            
-//            
-//        }
-//    }
-//    
+   
 }
 
