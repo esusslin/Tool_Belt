@@ -24,7 +24,7 @@ class WelcomeViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         backendless.userService.setStayLoggedIn(true)
         
-        header.center.x  -= view.bounds.width
+        
         
         currentUser = backendless.userService.currentUser
         
@@ -43,9 +43,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIView.animateWithDuration(8.0, delay: 1.8, options: [.Repeat, .Autoreverse], animations: { self.header.center.x += self.view.bounds.width
-            }, completion: nil)
- 
+
         fbLoginButton.readPermissions = ["public_profile", "email"]
     }
     
