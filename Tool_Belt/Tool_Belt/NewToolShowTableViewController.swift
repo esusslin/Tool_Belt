@@ -53,10 +53,18 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
         changePhoto()
     }
     
-    
-    @IBAction func availableSwitch(sender: AnyObject) {
+    @IBAction func availableSwitched(sender: UISwitch) {
+        
+                if availableSwitch.on {
+                    self.tool?.available = true
+                    print(self.tool?.available)
+                } else {
+                    self.tool?.available = false
+                    print(self.tool?.available)
+                }
         
     }
+
     
     @IBAction func profileButtonPressed(sender: AnyObject) {
         
@@ -107,12 +115,13 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
-            print("hello")
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-            print("hello")
-            vc.selectedIndex = 0
-            
-            self.presentViewController(vc, animated: true, completion: nil)
+//            print("hello")
+//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+//            print("hello")
+//            vc.selectedIndex = 0
+//            
+//            self.presentViewController(vc, animated: true, completion: nil)
+            backtoProfile()
         }
     }
     
@@ -200,7 +209,7 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
     
    func backtoProfile() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-        print("hello")
+    
         vc.selectedIndex = 0
         
     }

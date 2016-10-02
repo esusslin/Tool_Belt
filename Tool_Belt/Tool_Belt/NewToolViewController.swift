@@ -102,9 +102,11 @@ class NewToolViewController: UIViewController {
  
             toolAddress = toolAddressTextField.text
 
-            ProgressHUD.show("Registering new tool address...")
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewTool2") as! NewTool2ViewController
+            print(toolAddress!)
+            vc.toolAddress = toolAddress!
             
-                performSegueWithIdentifier("newTool2Seg", sender: self)
+            self.navigationController!.pushViewController(vc, animated: true)
             
         } else {
             // show an error to user230
@@ -114,24 +116,6 @@ class NewToolViewController: UIViewController {
         
     }
     
-    //MARK: Navigations
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        ProgressHUD.dismiss()
-        
-        if segue.identifier == "newTool2Seg" {
-            
-            let newTool2VC = segue.destinationViewController as! NewTool2ViewController
-            
-            print(self.toolAddress)
-            print(toolAddress)
-            
-            newTool2VC.toolAddress = toolAddress!
-            
-        }
-        
-    }
     
 
 }

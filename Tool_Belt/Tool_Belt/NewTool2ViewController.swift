@@ -110,32 +110,17 @@ class NewTool2ViewController: UIViewController {
         self.tool_make = toolMake.text
         self.tool_description = toolDescription.text
         
-        performSegueWithIdentifier("newTool2Pic", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewTool3") as! ToolPicViewController
+        print(toolAddress!)
+        vc .tool_title = self.tool_title
+        vc.tool_make = self.tool_make
+        vc.tool_description = self.tool_description
+        vc.tool_location = self.toolLocation
         
-//        print("hello")
-//        
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tool2pic") as! ToolPicViewController
-//       
-//        
-//        
-//        
-//        vc.tool = newTool as! Tool
-//
-//        backendless.persistenceService.of(Tool.ofClass()).save(newTool,
-//                                                               response: { ( d : AnyObject!) -> () in
-//                                                                print("ASYNC: Tool has been saved. Location object ID - \((d as! Tool).location!.objectId)")
-//                                                                
-//                                                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tool2pic") as! ToolPicViewController
-//                                                                    vc.tool = newTool as! Tool
-//
-//                                                                self.presentViewController(vc, animated: true, completion: nil)
-//
-//                                                                
-//            },
-//                                                               
-//                                                               error: { ( fault : Fault!) -> () in
-//                                                                print("Server reported an error: \(fault)")
-//        })
+        self.navigationController!.pushViewController(vc, animated: true)
+        
+//        performSegueWithIdentifier("newTool2Pic", sender: self)
+
     }
     
     //MARK: Navigations

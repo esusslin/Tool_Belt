@@ -107,8 +107,13 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 && indexPath.row == 0 {
-            print("mytoolBELT")
-            performSegueWithIdentifier("profileToToolBeltSeg", sender: indexPath)
+            
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyToolBelt") as! MyToolBeltTableViewController
+//            print(self.tools)
+//            vc.tools = self.tools
+            
+            self.navigationController!.pushViewController(vc, animated: true)
+           
         }
         
         if indexPath.section == 1 && indexPath.row == 0 {
