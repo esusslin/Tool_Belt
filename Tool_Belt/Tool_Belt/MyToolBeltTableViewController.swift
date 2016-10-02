@@ -72,7 +72,12 @@ class MyToolBeltTableViewController: UIViewController, UITableViewDataSource, UI
     }
     
     @IBAction func addToolButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("toolBeltToNewToolForm", sender: self)
+//        performSegueWithIdentifier("toolBeltToNewToolForm", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewTool1") as! NewToolViewController
+        //            print(self.tools)
+        //            vc.tools = self.tools
+        
+        self.navigationController!.pushViewController(vc, animated: true)
     }
     
     //MARK: Navigations

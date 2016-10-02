@@ -102,13 +102,11 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
             let updatedTool = dataStore.save(newtool, fault: &error) as? Tool
             if error == nil {
                 print("Contact has been updated: \(updatedTool!.objectId)")
-//                
-//                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ToolShowView") as! ToolShowTableViewController
+
                 self.tool = updatedTool!
                 
-                self.performSegueWithIdentifier("newTooldone!", sender: self)
-                
-//                self.presentViewController(vc, animated: true, completion: nil)
+              self.performSegueWithIdentifier("newTooldone!", sender: self)
+
             }
             else {
                 print("Server reported an error (2): \(error)")
@@ -130,8 +128,7 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
         if segue.identifier == "newTooldone!" {
             
             let newTool2VC = segue.destinationViewController as! NewToolShowTableViewController
-//            let newTool2VC = segue.destinationViewController as! NewToolShowTableViewController
-//            let newTool2VC = nav.topViewController as! NewToolShowTableViewController
+
 
             
             

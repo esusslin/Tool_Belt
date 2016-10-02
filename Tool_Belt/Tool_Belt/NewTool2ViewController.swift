@@ -110,7 +110,16 @@ class NewTool2ViewController: UIViewController {
         self.tool_make = toolMake.text
         self.tool_description = toolDescription.text
         
-        performSegueWithIdentifier("newTool2Pic", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewTool3") as! ToolPicViewController
+        print(toolAddress!)
+        vc .tool_title = self.tool_title
+        vc.tool_make = self.tool_make
+        vc.tool_description = self.tool_description
+        vc.tool_location = self.toolLocation
+        
+        self.navigationController!.pushViewController(vc, animated: true)
+        
+//        performSegueWithIdentifier("newTool2Pic", sender: self)
 
     }
     
