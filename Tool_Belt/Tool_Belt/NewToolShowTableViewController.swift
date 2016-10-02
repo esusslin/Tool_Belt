@@ -53,10 +53,32 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
         changePhoto()
     }
     
-    
-    @IBAction func availableSwitch(sender: AnyObject) {
+    @IBAction func availableSwitched(sender: UISwitch) {
+        
+                if availableSwitch.on {
+                    self.tool?.available = true
+                    print(self.tool?.available)
+                } else {
+                    self.tool?.available = false
+                    print(self.tool?.available)
+                }
         
     }
+//    @IBAction func availSwitch(sender: UISwitch) {
+//        
+//        if availSwitch.isOn {
+//            self.tool?.available = true
+//        } else {
+//            myTextField.text = "The Switch is Off"
+//        }
+//        
+//    }
+    
+//    @IBAction func availableSwitch(sender: AnyObject) {
+//        
+//        if
+//        
+//    }
     
     @IBAction func profileButtonPressed(sender: AnyObject) {
         

@@ -28,8 +28,6 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toolPic.layer.cornerRadius = toolPic.frame.size.width / 2
-        toolPic.layer.masksToBounds = true
         
         info.frame = CGRect(x: 0.0, y: toolPic.center.y + 60.0,
                             width: view.frame.size.width, height: 30)
@@ -99,6 +97,7 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
             newtool.location = self.tool_location!
             newtool.toolDescription = self.tool_description!
             newtool.picture = imageLink!
+            newtool.available = true
             
             let updatedTool = dataStore.save(newtool, fault: &error) as? Tool
             if error == nil {
