@@ -115,12 +115,6 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
-//            print("hello")
-//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-//            print("hello")
-//            vc.selectedIndex = 0
-//            
-//            self.presentViewController(vc, animated: true, completion: nil)
             backtoProfile()
         }
     }
@@ -209,9 +203,10 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
     
    func backtoProfile() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
-    
+        print("hello")
         vc.selectedIndex = 0
-        
+    
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     
