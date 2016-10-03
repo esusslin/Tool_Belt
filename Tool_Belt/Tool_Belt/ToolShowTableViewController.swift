@@ -54,9 +54,23 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     }
     
     
-    @IBAction func availableSwitch(sender: AnyObject) {
+    @IBAction func availSwitched(sender: UISwitch) {
         
+        if availableSwitch.on {
+            self.tool?.available = true
+            print(self.tool?.available)
+        } else {
+            self.tool?.available = false
+            print(self.tool?.available)
+        }
+
     }
+
+    
+    
+    //    @IBAction func availableSwitched(sender: UISwitch) {
+    //
+    //
 
 
     // MARK: - Table view data source
@@ -101,6 +115,7 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     
     //MARK: Change pic
     
+    
     func changePhoto() {
         print("2")
         
@@ -130,6 +145,8 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     }
     
     //MARK: UIImagePickerControllerDelegate functions
+
+//    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
@@ -167,10 +184,16 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     
     func updateUI() {
         
-        
+        if ((self.tool!.available) != nil)  {
+            self.availableSwitch.on = true
+        } else {
+            self.availableSwitch.on = false
+        }
         
         toolTitleLabel.text = self.tool!.title!
         toolMakeLabel.text = self.tool!.make!
+        
+        
         //        avatarSwitch.setOn(avatarSwitchStatus, animated: false)
         
         

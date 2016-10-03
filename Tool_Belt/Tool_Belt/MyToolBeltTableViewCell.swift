@@ -21,7 +21,7 @@ class MyToolBeltTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,7 +32,9 @@ class MyToolBeltTableViewCell: UITableViewCell {
     
     func bindData(tool: Tool) {
         
-        self.toolImageView.image = UIImage(named: "avatarPlaceholder")
+        getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
+            self.toolImageView.image = image
+        })
         
         self.toolImageView.layer.cornerRadius = toolImageView.frame.size.width/2
         self.toolImageView.layer.masksToBounds = true
