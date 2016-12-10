@@ -178,10 +178,15 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     
     func findTools(toolString: String?) {
         
-        let whereClause = "title LIKE '\((toolString)!)' AND distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
+        let whereClause = "title LIKE '\((toolString)!)' AND distance(\((self.appDelegate.coordinate?.latitude)!), \((self.appDelegate.coordinate?.longitude)!), location.latitude, location.longitude ) < mi(6)"
+        
+        print(whereClause)
         let dataQuery = BackendlessDataQuery()
         let queryOptions = QueryOptions()
         queryOptions.related = ["tools"]
+        
+        print((self.appDelegate.coordinate?.latitude)!)
+        print((self.appDelegate.coordinate?.longitude)!)
         
         dataQuery.whereClause = whereClause
         
