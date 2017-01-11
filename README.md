@@ -13,12 +13,27 @@ Tool_Belt uses [Backendless](https://www.google.com) of its backend (MBaaS).  Th
 Tool_Belt also provides users with the ability to chat directly with each other to make tool-borrowing arrangements via direct personal messages hosted by [Firebase](https://firebase.google.com/).
 
 
-# Case #1 - Login and searching
+# Login
 
-Tool_Belt user accounts can be created from scratch and users can also be authenticated via a Facebook login.  Once logged in the user has access to his profile page (lower left tab), his personal messages (lower right) and the map searching feature to search for tools nearby via a simple word search - "drill" or "ladder" for instance.
+Tool_Belt user accounts can be created from scratch and users can also be authenticated via a Facebook login.  It is important that all users have a profile picture to use the app - Tool_Belt will automatically use a facebook profile picture if the user doesn't set an avatar personally.
 
-Here is a demonstration of myself logging in via Facebook and searching for a pressure washer - a typical household tool often needed for single-use projects, such as treating a weathered wooded deck or garage floor.
+Profile pictures greatly enhance the user experience with a sharing economy app like Tool_Belt.  Being able to put a name and a face to neighbors from whom a user is borrowing or lending tools is tantamount to the success of the application, as such the user's profile picture is available throughout the UX design of the application.
+
 
 ![alt text](gif1.gif)
+
+# Searching for tools and PMing owners
+
+Once logged in the user has access to his profile page (lower left tab), his personal messages (lower right) and the map searching feature to search for tools nearby via a simple word search. Here is a demonstration of myself logging in via Facebook and searching for a pressure washer - a typical household tool often needed for single-use projects, such as treating a weathered wooded deck or garage floor.
+
+![alt text](gif2.gif)
+
+Tool_Belt hosts personal messaging between users so they can arrange to exchange tools on their own terms without revealing or exchanging personal contact information.  
+
+![alt text](gif3.gif)
+
+The Tool images also greatly enhance the user experience.  Often times a user might need a tool of a certain demension which might not turn up in a simple text search.  The tool photos, just like the user profile pics make finding the tool you need as efficient as possible.  Beyond the images and description of the tools, the personal messaging between users provides the chance to seek additional specifications of the tools as needed.
+
+
 
 
