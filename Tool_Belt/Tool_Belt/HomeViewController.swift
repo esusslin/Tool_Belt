@@ -265,7 +265,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         decreaseSize.delegate = self
         decreaseSize.duration = 1.0
         decreaseSize.fromValue = NSValue(CGRect: mask!.bounds)
-        decreaseSize.toValue = NSValue(CGRect: CGRect(x: 0, y: 0, width: 15, height: 15))
+        decreaseSize.toValue = NSValue(CGRect: CGRect(x: 0, y: 0, width: 5, height: 5))
         
         decreaseSize.fillMode = kCAFillModeForwards
         decreaseSize.removedOnCompletion = false
