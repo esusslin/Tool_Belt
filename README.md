@@ -19,6 +19,6 @@ Tool_Belt user accounts can be created from scratch and users can also be authen
 
 Here is a demonstration of myself logging in via Facebook and searching for a pressure washer - a typical household tool often needed for single-use projects, such as treating a weathered wooded deck or garage floor.
 
-![alt text](tool1.gif)
+![alt text](gif1.gif)
 
 
