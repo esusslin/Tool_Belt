@@ -22,7 +22,6 @@
 		E25298371D9100D900CE3CB6 /* ToolDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25298361D9100D900CE3CB6 /* ToolDetailViewController.swift */; };
 		E25786DE1D62AA5300648CFA /* MyToolBeltTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */; };
 		E25786E01D62AC9000648CFA /* NewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786DF1D62AC9000648CFA /* NewToolViewController.swift */; };
-		E25786E41D66AB1D00648CFA /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */; };
 		E25786EE1D6C8E6A00648CFA /* ToolAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786ED1D6C8E6A00648CFA /* ToolAnnotation.swift */; };
 		E25786F01D77BB1400648CFA /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25786EF1D77BB1400648CFA /* AnnotationView.swift */; };
 		E27E13A71D503A8A00C7F6E6 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E27E13A41D503A8A00C7F6E6 /* ProgressHUD.bundle */; };
@@ -106,7 +105,6 @@
 		E25298361D9100D900CE3CB6 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
 		E25786DD1D62AA5300648CFA /* MyToolBeltTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyToolBeltTableViewController.swift; sourceTree = "<group>"; };
 		E25786DF1D62AC9000648CFA /* NewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolViewController.swift; sourceTree = "<group>"; };
-		E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
 		E25786ED1D6C8E6A00648CFA /* ToolAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolAnnotation.swift; sourceTree = "<group>"; };
 		E25786EF1D77BB1400648CFA /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		E27E13A41D503A8A00C7F6E6 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -242,7 +240,6 @@
 				E2C655A81D8F3AE9001E1A3C /* NewToolShowTableViewController.swift */,
 				E25298361D9100D900CE3CB6 /* ToolDetailViewController.swift */,
 				E2C655A61D8EF685001E1A3C /* ToolPicViewController.swift */,
-				E25786E31D66AB1D00648CFA /* MapSearchViewController.swift */,
 				E241227F1D972D1C00410AEC /* ToolSearchTableViewController.swift */,
 				E2C5C41B1D5A10E0000FABFB /* ChatViewController.swift */,
 			);
@@ -515,7 +512,6 @@
 				E234DDCD1D47F30B008DAB22 /* LoginViewController.swift in Sources */,
 				E27E13AC1D5042E900C7F6E6 /* RegisterUser.swift in Sources */,
 				E27E13BC1D504DA600C7F6E6 /* RecentViewController.swift in Sources */,
-				E25786E41D66AB1D00648CFA /* MapSearchViewController.swift in Sources */,
 				E23D4E401D8843E100B7D1DC /* HomeViewController.swift in Sources */,
 				E2EA50101D4444C70092BD51 /* Address.swift in Sources */,
 				E2A8F1DB1D5C2192008E01D3 /* OutgoingMessage.swift in Sources */,

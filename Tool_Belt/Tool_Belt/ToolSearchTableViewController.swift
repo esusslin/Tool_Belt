@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tools = [Tool]()
@@ -54,7 +55,26 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
         
         let tool = tools[indexPath.row]
         
+        
+        let location = CLLocation(latitude: (self.appDelegate.coordinate?.latitude)!, longitude: (self.appDelegate.coordinate?.longitude)!)
+
+//        let toolLocation = CLLocation(latitude: (tool.location?.latitude)!, longitude: (tool.location?.longitude)!)
+        
+//        func distanceFromLocation(_ location: CLLocation!) -> CLLocationDistance
+        
+        let latitude = (tool.location?.latitude)!
+        let longitude = (tool.location?.longitude)!
+        
+        var toolLocation = CLLocation(latitude: latitude as! Double, longitude: longitude as! Double)
+        
+        let distance = location.distanceFromLocation(toolLocation)
+        
+        let distanceNumber = Int(distance)
+
+        
         cell.bindData(self.tools[indexPath.row])
+        
+        cell.distance.text = "\(distanceNumber) meters away"
         
         return cell
         
@@ -82,7 +102,7 @@ class ToolSearchTableViewController: UIViewController, UITableViewDataSource, UI
     
     func findTools(toolString: String?) {
         
-        let whereClause = "title LIKE '\((toolString)!)' AND distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(6)"
+        let whereClause = "title LIKE '%\((toolString)!)%' AND distance('\((self.appDelegate.coordinate?.latitude)!)', '\((self.appDelegate.coordinate?.longitude)!)', location.latitude, location.longitude ) < mi(10)"
         let dataQuery = BackendlessDataQuery()
         let queryOptions = QueryOptions()
         queryOptions.related = ["tools"]
