@@ -41,6 +41,7 @@ class MyToolBeltTableViewCell: UITableViewCell {
         
         
         self.toolTitle.text = tool.title! as String
+        
         self.toolMake.text = tool.make! as String
 
         

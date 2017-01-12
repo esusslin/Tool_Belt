@@ -22,7 +22,7 @@ Profile pictures greatly enhance the user experience with a sharing economy app 
 
 ![alt text](gif1.gif)
 
-# Searching for tools and PMing owners
+# Searching for tools and messaging other users
 
 Once logged in the user has access to his profile page (lower left tab), his personal messages (lower right) and the map searching feature to search for tools nearby via a simple word search. Here is a demonstration of myself logging in via Facebook and searching for a pressure washer - a typical household tool often needed for single-use projects, such as treating a weathered wooded deck or garage floor.
 
@@ -32,7 +32,13 @@ Tool_Belt hosts personal messaging between users so they can arrange to exchange
 
 ![alt text](gif3.gif)
 
-The Tool images also greatly enhance the user experience.  Often times a user might need a tool of a certain demension which might not turn up in a simple text search.  The tool photos, just like the user profile pics make finding the tool you need as efficient as possible.  Beyond the images and description of the tools, the personal messaging between users provides the chance to seek additional specifications of the tools as needed.
+The tool images also greatly enhance the user experience.  Often times a user might need a tool of a certain demension which might not turn up in a simple text search.  The tool photos, just like the user profile pics make finding the tool you need as efficient as possible.  Beyond the images and description of the tools, the personal messaging between users provides the chance to seek additional specifications of the tools as needed.
+
+![alt text](gif4.gif)
+
+In addition to the map searching interface, tools can be browsed in table format as well.
+
+
 
 
 

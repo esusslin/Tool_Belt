@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.tintColor = UIColor.darkGrayColor()
   
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: (self.appDelegate.coordinate?.latitude)!, longitude: (self.appDelegate.coordinate?.longitude)!), zoomLevel: 12, animated: false)
+        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: (self.appDelegate.coordinate?.latitude)!, longitude: (self.appDelegate.coordinate?.longitude)!), zoomLevel: 15, animated: false)
    
         // Set the map view‘s delegate property
         mapView.delegate = self
@@ -178,7 +178,11 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
     
     func findTools(toolString: String?) {
         
-        let whereClause = "title LIKE '\((toolString)!)' AND distance(\((self.appDelegate.coordinate?.latitude)!), \((self.appDelegate.coordinate?.longitude)!), location.latitude, location.longitude ) < mi(6)"
+        
+        let whereClause = "title LIKE '%\((toolString)!)%' AND distance(\((self.appDelegate.coordinate?.latitude)!), \((self.appDelegate.coordinate?.longitude)!), location.latitude, location.longitude ) < mi(6)"
+        
+        "title LIKE 'ladder' AND distance(37.675501, -97.307554, location.latitude, location.longitude ) < mi(10)"
+        
         
         print(whereClause)
         let dataQuery = BackendlessDataQuery()
@@ -194,7 +198,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         let tools = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
         
         if error == nil {
-            print("Contacts have been found: \(tools.data)")
+            print("Tools have been found: \(tools.data)")
         }
         else {
             print("Server reported an error: \(error)")

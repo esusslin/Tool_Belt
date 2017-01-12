@@ -38,6 +38,8 @@ class ToolDetailViewController: UIViewController, MGLMapViewDelegate {
         toolImageView.layer.cornerRadius = 8.0
         toolImageView.layer.masksToBounds = true
         
+        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        mapView.tintColor = UIColor.darkGrayColor()
         
         
         getTool(self.toolId!)
@@ -62,6 +64,7 @@ class ToolDetailViewController: UIViewController, MGLMapViewDelegate {
         var error: Fault?
         
         
+        
         let tools = Backendless.sharedInstance().data.of(Tool.ofClass()).find(dataQuery, fault: &error)
         
         if error == nil {
@@ -78,6 +81,9 @@ class ToolDetailViewController: UIViewController, MGLMapViewDelegate {
         else {
             print("Server reported an error: \(error)")
         }
+        
+
+        
         getOwner(self.ownerId!)
         updateUI()
     }
@@ -114,8 +120,8 @@ class ToolDetailViewController: UIViewController, MGLMapViewDelegate {
 
         self.toolTitle.text = self.tool!.title!
         self.toolMake.text = self.tool!.make!
-        //        avatarSwitch.setOn(avatarSwitchStatus, animated: false)
         
+//        self.mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: (tool!.location?.latitude), longitude: (tool!.location?.longitude), zoomLevel: 14, animated: false)
         
         print("hello")
         getImageFromURL(tool!.picture! as! String, result: { (image) -> Void in
