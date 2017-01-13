@@ -112,14 +112,26 @@ class MyToolBeltTableViewController: UIViewController, UITableViewDataSource, UI
         if error == nil {
             print("Contacts have been found: \(tools.data)")
             
-            self.myTools.appendContentsOf(tools.data as! [Tool]!)
+//            self.myTools.appendContentsOf(tools.data as! [Tool]!)
 
             for tool in tools.data as! [Tool] {
                 print(tool.title)
                 
+                getImageFromURL(tool.picture! as! String, result: { (image) -> Void in
+                    tool.toolPic = image
+                    
+                    print(tool.toolPic)
+                    
+                    print(tool.available)
+                    
+                    self.myTools.append(tool)
+                   self.tableView.reloadData()
+                    
+                })
+                
             }
             
-                self.tableView.reloadData()
+//                self.tableView.reloadData()
           
             
         }

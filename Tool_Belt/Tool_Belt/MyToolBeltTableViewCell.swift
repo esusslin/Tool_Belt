@@ -18,6 +18,9 @@ class MyToolBeltTableViewCell: UITableViewCell {
     @IBOutlet weak var toolTitle: UILabel!
 
     @IBOutlet weak var toolMake: UILabel!
+    
+    @IBOutlet weak var availableLbl: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,12 +35,21 @@ class MyToolBeltTableViewCell: UITableViewCell {
     
     func bindData(tool: Tool) {
         
-        self.toolImageView.image = UIImage(named: "avatarPlaceholder")
+        print(tool.available)
+        
+        if tool.available == true {
+            self.availableLbl.text = "available"
+            self.availableLbl.textColor = UIColor.greenColor()
+        } else {
+            self.availableLbl.text = "unavailable"
+            self.availableLbl.textColor = UIColor.redColor()
+        }
+        
         
         self.toolImageView.layer.cornerRadius = toolImageView.frame.size.width/2
         self.toolImageView.layer.masksToBounds = true
         
-        self.toolImageView.image = UIImage(named: "avatarPlaceholder")
+        self.toolImageView.image = tool.toolPic
         
         
         self.toolTitle.text = tool.title! as String

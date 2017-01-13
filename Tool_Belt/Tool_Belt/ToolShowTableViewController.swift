@@ -56,6 +56,16 @@ class ToolShowTableViewController: UITableViewController, UINavigationController
     
     @IBAction func availableSwitch(sender: AnyObject) {
         
+        if availableSwitch.on {
+            tool?.available == true
+            print(tool?.available)
+            print("on")
+        } else  {
+            print("off")
+            
+            tool?.available == false
+            print(tool?.available)
+        }
     }
 
 

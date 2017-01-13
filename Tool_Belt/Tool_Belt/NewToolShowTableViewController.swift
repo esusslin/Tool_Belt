@@ -68,6 +68,7 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
     
     @IBAction func profileButtonPressed(sender: AnyObject) {
         
+        print("back?")
         backtoProfile()
     }
     
@@ -121,6 +122,8 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
 //            vc.selectedIndex = 0
 //            
 //            self.presentViewController(vc, animated: true, completion: nil)
+            
+            print("back?")
             backtoProfile()
         }
     }
@@ -209,6 +212,8 @@ class NewToolShowTableViewController: UITableViewController, UINavigationControl
     
    func backtoProfile() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+    
+    print("back?")
     
         vc.selectedIndex = 0
         
