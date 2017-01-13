@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate, UISearchBarDeleg
         mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         mapView.tintColor = UIColor.darkGrayColor()
   
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: (self.appDelegate.coordinate?.latitude)!, longitude: (self.appDelegate.coordinate?.longitude)!), zoomLevel: 15, animated: false)
+        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: (self.appDelegate.coordinate?.latitude)!, longitude: (self.appDelegate.coordinate?.longitude)!), zoomLevel: 14, animated: false)
    
         // Set the map view‘s delegate property
         mapView.delegate = self

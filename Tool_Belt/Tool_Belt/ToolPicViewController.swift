@@ -105,7 +105,13 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
 
                 self.tool = updatedTool!
                 
-              self.performSegueWithIdentifier("newTooldone!", sender: self)
+                let newTool2VC = self.storyboard?.instantiateViewControllerWithIdentifier("ToolShowView") as! ToolShowTableViewController
+                
+                newTool2VC.tool = self.tool
+                
+                self.navigationController?.pushViewController(newTool2VC, animated: true)
+                
+//              self.performSegueWithIdentifier("newTooldone!", sender: self)
 
             }
             else {
@@ -119,26 +125,26 @@ class ToolPicViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
     
-    //MARK: Navigations
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        ProgressHUD.dismiss()
-        
-        if segue.identifier == "newTooldone!" {
-            
-            let newTool2VC = segue.destinationViewController as! NewToolShowTableViewController
-
-
-            
-            
-            newTool2VC.tool = self.tool
-            
-            
-            
-        }
-    }
-  
+//    //MARK: Navigations
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        ProgressHUD.dismiss()
+//        
+//        if segue.identifier == "newTooldone!" {
+//            
+//            let newTool2VC = segue.destinationViewController as! ToolShowTableViewController
+//
+//
+//            
+//            
+//            newTool2VC.tool = self.tool
+//            
+//            
+//            
+//        }
+//    }
+//  
 
 
 }
